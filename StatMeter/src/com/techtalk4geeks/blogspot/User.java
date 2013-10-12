@@ -1,5 +1,9 @@
 package com.techtalk4geeks.blogspot;
 
+enum Rank {
+	LILYPAD, FLY, TADPOLE, KOI, FROG
+}
+
 public class User
 {
 String myName = "User.getName()";
@@ -25,5 +29,7 @@ int mySPEED;
 	public int getLevel() {
 		return myLevel;
 	}
+	
+
 	
 }
