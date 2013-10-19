@@ -6,6 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/redicon"
     tools:context=".MainActivity" >
 
     <TextView
@@ -15,6 +16,7 @@
         android:text="@string/hello_world" />
 
     <LinearLayout
+        android:id="@+id/linearLayout1"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:orientation="horizontal" >
@@ -69,6 +71,19 @@
                 android:id="@+id/speedValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/heartsprite" />
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="143dp"
+                android:src="@drawable/spsprite" />
 
             <TextView
                 android:id="@+id/hpValue"
