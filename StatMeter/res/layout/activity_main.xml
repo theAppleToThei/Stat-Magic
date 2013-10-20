@@ -72,19 +72,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/heartsprite" />
-
-            <ImageView
-                android:id="@+id/imageView1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="143dp"
-                android:src="@drawable/spsprite" />
-
             <TextView
                 android:id="@+id/hpValue"
                 android:layout_width="wrap_content"
@@ -104,7 +91,35 @@
                 android:id="@+id/defValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
+
         </LinearLayout>
+
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="83dp"
+        android:layout_toRightOf="@+id/linearLayout1"
+        android:src="@drawable/spsprite" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imageView1"
+        android:layout_below="@+id/textView1"
+        android:src="@drawable/heartsprite" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/linearLayout1"
+        android:layout_marginBottom="56dp"
+        android:layout_toRightOf="@+id/textView1"
+        android:src="@drawable/powsprite" />
 
 </RelativeLayout>
