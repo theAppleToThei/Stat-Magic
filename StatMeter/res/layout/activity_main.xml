@@ -13,6 +13,8 @@
         android:id="@+id/nameValue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:textSize="36sp"
         android:text="@string/name" />
 
     <LinearLayout
@@ -70,12 +72,15 @@
 
                 <TextView
                     android:id="@+id/hpLabel"
+                    android:textColor="#FFFFFF"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/hp_label" />
 
+                <!-- NOTE: If you have a problem with hpLabel, check THESE! -->
+                
                 <TextView
-                    android:id="@+id/hpLabel"
+                    android:id="@+id/hpLabel" 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="" />
@@ -88,6 +93,7 @@
 
                 <TextView
                     android:id="@+id/spLabel"
+                    android:textColor="#FFFFFF"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/sp_label" />
@@ -106,6 +112,7 @@
 
                 <TextView
                     android:id="@+id/powLabel"
+                    android:textColor="#FFFFFF"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/pow_label" />
@@ -124,6 +131,7 @@
 
                 <TextView
                     android:id="@+id/defLabel"
+                    android:textColor="#FFFFFF"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/def_label" />
@@ -142,6 +150,7 @@
 
                 <TextView
                     android:id="@+id/speedLabel"
+                    android:textColor="#FFFFFF"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/speed_label" />
