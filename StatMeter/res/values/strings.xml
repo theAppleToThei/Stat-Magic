@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Stat Meter</string>
+    <string name="app_name">Stat Magic</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-    <string name="name">User.getName()</string>
+    <string name="name">Alex Baratti</string>
     <string name="hp_label">HP</string>
     <string name="sp_label">SP</string>
     <string name="pow_label">POW</string>
