@@ -3,6 +3,9 @@
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import android.view.TextureView;
+import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends Activity
 {
@@ -12,6 +15,9 @@ public class MainActivity extends Activity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		User alex = new User("Alex Baratti", Rank.FROG, 1999, 59, 39);
+		TextView view = (TextView) this.findViewById(R.id.nameValue);
+		alex.setName(view.getText().toString());
 	}
 
 	@Override
