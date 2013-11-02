@@ -1,3 +1,3 @@
-StatCard
+Stat Magic
 ========
-A "geeky" app for Android. TBA.
+A new video game/reality game app for mobile phones.
