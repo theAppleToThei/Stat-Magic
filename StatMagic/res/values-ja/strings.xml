@@ -1,0 +1,14 @@
+<resources>
+
+    <string name="action_settings">設定</string>
+    <string name="app_name">STATメートル</string>
+    <string name="def_label">DEF</string>
+    <string name="hello_world">こんにちは、世界！</string>
+    <string name="hp_label">HP</string>
+    <string name="level_label">LEVEL</string>
+    <string name="name">Alex Baratti</string>
+    <string name="pow_label">POW</string>
+    <string name="sp_label">SP</string>
+    <string name="speed_label">SPEED</string>
+
+</resources>
