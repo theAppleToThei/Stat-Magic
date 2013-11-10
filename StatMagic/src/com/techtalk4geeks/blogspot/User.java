@@ -11,27 +11,20 @@ public class User
 	int myLevel = 1;
 	Rank myRank;
 	int myBirthYear;
-	int myHP;
-	int mySP;
-	int myPOW;
-	int myDEF;
-	int mySPEED;
+	private int myHP;
+	private int mySP;
+	private int myPOW;
+	private int myDEF;
+	private int mySPEED;
 
-	public User(String name, Rank rank, int birthYear, int SP)
+	public User(String name, Rank rank, int birthYear)
 	{
 		myName = name;
 		myBirthYear = birthYear;
 		myRank = rank;
-		mySP = SP;
-	}
-
-	public User(String name, Rank rank, int birthYear, int SP, int level)
-	{
-		myName = name;
-		myBirthYear = birthYear;
-		myRank = rank;
-		mySP = SP;
-		myLevel = level;
+		myLevel = (int)(myBirthYear / 500);
+		mySP = (int)(myLevel * 1.5);
+		myHP = (int)(myBirthYear * mySP / 1000.0);
 	}
 
 	public String getName()
@@ -47,5 +40,55 @@ public class User
 	public int getLevel()
 	{
 		return myLevel;
+	}
+
+	int getHP()
+	{
+		return myHP;
+	}
+
+	void setHP(int myHP)
+	{
+		this.myHP = myHP;
+	}
+
+	int getSP()
+	{
+		return mySP;
+	}
+
+	void setSP(int mySP)
+	{
+		this.mySP = mySP;
+	}
+
+	int getPOW()
+	{
+		return myPOW;
+	}
+
+	void setPOW(int myPOW)
+	{
+		this.myPOW = myPOW;
+	}
+
+	int getDEF()
+	{
+		return myDEF;
+	}
+
+	void setDEF(int myDEF)
+	{
+		this.myDEF = myDEF;
+	}
+
+	int getSPEED()
+	{
+		return mySPEED;
+	}
+
+	void setSPEED(int mySPEED)
+	{
+		this.mySPEED = mySPEED;
 	}
 }
