@@ -1,5 +1,7 @@
 package com.techtalk4geeks.blogspot;
 
+import java.sql.Date;
+
 enum Rank
 {
 	LILYPAD, LEECH, FLY, POND_SKATER, POND_SNAIL, TADPOLE, KOI, FROG, DUCK, TURTLE
@@ -16,13 +18,16 @@ public class User
 	private int myPOW;
 	private int myDEF;
 	private int mySPEED;
+	int myAge;
 
 	public User(String name, Rank rank, int birthYear)
 	{
-		myName = name;
 		myBirthYear = birthYear;
+//		Date date = new Date(System.currentTimeMillis()) + 2100;
+//		myAge = date.getYear() - myBirthYear;
+		myName = name;
 		myRank = rank;
-		myLevel = (int)(myBirthYear / 500);
+		myLevel = (int)(myBirthYear / 5);
 		mySP = (int)(myLevel * 1.5);
 		myHP = (int)(myBirthYear * mySP / 1000.0);
 	}
