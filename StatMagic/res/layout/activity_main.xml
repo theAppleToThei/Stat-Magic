@@ -21,16 +21,31 @@
         android:textSize="36sp"
         android:textStyle="bold" />
 
-    <!-- LEVEL -->
+    <!-- LEVEL ROW -->
 
-    <TextView
-        android:id="@+id/levelValue"
-        android:layout_width="match_parent"
+    <TableRow
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/level_label"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+        android:orientation="vertical" >
+        
+        <TextView
+            android:id="@+id/level_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/level_label"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/levelValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/level_label"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </TableRow>
 
     <TableLayout
         android:id="@+id/linearLayout1"
@@ -56,21 +71,21 @@
                 android:id="@+id/hpLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:padding="10dip"
                 android:text="@string/hp_label"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
-                android:layout_gravity="center"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/hpValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="@string/hp_label"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
-                android:layout_gravity="center"
                 android:textStyle="bold" />
         </TableRow>
 
@@ -92,21 +107,21 @@
                 android:id="@+id/spLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:padding="10dip"
                 android:text="@string/sp_label"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
-                android:layout_gravity="center"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/spValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="@string/sp_label"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
-                android:layout_gravity="center"
                 android:textStyle="bold" />
         </TableRow>
 
@@ -128,21 +143,21 @@
                 android:id="@+id/powLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:padding="10dip"
                 android:text="@string/pow_label"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
-                android:layout_gravity="center"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/powValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="@string/pow_label"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
-                android:layout_gravity="center"
                 android:textStyle="bold" />
         </TableRow>
 
@@ -164,21 +179,21 @@
                 android:id="@+id/defLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:padding="10dip"
                 android:text="@string/def_label"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
-                android:layout_gravity="center"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/defValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="@string/def_label"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
-                android:layout_gravity="center"
                 android:textStyle="bold" />
         </TableRow>
 
@@ -200,21 +215,21 @@
                 android:id="@+id/speedLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:padding="10dip"
                 android:text="@string/speed_label"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
-                android:layout_gravity="center"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/speedValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="@string/speed_label"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
-                android:layout_gravity="center"
                 android:textStyle="bold" />
         </TableRow>
     </TableLayout>

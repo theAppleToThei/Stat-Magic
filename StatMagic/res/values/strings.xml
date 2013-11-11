@@ -10,7 +10,7 @@
     <string name="pow_label">POW</string>
     <string name="def_label">DEF</string>
     <string name="speed_label">SPEED</string>
-    <string name="level_label">LEVEL</string>
+    <string name="level_label">Level </string>
     
 
 </resources>
