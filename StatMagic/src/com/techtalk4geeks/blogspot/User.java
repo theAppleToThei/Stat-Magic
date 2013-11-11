@@ -28,10 +28,10 @@ public class User
 		myName = name;
 		myRank = rank;
 		myLevel = (int)(myBirthYear / 5);
-		mySP = (int)(myLevel * 1.5);
-		myHP = (int)(myBirthYear * mySP / 1000.0);
-		myPOW = (int)(mySP * 0.4);
-		myDEF = (int)(mySP * 0.6);
+		mySP = (int)(myLevel * 1.5 / 5);
+		myHP = (int)(myBirthYear * mySP / 10000.0);
+		myPOW = (int)(mySP * 0.4 / 1.5);
+		myDEF = (int)(mySP * 0.6 / 2);
 	}
 
 	public String getName()
