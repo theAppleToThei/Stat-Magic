@@ -30,6 +30,8 @@ public class User
 		myLevel = (int)(myBirthYear / 5);
 		mySP = (int)(myLevel * 1.5);
 		myHP = (int)(myBirthYear * mySP / 1000.0);
+		myPOW = (int)(mySP * 0.4);
+		myDEF = (int)(mySP * 0.6);
 	}
 
 	public String getName()
