@@ -15,6 +15,8 @@ public class Geek extends User {
 		private int myDEF;
 		private int mySPEED;
 		int myAge;
+		
+		// Geeks level up quicker and have higher POW, but lower DEF!
 
 		public Geek(String name, Rank rank, int birthYear)
 		{
