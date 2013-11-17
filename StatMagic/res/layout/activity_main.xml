@@ -36,7 +36,7 @@
             android:textColor="#FFFFFF"
             android:textSize="24sp"
             android:textStyle="bold" />
-
+        
         <TextView
             android:id="@+id/levelValue"
             android:layout_width="match_parent"
@@ -87,6 +87,7 @@
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:textStyle="bold" />
+
         </TableRow>
 
         <!-- SP ROW -->

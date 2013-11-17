@@ -1,6 +1,7 @@
 package com.techtalk4geeks.blogspot;
 
 import java.sql.Date;
+import java.util.ArrayList;
 
 enum Rank
 {
@@ -11,7 +12,7 @@ enum SpecialRank
 {
 	DORK, GEEK, NERD, JOCK, BLONDE, TEACHER, HIPPIE, ANIMAL_LOVER, SHORT_PERSON, STRECH, HOBBIT, DWARF, VAMPIRE, NINJA, GANGSTER, 
 	EMO, PROFESSOR, CODER, FOX, WEREWOLF, ZOMBIE, NARWHAL, ALIEN, SWAG_MASTER, PRINCESS, CRAFTER, GAMER, VLOGGER, PREDATOR, WRESTLER, 
-	SUPERHERO, RICH_GUY, BABY
+	SUPERHERO, RICH_GUY, BABY, GRANNY, GRAPPY, BIKER
 }
 
 public class User
@@ -20,12 +21,13 @@ public class User
 	int myLevel = 1;
 	Rank myRank;
 	int myBirthYear;
-	private int myHP;
-	private int mySP;
-	private int myPOW;
-	private int myDEF;
-	private int mySPEED;
+	protected int myHP;
+	protected int mySP;
+	protected int myPOW;
+	protected int myDEF;
+	protected int mySPEED;
 	int myAge;
+	ArrayList<Item> inventory = new ArrayList<Item>();
 
 	public User(String name, Rank rank, int birthYear)
 	{
