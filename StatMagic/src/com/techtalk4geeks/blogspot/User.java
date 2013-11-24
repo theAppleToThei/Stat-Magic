@@ -19,8 +19,8 @@ public class User
 {
 	String myName = "User.getName()";
 	int myLevel = 1;
-	Rank myRank;
-	int myBirthYear;
+	String myRank;
+//	Date myBirthYear;
 	protected int myHP;
 	protected int mySP;
 	protected int myPOW;
@@ -29,16 +29,16 @@ public class User
 	int myAge;
 	ArrayList<Item> inventory = new ArrayList<Item>();
 
-	public User(String name, Rank rank, int birthYear)
+	public User(String name, String rank, int age)
 	{
-		myBirthYear = birthYear;
+//		myBirthYear = birthYear;
 //		Date date = new Date(System.currentTimeMillis()) + 2100;
-//		myAge = date.getYear() - myBirthYear;
+		myAge = age;
 		myName = name;
 		myRank = rank;
-		myLevel = (int)(myBirthYear / 5);
+//		myLevel = (int)(myBirthYear / 5);
 		mySP = (int)(myLevel * 1.5 / 5);
-		myHP = (int)(myBirthYear * mySP / 10000.0);
+//		myHP = (int)(myBirthYear * mySP / 10000.0);
 		myPOW = (int)(mySP * 0.4 / 1.5);
 		myDEF = (int)(mySP * 0.6 / 2);
 	}

@@ -7,7 +7,7 @@ public class Geek extends User {
 
 		String myName = "User.getName()";
 		int myLevel = 1;
-		Rank myRank;
+		String myRank;
 		int myBirthYear;
 //		private int myHP;
 //		private int mySP;
@@ -18,7 +18,7 @@ public class Geek extends User {
 		
 		// Geeks level up quicker and have higher POW, but lower DEF!
 
-		public Geek(String name, Rank rank, int birthYear)
+		public Geek(String name, String rank, int birthYear)
 		{
 //			Date date = new Date(System.currentTimeMillis()) + 2100;
 //			myAge = date.getYear() - myBirthYear;
