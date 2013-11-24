@@ -8,7 +8,10 @@ public class Geek extends User {
 		String myName = "User.getName()";
 		int myLevel = 1;
 		String myRank;
-		int myBirthYear;
+		int  
+		
+		
+		myBirthYear;
 //		private int myHP;
 //		private int mySP;
 //		private int myPOW;

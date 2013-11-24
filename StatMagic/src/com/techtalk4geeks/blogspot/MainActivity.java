@@ -22,7 +22,7 @@ DatePicker myDatePicker;
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.setup);
-		myDatePicker = ((DatePicker)findViewById(R.id.typeSelecter));
+//		myDatePicker = ((DatePicker)findViewById(R.id.typeSelecter));
 		Button doneButton = (Button) this.findViewById(R.id.done_button);
 		doneButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
