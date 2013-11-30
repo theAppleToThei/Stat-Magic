@@ -13,6 +13,7 @@
     <string name="type_label">What do you want to be?</string>
     <string name="age_label">How old are you?</string>
     <string name="setup_label">Setup</string>
+    <string name="name_intro">What is your name?</string>
 
     <string-array name="gender_list">
         <item>Select Your Gender</item>

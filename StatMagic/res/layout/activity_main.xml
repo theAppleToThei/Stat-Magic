@@ -36,15 +36,6 @@
             android:textColor="#FFFFFF"
             android:textSize="24sp"
             android:textStyle="bold" />
-        
-        <TextView
-            android:id="@+id/levelValue"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/level_label"
-            android:textColor="#FFFFFF"
-            android:textSize="24sp"
-            android:textStyle="bold" />
     </TableRow>
 
     <TableLayout
