@@ -6,4 +6,16 @@
         android:showAsAction="never"
         android:title="@string/action_settings"/>
 
+    <menu xmlns:android="/Users/alex/git/Stat-Magic/StatMagic/res/menu/activity_main.xml" >
+        <item
+            android:id="@+id/inventory"
+            android:icon="@drawable/hamburger"
+            android:showAsAction="ifRoom"
+            android:title="@string/inventory_menu"/>
+        <item
+            android:id="@+id/map"
+            android:icon="@drawable/map_icon"
+            android:title="@string/map_menu"/>
+    </menu>
+
 </menu>

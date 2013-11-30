@@ -14,6 +14,11 @@
     <string name="age_label">How old are you?</string>
     <string name="setup_label">Setup</string>
     <string name="name_intro">What is your name?</string>
+    <string name="map_menu">Show Map</string>
+    <string name="inventory_menu">Open Inventory</string>
+    <string name="inventory_label">Inventory</string>
+    <string name="coffee_label">Coffee</string>
+    <string name="use_label">Use</string>
 
     <string-array name="gender_list">
         <item>Select Your Gender</item>
@@ -22,7 +27,7 @@
     </string-array>
     
     <string-array name="rank_list">
-        <item>Select Your Type</item>
+        <item>Select What You Would Like To Be</item>
         <item>I Do Not Care</item>
         <item>Dork</item>
         <item>Geek</item>

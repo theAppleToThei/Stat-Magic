@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/inventory_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/inventory_label"
+        android:textColor="#000000"
+        android:textSize="36sp"
+        android:textStyle="bold" />
+
+    <TableLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal" >
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/coffee_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dip"
+                android:src="@drawable/coffee" />
+
+            <TextView
+                android:id="@+id/coffee_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="10dip"
+                android:text="@string/coffee_label"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+            
+            <Button
+        android:id="@+id/use_button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/use_label" />
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>

@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -34,7 +36,7 @@ DatePicker myDatePicker;
             }
         });
 		
-		
+		//WARNING: METHOD NOT OVER!
 		
 //		User alex = new User("Alex Baratti", Rank.FROG, 1999);
 //		TextView nameView = (TextView) this.findViewById(R.id.nameValue);
@@ -84,5 +86,26 @@ DatePicker myDatePicker;
 //}
 //};
 
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.main, menu);
+		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    // Handle item selection
+	    switch (item.getItemId()) {
+	        case R.id.inventory:
+	            setContentView(R.layout.inventory);
+	            return true;
+	        case R.id.map:
+	            setContentView(R.layout.map);
+	            return true;
+	        default:
+	            return super.onOptionsItemSelected(item);
+	    }
+	}
 
 }
