@@ -64,7 +64,12 @@
         <item>Baby</item>
         <item>Parent</item>
         <item>Grandparent</item>
+        <item>Hobo</item>
         <item>Biker</item>
+        <item>Musician</item>
+        <item>Race Car Driver</item>
+        <item>Singer</item>
+        <item>Photographer</item>
     </string-array>
 
 </resources>
