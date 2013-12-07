@@ -30,31 +30,31 @@ DatePicker myDatePicker;
 			public void onClick(View v) {
 				String name = ((TextView)findViewById(R.id.nameField)).getText().toString();
 				String rank = ((Spinner)findViewById(R.id.typeSelecter)).getSelectedItem().toString();
-				int age = Integer.parseInt(((TextView)findViewById(R.id.ageField)).getText().toString());
+				String strAge = ((TextView)findViewById(R.id.ageField)).getText().toString();
+				int age = Integer.parseInt(strAge);
 				User user = new User(name, rank, age);
-		setContentView(R.layout.activity_main);
+				setContentView(R.layout.activity_main);
+				TextView nameView = (TextView) MainActivity.this.findViewById(R.id.nameValue);
+				nameView.setText(user.getName());
+				TextView levelView = (TextView) MainActivity.this.findViewById(R.id.levelValue);
+				levelView.setText(String.valueOf(user.getLevel()));
+				TextView hpView = (TextView) MainActivity.this.findViewById(R.id.hpValue);
+				hpView.setText(String.valueOf(user.getHP()));
+				TextView spView = (TextView) MainActivity.this.findViewById(R.id.spValue);
+				spView.setText(String.valueOf(user.getSP()));
+				TextView powView = (TextView) MainActivity.this.findViewById(R.id.powValue);
+				powView.setText(String.valueOf(user.getPOW()));
+				TextView defView = (TextView) MainActivity.this.findViewById(R.id.defValue);
+				defView.setText(String.valueOf(user.getDEF()));
+				TextView speedView = (TextView) MainActivity.this.findViewById(R.id.speedValue);
+				speedView.setText(String.valueOf(user.getSPEED()));
             }
         });
 		
 		//WARNING: METHOD NOT OVER!
 		
-//		User alex = new User("Alex Baratti", Rank.FROG, 1999);
-//		TextView nameView = (TextView) this.findViewById(R.id.nameValue);
-//		nameView.setText(alex.getName());
-//		TextView levelView = (TextView) this.findViewById(R.id.levelValue);
-//		levelView.setText(String.valueOf(alex.getLevel()));
-//		TextView hpView = (TextView) this.findViewById(R.id.hpValue);
-//		hpView.setText(String.valueOf(alex.getHP()));
-//		TextView spView = (TextView) this.findViewById(R.id.spValue);
-//		spView.setText(String.valueOf(alex.getSP()));
-//		TextView powView = (TextView) this.findViewById(R.id.powValue);
-//		powView.setText(String.valueOf(alex.getPOW()));
-//		TextView defView = (TextView) this.findViewById(R.id.defValue);
-//		defView.setText(String.valueOf(alex.getDEF()));
-//		TextView speedView = (TextView) this.findViewById(R.id.speedValue);
-//		speedView.setText(String.valueOf(alex.getSPEED()));
 		
-//		alex.setName(view.getText().toString());
+//		user.setName(view.getText().toString());
 	}
 
 //	@Override
