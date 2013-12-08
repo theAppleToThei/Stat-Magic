@@ -19,6 +19,7 @@
     <string name="inventory_label">Inventory</string>
     <string name="coffee_label">Coffee</string>
     <string name="use_label">Use</string>
+    <string name="rank_label">Rank:</string>
 
     <string-array name="gender_list">
         <item>Select Your Gender</item>

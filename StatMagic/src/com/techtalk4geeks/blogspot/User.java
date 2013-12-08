@@ -1,25 +1,19 @@
 package com.techtalk4geeks.blogspot;
 
-import java.sql.Date;
 import java.util.ArrayList;
-
-enum Rank
-{
-	LILYPAD, LEECH, FLY, POND_SKATER, POND_SNAIL, TADPOLE, KOI, FROG, DUCK, TURTLE
-}
 
 enum SpecialRank
 {
-	DORK, GEEK, NERD, JOCK, BLONDE, TEACHER, HIPPIE, ANIMAL_LOVER, SHORT_PERSON, STRECH, HOBBIT, DWARF, VAMPIRE, NINJA, GANGSTER, 
+	DO_NOT_CARE, DORK, GEEK, NERD, JOCK, BLONDE, TEACHER, HIPPIE, ANIMAL_LOVER, SHORT_PERSON, STRECH, HOBBIT, DWARF, VAMPIRE, NINJA, GANGSTER, 
 	EMO, PROFESSOR, CODER, FOX, WEREWOLF, ZOMBIE, NARWHAL, ALIEN, SWAG_MASTER, PRINCESS, CRAFTER, GAMER, VLOGGER, PREDATOR, WRESTLER, 
-	SUPERHERO, RICH_GUY, BABY, GRANNY, GRAPPY, BIKER
+	SUPER_HERO, RICH_GUY, BABY, GRANDPARENT, BIKER
 }
 
 public class User
 {
 	String myName = "User.getName()";
 	int myLevel = 1;
-	String myRank;
+	SpecialRank myRank;
 //	Date myBirthYear;
 	protected int myHP;
 	protected int mySP;
@@ -35,12 +29,12 @@ public class User
 //		Date date = new Date(System.currentTimeMillis()) + 2100;
 		myAge = age;
 		myName = name;
-		myRank = rank;
-//		myLevel = (int)(myBirthYear / 5);
+		myRank = SpecialRank.valueOf(rank);
+		myLevel = (int)(age * 2);
 		mySP = (int)(myLevel * 1.5 / 5);
-//		myHP = (int)(myBirthYear * mySP / 10000.0);
-		myPOW = (int)(mySP * 0.4 / 1.5);
-		myDEF = (int)(mySP * 0.6 / 2);
+		myHP = (int)(age * mySP);
+		myPOW = (int)(mySP * 0.4);
+		myDEF = (int)(mySP * 0.6);
 	}
 
 	public String getName()
