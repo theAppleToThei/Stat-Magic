@@ -125,6 +125,10 @@ public class MainActivity extends Activity
 		case R.id.map:
 			setContentView(R.layout.map);
 			return true;
+		case R.id.battle:
+			return true;
+		case R.id.crash:
+			throw new NullPointerException();
 		default:
 			return super.onOptionsItemSelected(item);
 		}
