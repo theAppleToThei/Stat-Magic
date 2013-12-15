@@ -2,35 +2,74 @@ package com.techtalk4geeks.blogspot;
 
 import java.util.ArrayList;
 
-enum SpecialRank
-{
-	DO_NOT_CARE, Dork, Geek, Nerd, Jock, BLONDE, TEACHER, HIPPIE, ANIMAL_LOVER, SHORT_PERSON, STRECH, HOBBIT, DWARF, VAMPIRE, NINJA, GANGSTER, 
-	EMO, PROFESSOR, CODER, FOX, WEREWOLF, ZOMBIE, NARWHAL, ALIEN, SWAG_MASTER, PRINCESS, CRAFTER, GAMER, VLOGGER, PREDATOR, WRESTLER, 
-	SUPER_HERO, RICH_GUY, BABY, GRANDPARENT, BIKER
-}
+import android.content.Loader.ForceLoadContentObserver;
 
 public class User
 {
 	String myName = "User.getName()";
 	int myLevel = 1;
-	SpecialRank myRank;
+	int myRank;
 //	Date myBirthYear;
 	protected int myHP;
 	protected int mySP;
+	
 	protected int myPOW;
 	protected int myDEF;
 	protected int mySPEED;
 	int myAge;
-	ArrayList<Item> inventory = new ArrayList<Item>();
+	String[] rankStrings = new String[] {
+			"I Do Not Care",
+			"Dork",
+			"Geek",
+			"Nerd",
+			"Jock",
+			"Blonde",
+			"Teacher",
+			"Hippie",
+			"Animal Lover",
+			"Shortie",
+			"Stretch",
+			"Hobbit",
+			"Dwarf",
+			"Vampire",
+			"Ninja",
+			"Gangster",
+			"Emo",
+			"Professor",
+			"Coder",
+			"Fox",
+			"Werewolf",
+			"Zombie",
+			"Narwhal",
+			"Alien",
+			"Swag Master",
+			"Princess",
+			"Crafter",
+			"Gamer",
+			"Vlogger",
+			"Predator",
+			"Wrestler",
+			"Super Hero",
+			"Rich Person",
+			"Baby",
+			"Grandparent",
+			"Biker",
+			};
 
+	ArrayList<Item> inventory = new ArrayList<Item>();
+	public static ArrayList<String> rank_display = new ArrayList<String>();
 	public User(String name, String rank, int age)
 	{
+		for (int i = 0; i < rankStrings.length; i++)
+		{
+			rank_display.add(rankStrings[i]);
+		}
 //		myBirthYear = birthYear;
 //		Date date = new Date(System.currentTimeMillis()) + 2100;
 		myAge = age;
 		myName = name;
-		myRank = SpecialRank.valueOf(rank);
-		myLevel = (int)(age * 2);
+		myRank = rank_display.indexOf(rank);
+//		myLevel = (int)(age * 2);
 		mySP = (int)(myLevel * 1.5 / 5);
 		myHP = (int)(age * mySP);
 		myPOW = (int)(mySP * 0.4);

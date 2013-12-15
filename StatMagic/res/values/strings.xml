@@ -4,7 +4,7 @@
     <string name="def_label">DEF</string>
     <string name="hello_world">Hello World!</string>
     <string name="hp_label">HP</string>
-    <string name="level_label">LEVEL 39</string>
+    <string name="level_label">LEVEL 1</string>
     <string name="name">Alex Baratti</string>
     <string name="pow_label">POW</string>
     <string name="sp_label">SP</string>
@@ -19,7 +19,8 @@
     <string name="inventory_label">Inventory</string>
     <string name="coffee_label">Coffee</string>
     <string name="use_label">Use</string>
-    <string name="rank_label">Rank:</string>
+    <string name="crash_label">Crash App</string>
+    <string name="battle_label">Battle</string>
 
     <string-array name="gender_list">
         <item>Select Your Gender</item>
@@ -28,7 +29,7 @@
     </string-array>
     
     <string-array name="rank_list">
-        <item>Select What You Would Like To Be</item>
+        <item>Select What You Are</item>
         <item>I Do Not Care</item>
         <item>Dork</item>
         <item>Geek</item>
@@ -63,14 +64,8 @@
         <item>Super Hero</item>
         <item>Rich Person</item>
         <item>Baby</item>
-        <item>Parent</item>
         <item>Grandparent</item>
-        <item>Hobo</item>
         <item>Biker</item>
-        <item>Musician</item>
-        <item>Race Car Driver</item>
-        <item>Singer</item>
-        <item>Photographer</item>
     </string-array>
 
 </resources>
