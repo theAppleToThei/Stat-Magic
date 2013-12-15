@@ -3,7 +3,7 @@
 
     <item
         android:id="@+id/inventory"
-        android:icon="@drawable/hamburger"
+        android:icon="@drawable/inventory"
         android:showAsAction="ifRoom"
         android:title="@string/inventory_menu"/>
     <item

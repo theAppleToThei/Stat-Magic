@@ -126,6 +126,7 @@ public class MainActivity extends Activity
 			setContentView(R.layout.map);
 			return true;
 		case R.id.battle:
+			setContentView(R.layout.battle);
 			return true;
 		case R.id.crash:
 			throw new NullPointerException();
