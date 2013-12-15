@@ -2,29 +2,21 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:showAsAction="never"
-        android:title="@string/action_settings"/>
-
-    <menu xmlns:android="/Users/alex/git/Stat-Magic/StatMagic/res/menu/activity_main.xml" >
-        <item
-            android:id="@+id/inventory"
-            android:icon="@drawable/hamburger"
-            android:showAsAction="ifRoom"
-            android:title="@string/inventory_menu"/>
-        <item
-            android:id="@+id/map"
-            android:icon="@drawable/map_icon"
-            android:title="@string/map_menu"/>
-        <item
-            android:id="@+id/battle"
-            android:icon="@drawable/battle"
-            android:title="@string/battle_label"/>
-        <item
-            android:id="@+id/crash"
-            android:icon="@drawable/crash"
-            android:title="@string/crash_label"/>
-    </menu>
+        android:id="@+id/inventory"
+        android:icon="@drawable/hamburger"
+        android:showAsAction="ifRoom"
+        android:title="@string/inventory_menu"/>
+    <item
+        android:id="@+id/map"
+        android:icon="@drawable/map_icon"
+        android:title="@string/map_menu"/>
+    <item
+        android:id="@+id/battle"
+        android:icon="@drawable/battle"
+        android:title="@string/battle_label"/>
+    <item
+        android:id="@+id/crash"
+        android:icon="@drawable/crash"
+        android:title="@string/crash_label"/>
 
 </menu>
