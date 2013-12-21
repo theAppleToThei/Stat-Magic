@@ -3,6 +3,49 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal" >
-    
+
+    <TableLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal" >
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/battle_query"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/test_dummy_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/test_dummy" />
+            
+            <Button
+                android:id="@+id/test_dummy_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Local Battle" />
+            
+            <Button
+                android:id="@+id/test_dummy_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Online Battle" />
+        </TableRow>
+    </TableLayout>
 
 </LinearLayout>

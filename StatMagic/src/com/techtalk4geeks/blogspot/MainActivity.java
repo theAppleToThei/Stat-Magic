@@ -18,6 +18,7 @@ import android.widget.DatePicker;
 public class MainActivity extends Activity
 {
 	DatePicker myDatePicker;
+	Boolean isSetup = true;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -25,7 +26,7 @@ public class MainActivity extends Activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.setup);
 		// myDatePicker = ((DatePicker)findViewById(R.id.typeSelecter));
-		
+
 		Spinner spinner = ((Spinner) findViewById(R.id.typeSelecter));
 		for (String rankName : User.rank_display)
 		{
@@ -47,6 +48,7 @@ public class MainActivity extends Activity
 				int age = Integer.parseInt(strAge);
 				User user = new User(name, rank, age);
 				setContentView(R.layout.activity_main);
+				isSetup = false;
 				TextView nameView = (TextView) MainActivity.this
 						.findViewById(R.id.nameValue);
 				nameView.setText(user.getName());
@@ -116,23 +118,25 @@ public class MainActivity extends Activity
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item)
 	{
-		// Handle item selection
-		switch (item.getItemId())
-		{
-		case R.id.inventory:
-			setContentView(R.layout.inventory);
-			return true;
-		case R.id.map:
-			setContentView(R.layout.map);
-			return true;
-		case R.id.battle:
-			setContentView(R.layout.battle);
-			return true;
-		case R.id.crash:
-			throw new NullPointerException();
-		default:
-			return super.onOptionsItemSelected(item);
-		}
-	}
-
+			// Handle item selection
+			switch (item.getItemId())
+			{
+			case R.id.stat:
+				setContentView(R.layout.activity_main);
+				return true;
+			case R.id.inventory:
+				setContentView(R.layout.inventory);
+				return true;
+			case R.id.map:
+				setContentView(R.layout.map);
+				return true;
+			case R.id.battle:
+				setContentView(R.layout.battle);
+				return true;
+			case R.id.crash:
+				throw new NullPointerException(); // Crashes the app
+			default:
+				return super.onOptionsItemSelected(item);
+			}
+}
 }

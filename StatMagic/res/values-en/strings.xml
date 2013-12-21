@@ -68,5 +68,8 @@
         <item>Biker</item>
     </string-array>
     <string name="rank_label">Rank</string>
+    <string name="battle_query">Who do you want to battle?</string>
+    <string name="test_dummy">Dev_Battle</string>
+    <string name="stat_menu_label">Show Stat Card</string>
 
 </resources>
