@@ -70,10 +70,11 @@ public class User
 		myName = name;
 		myRank = rank_display.indexOf(rank);
 //		myLevel = (int)(age * 2);
-		mySP = (int)(myLevel * 1.5 / 5);
-		myHP = (int)(age * mySP);
+		mySP = (int)(15); //myLevel * 1.5 / 5
+		myHP = (int)(17);
 		myPOW = (int)(mySP * 0.4);
 		myDEF = (int)(mySP * 0.6);
+		mySPEED = 5;
 	}
 
 	public String getName()
@@ -120,7 +121,7 @@ public class User
 	{
 		this.myPOW = myPOW;
 	}
-
+	
 	int getDEF()
 	{
 		return myDEF;
@@ -134,6 +135,11 @@ public class User
 	int getSPEED()
 	{
 		return mySPEED;
+	}
+	
+	public void changeSPEEDby(int changedBy)
+	{
+		mySPEED = mySPEED + changedBy;
 	}
 
 	void setSPEED(int mySPEED)

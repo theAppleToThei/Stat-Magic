@@ -19,6 +19,7 @@ public class MainActivity extends Activity
 {
 	DatePicker myDatePicker;
 	Boolean isSetup = true;
+	public int SPEEDHolder = 0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -35,6 +36,7 @@ public class MainActivity extends Activity
 			spinner.addView(text);
 		}
 		Button doneButton = (Button) this.findViewById(R.id.done_button);
+		Button useButton1 = (Button) this.findViewById(R.id.use_button1);
 		doneButton.setOnClickListener(new View.OnClickListener()
 		{
 			public void onClick(View v)
@@ -72,6 +74,14 @@ public class MainActivity extends Activity
 				speedView.setText(String.valueOf(user.getSPEED()));
 			}
 		});
+		
+//		useButton1.setOnClickListener(new View.OnClickListener()
+//		{
+//			public void onClick(View v)
+//			{
+//				SPEEDHolder += 1;
+//			}
+//		});
 
 		// WARNING: METHOD NOT OVER!
 
@@ -131,7 +141,7 @@ public class MainActivity extends Activity
 				setContentView(R.layout.map);
 				return true;
 			case R.id.battle:
-				setContentView(R.layout.battle);
+				setContentView(R.layout.dev_battle);
 				return true;
 			case R.id.crash:
 				throw new NullPointerException(); // Crashes the app
