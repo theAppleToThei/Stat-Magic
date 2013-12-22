@@ -13,4 +13,10 @@
         android:layout_height="wrap_content"
         android:src="@drawable/nerd_sprite" />
 
+    <ImageView
+        android:id="@+id/hpMeter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/hp_meter" />
+
 </LinearLayout>
