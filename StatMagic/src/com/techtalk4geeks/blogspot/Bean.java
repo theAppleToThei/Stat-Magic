@@ -4,6 +4,6 @@ public class Bean extends Item
 {
 	public Bean(String name)
 	{
-		super(name);
+		super(name); 
 	}
 }
