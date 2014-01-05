@@ -2,7 +2,6 @@ package com.techtalk4geeks.blogspot;
 
 import java.util.ArrayList;
 
-import android.content.Loader.ForceLoadContentObserver;
 
 public class User
 {

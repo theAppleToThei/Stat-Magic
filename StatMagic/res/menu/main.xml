@@ -8,7 +8,6 @@
     <item
         android:id="@+id/inventory"
         android:icon="@drawable/inventory"
-        android:showAsAction="ifRoom"
         android:title="@string/inventory_menu"/>
     <item
         android:id="@+id/map"
