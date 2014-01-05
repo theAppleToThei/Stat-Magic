@@ -67,5 +67,7 @@
         <item>Grandparent</item>
         <item>Biker</item>
     </string-array>
+    <string name="hamburger_label">Hamburger</string>
+    <string name="about_menu">About</string>
 
 </resources>

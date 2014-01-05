@@ -48,6 +48,37 @@
         android:layout_height="wrap_content"
         android:text="@string/use_label" />
         </TableRow>
+        
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/hamburger_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dip"
+                android:src="@drawable/hamburger" />
+
+            <TextView
+                android:id="@+id/hamburger_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="10dip"
+                android:text="@string/hamburger_label"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+            
+            <Button
+        android:id="@+id/use_button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/use_label" />
+        </TableRow>
+        
     </TableLayout>
 
 </LinearLayout>

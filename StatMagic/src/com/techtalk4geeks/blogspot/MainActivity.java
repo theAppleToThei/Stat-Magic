@@ -154,9 +154,16 @@ public class MainActivity extends Activity
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu)
 	{
+		if (!isSetup)
+		{
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.main, menu);
 		return true;
+		} else {
+//			MenuInflater inflater = getMenuInflater();
+//			inflater.inflate(R.menu.setup_menu, menu);
+			return false;
+		}
 	}
 
 	@Override
@@ -179,6 +186,9 @@ public class MainActivity extends Activity
 				return true;
 			case R.id.crash:
 				throw new NullPointerException(); // Crashes the app
+//			case R.id.about:
+//				//To Be Implemented
+//				return true;
 			default:
 				return super.onOptionsItemSelected(item);
 			}
