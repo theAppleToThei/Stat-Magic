@@ -184,6 +184,9 @@ public class MainActivity extends Activity
 			case R.id.battle:
 				setContentView(R.layout.dev_battle);
 				return true;
+			case R.id.settings:
+				setContentView(R.layout.settings);
+				return true;
 			case R.id.crash:
 				throw new NullPointerException(); // Crashes the app
 //			case R.id.about:

@@ -18,6 +18,10 @@
         android:icon="@drawable/battle"
         android:title="@string/battle_label"/>
     <item
+        android:id="@+id/settings"
+        android:icon="@drawable/settings"
+        android:title="@string/settings_label"/>
+    <item
         android:id="@+id/crash"
         android:icon="@drawable/crash"
         android:title="@string/crash_label"/>

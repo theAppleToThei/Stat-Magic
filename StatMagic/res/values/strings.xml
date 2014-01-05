@@ -69,5 +69,6 @@
     </string-array>
     <string name="hamburger_label">Hamburger</string>
     <string name="about_menu">About</string>
+    <string name="settings_label">Settings</string>
 
 </resources>
