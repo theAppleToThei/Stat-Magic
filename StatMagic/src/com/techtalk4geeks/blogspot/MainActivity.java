@@ -26,6 +26,7 @@ public class MainActivity extends Activity
 	DatePicker myDatePicker;
 	Boolean isSetup = true;
 	public int SPEEDHolder = 0;
+	User user;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -54,7 +55,7 @@ public class MainActivity extends Activity
 				String strAge = ((TextView) findViewById(R.id.ageField))
 						.getText().toString();
 				int age = Integer.parseInt(strAge);
-				User user = new User(name, rank, age);
+				user = new User(name, rank, age);
 				setContentView(R.layout.activity_main);
 				isSetup = false;
 				TextView nameView = (TextView) MainActivity.this
@@ -80,42 +81,44 @@ public class MainActivity extends Activity
 				speedView.setText(String.valueOf(user.getSPEED()));
 			}
 		});
-		
-//		NotificationCompat.Builder mBuilder =
-//		        new NotificationCompat.Builder(this)
-//		        .setSmallIcon(R.drawable.heartsprite)
-//		        .setContentTitle("POW Stats Are Up")
-//		        .setContentText("Your POW is now 8!");
-//		// Creates an explicit intent for an Activity in your app
-//		Intent resultIntent = new Intent(this, MainActivity.class);
-//
-//		// The stack builder object will contain an artificial back stack for the
-//		// started Activity.
-//		// This ensures that navigating backward from the Activity leads out of
-//		// your application to the Home screen.
-//		TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
-//		// Adds the back stack for the Intent (but not the Intent itself)
-//		stackBuilder.addParentStack(MainActivity.class);
-//		// Adds the Intent that starts the Activity to the top of the stack
-//		stackBuilder.addNextIntent(resultIntent);
-//		PendingIntent resultPendingIntent =
-//		        stackBuilder.getPendingIntent(
-//		            0,
-//		            PendingIntent.FLAG_UPDATE_CURRENT
-//		        );
-//		mBuilder.setContentIntent(resultPendingIntent);
-//		NotificationManager mNotificationManager =
-//		    (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-//		// mId allows you to update the notification later on.
-//		mNotificationManager.notify(10, mBuilder.build());
-		
-//		useButton1.setOnClickListener(new View.OnClickListener()
-//		{
-//			public void onClick(View v)
-//			{
-//				SPEEDHolder += 1;
-//			}
-//		});
+
+		// NotificationCompat.Builder mBuilder =
+		// new NotificationCompat.Builder(this)
+		// .setSmallIcon(R.drawable.heartsprite)
+		// .setContentTitle("POW Stats Are Up")
+		// .setContentText("Your POW is now 8!");
+		// // Creates an explicit intent for an Activity in your app
+		// Intent resultIntent = new Intent(this, MainActivity.class);
+		//
+		// // The stack builder object will contain an artificial back stack for
+		// the
+		// // started Activity.
+		// // This ensures that navigating backward from the Activity leads out
+		// of
+		// // your application to the Home screen.
+		// TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+		// // Adds the back stack for the Intent (but not the Intent itself)
+		// stackBuilder.addParentStack(MainActivity.class);
+		// // Adds the Intent that starts the Activity to the top of the stack
+		// stackBuilder.addNextIntent(resultIntent);
+		// PendingIntent resultPendingIntent =
+		// stackBuilder.getPendingIntent(
+		// 0,
+		// PendingIntent.FLAG_UPDATE_CURRENT
+		// );
+		// mBuilder.setContentIntent(resultPendingIntent);
+		// NotificationManager mNotificationManager =
+		// (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+		// // mId allows you to update the notification later on.
+		// mNotificationManager.notify(10, mBuilder.build());
+
+		// useButton1.setOnClickListener(new View.OnClickListener()
+		// {
+		// public void onClick(View v)
+		// {
+		// SPEEDHolder += 1;
+		// }
+		// });
 
 		// WARNING: METHOD NOT OVER!
 
@@ -156,44 +159,52 @@ public class MainActivity extends Activity
 	{
 		if (!isSetup)
 		{
-		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.main, menu);
-		return true;
-		} else {
-//			MenuInflater inflater = getMenuInflater();
-//			inflater.inflate(R.menu.setup_menu, menu);
+			MenuInflater inflater = getMenuInflater();
+			inflater.inflate(R.menu.main, menu);
+			return true;
+		} else
+		{
+			// MenuInflater inflater = getMenuInflater();
+			// inflater.inflate(R.menu.setup_menu, menu);
 			return false;
 		}
+	}
+
+	public void resetName()
+	{
+		String name = ((TextView) findViewById(R.id.nameField)).getText()
+				.toString();
+		user.setName(name);
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item)
 	{
-			// Handle item selection
-			switch (item.getItemId())
-			{
-			case R.id.stat:
-				setContentView(R.layout.activity_main);
-				return true;
-			case R.id.inventory:
-				setContentView(R.layout.inventory);
-				return true;
-			case R.id.map:
-				setContentView(R.layout.map);
-				return true;
-			case R.id.battle:
-				setContentView(R.layout.dev_battle);
-				return true;
-			case R.id.settings:
-				setContentView(R.layout.settings);
-				return true;
-			case R.id.crash:
-				throw new NullPointerException(); // Crashes the app
-//			case R.id.about:
-//				//To Be Implemented
-//				return true;
-			default:
-				return super.onOptionsItemSelected(item);
-			}
-}
+		// Handle item selection
+		switch (item.getItemId())
+		{
+		case R.id.stat:
+			setContentView(R.layout.activity_main);
+			return true;
+		case R.id.inventory:
+			setContentView(R.layout.inventory);
+			return true;
+		case R.id.map:
+			setContentView(R.layout.map);
+			return true;
+		case R.id.battle:
+			setContentView(R.layout.dev_battle);
+			return true;
+		case R.id.settings:
+			setContentView(R.layout.settings);
+			return true;
+		case R.id.crash:
+			throw new NullPointerException(); // Crashes the app
+			// case R.id.about:
+			// //To Be Implemented
+			// return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
+	}
 }
