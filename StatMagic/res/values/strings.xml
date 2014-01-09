@@ -20,8 +20,7 @@
     <string name="coffee_label">Coffee</string>
     <string name="use_label">Use</string>
     <string name="crash_label">Crash App</string>
-    <string name="battle_label">Battle</string>\
-    <string name="change_name">Change your name?</string>
+    <string name="battle_label">Battle</string>
 
     <string-array name="gender_list">
         <item>Select Your Gender</item>
