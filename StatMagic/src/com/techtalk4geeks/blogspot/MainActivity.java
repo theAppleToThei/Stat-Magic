@@ -25,8 +25,9 @@ public class MainActivity extends Activity
 {
 	DatePicker myDatePicker;
 	Boolean isSetup = true;
+	Boolean isCard = false;
 	public int SPEEDHolder = 0;
-	User user;
+	static User user;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -58,29 +59,12 @@ public class MainActivity extends Activity
 				user = new User(name, rank, age);
 				setContentView(R.layout.activity_main);
 				isSetup = false;
-				TextView nameView = (TextView) MainActivity.this
-						.findViewById(R.id.nameValue);
-				nameView.setText(user.getName());
-				TextView levelView = (TextView) MainActivity.this
-						.findViewById(R.id.levelValue);
-				levelView.setText(String.valueOf(user.getLevel()));
-				TextView hpView = (TextView) MainActivity.this
-						.findViewById(R.id.hpValue);
-				hpView.setText(String.valueOf(user.getHP()));
-				TextView spView = (TextView) MainActivity.this
-						.findViewById(R.id.spValue);
-				spView.setText(String.valueOf(user.getSP()));
-				TextView powView = (TextView) MainActivity.this
-						.findViewById(R.id.powValue);
-				powView.setText(String.valueOf(user.getPOW()));
-				TextView defView = (TextView) MainActivity.this
-						.findViewById(R.id.defValue);
-				defView.setText(String.valueOf(user.getDEF()));
-				TextView speedView = (TextView) MainActivity.this
-						.findViewById(R.id.speedValue);
-				speedView.setText(String.valueOf(user.getSPEED()));
+				isCard = true;
+				setValuesForStatCard();
 			}
+
 		});
+		
 
 		// NotificationCompat.Builder mBuilder =
 		// new NotificationCompat.Builder(this)
@@ -125,6 +109,30 @@ public class MainActivity extends Activity
 		// user.setName(view.getText().toString());
 	}
 
+	public void setValuesForStatCard()
+	{
+		TextView nameView = (TextView) MainActivity.this
+				.findViewById(R.id.nameValue);
+		nameView.setText(user.getName());
+		TextView levelView = (TextView) MainActivity.this
+				.findViewById(R.id.levelValue);
+		levelView.setText(String.valueOf(user.getLevel()));
+		TextView hpView = (TextView) MainActivity.this
+				.findViewById(R.id.hpValue);
+		hpView.setText(String.valueOf(user.getHP()));
+		TextView spView = (TextView) MainActivity.this
+				.findViewById(R.id.spValue);
+		spView.setText(String.valueOf(user.getSP()));
+		TextView powView = (TextView) MainActivity.this
+				.findViewById(R.id.powValue);
+		powView.setText(String.valueOf(user.getPOW()));
+		TextView defView = (TextView) MainActivity.this
+				.findViewById(R.id.defValue);
+		defView.setText(String.valueOf(user.getDEF()));
+		TextView speedView = (TextView) MainActivity.this
+				.findViewById(R.id.speedValue);
+		speedView.setText(String.valueOf(user.getSPEED()));
+	}
 	// @Override
 	// public boolean onCreateOptionsMenu(Menu menu)
 	// {
@@ -185,20 +193,26 @@ public class MainActivity extends Activity
 		{
 		case R.id.stat:
 			setContentView(R.layout.activity_main);
+			setValuesForStatCard();
 			return true;
 		case R.id.inventory:
 			setContentView(R.layout.inventory);
+			isCard = false;
 			return true;
 		case R.id.map:
 			setContentView(R.layout.map);
+			isCard = false;
 			return true;
 		case R.id.battle:
 			setContentView(R.layout.dev_battle);
+			isCard = false;
 			return true;
 		case R.id.settings:
 			setContentView(R.layout.settings);
+			isCard = false;
 			return true;
 		case R.id.crash:
+			isCard = false;
 			throw new NullPointerException(); // Crashes the app
 			// case R.id.about:
 			// //To Be Implemented
