@@ -1,6 +1,19 @@
 package com.techtalk4geeks.blogspot;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.StringReader;
 import java.sql.Date;
+
+import org.json.JSONObject;
+import org.json.JSONStringer;
+
 import android.os.Bundle;
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -33,38 +46,74 @@ public class MainActivity extends Activity
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.setup);
-		// myDatePicker = ((DatePicker)findViewById(R.id.typeSelecter));
-
-		Spinner spinner = ((Spinner) findViewById(R.id.typeSelecter));
-		for (String rankName : User.rank_display)
+		File file = new File("user.txt");
+		if (file.exists())
 		{
-			TextView text = new TextView(this);
-			text.setText(rankName);
-			spinner.addView(text);
-		}
-		Button doneButton = (Button) this.findViewById(R.id.done_button);
-		Button useButton1 = (Button) this.findViewById(R.id.use_button1);
-		doneButton.setOnClickListener(new View.OnClickListener()
-		{
-			public void onClick(View v)
+			FileInputStream FIN;
+			try
 			{
-				String name = ((TextView) findViewById(R.id.nameField))
-						.getText().toString();
-				String rank = ((Spinner) findViewById(R.id.typeSelecter))
-						.getSelectedItem().toString();
-				String strAge = ((TextView) findViewById(R.id.ageField))
-						.getText().toString();
-				int age = Integer.parseInt(strAge);
-				user = new User(name, rank, age);
+				FIN = openFileInput("user.txt");
+				InputStreamReader ISR = new InputStreamReader(FIN);
+				BufferedReader br = new BufferedReader(ISR);
+				String jsonString = br.readLine();
+				JSONObject object = new JSONObject(jsonString);
+				user = new User(object);
 				setContentView(R.layout.activity_main);
-				isSetup = false;
-				isCard = true;
 				setValuesForStatCard();
+			} catch (Exception e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
+		} else
+		{
+			setContentView(R.layout.setup);
+			// myDatePicker = ((DatePicker)findViewById(R.id.typeSelecter));
 
-		});
-		
+			Spinner spinner = ((Spinner) findViewById(R.id.typeSelecter));
+			for (String rankName : User.rank_display)
+			{
+				TextView text = new TextView(this);
+				text.setText(rankName);
+				spinner.addView(text);
+			}
+			Button doneButton = (Button) this.findViewById(R.id.done_button);
+			Button useButton1 = (Button) this.findViewById(R.id.use_button1);
+			doneButton.setOnClickListener(new View.OnClickListener()
+			{
+				public void onClick(View v)
+				{
+					String name = ((TextView) findViewById(R.id.nameField))
+							.getText().toString();
+					String rank = ((Spinner) findViewById(R.id.typeSelecter))
+							.getSelectedItem().toString();
+					String strAge = ((TextView) findViewById(R.id.ageField))
+							.getText().toString();
+					int age = Integer.parseInt(strAge);
+					user = new User(name, rank, age);
+					// TODO: Save User
+					try
+					{
+						JSONObject userJSON = user.toJSON();
+						String userString = userJSON.toString();
+						FileOutputStream FOS = openFileOutput("user.txt", 0);
+						OutputStreamWriter OSW = new OutputStreamWriter(FOS);
+						OSW.write(userString);
+						OSW.flush();
+						OSW.close();
+					} catch (Exception e)
+					{
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					setContentView(R.layout.activity_main);
+					isSetup = false;
+					isCard = true;
+					setValuesForStatCard();
+				}
+
+			});
+		}
 
 		// NotificationCompat.Builder mBuilder =
 		// new NotificationCompat.Builder(this)
@@ -133,6 +182,7 @@ public class MainActivity extends Activity
 				.findViewById(R.id.speedValue);
 		speedView.setText(String.valueOf(user.getSPEED()));
 	}
+
 	// @Override
 	// public boolean onCreateOptionsMenu(Menu menu)
 	// {

@@ -2,6 +2,9 @@ package com.techtalk4geeks.blogspot;
 
 import java.util.ArrayList;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 
 public class User
 {
@@ -82,6 +85,30 @@ public class User
 		myDEF = (int)(mySP * 0.6);
 //		} DON'T FORGET
 		mySPEED = 5;
+	}
+	
+	public User(JSONObject jsonO) throws Exception {
+		myName = jsonO.getString("myName");
+		myAge = jsonO.getInt("myAge");
+		myAge = jsonO.getInt("myHP");
+		mySP = jsonO.getInt("mySP");
+		myPOW = jsonO.getInt("myPOW");
+		myDEF = jsonO.getInt("myDEF");
+		mySPEED = jsonO.getInt("mySPEED");
+		myRank = jsonO.getInt("myRank");
+	}
+	
+	public JSONObject toJSON() throws JSONException {
+		JSONObject result = new JSONObject();
+		result.put("myName", myName);
+		result.put("myAge", myAge);
+		result.put("myHP", myHP);
+		result.put("mySP", mySP);
+		result.put("myPOW", myPOW);
+		result.put("myDEF", myDEF);
+		result.put("mySPEED", mySPEED);
+		result.put("myRank", myRank);
+		return result;
 	}
 
 	public String getName()
