@@ -74,16 +74,16 @@ public class User
 //		myLevel = (int)(age * 2);
 		mySP = (int)(15); //myLevel * 1.5 / 5
 		myHP = (int)(17);
-//		if(myRank == "Geek") { IF GEEK
-//			myPOW = (int)(mySP * 0.7);
-//			myDEF = (int)(mySP * 0.5);
-//		} else if(myRank == "Nerd") { IF NERD
-//			myPOW = (int)(mySP * 0.5);
-//			myDEF = (int)(mySP * 0.7);
-//		} else { OTHERWISE
+		if(myRank == 2) { //IF GEEK
+			myPOW = (int)(mySP * 0.7);
+			myDEF = (int)(mySP * 0.5);
+		} else if (myRank == 3) { //IF NERD
+			myPOW = (int)(mySP * 0.5);
+			myDEF = (int)(mySP * 0.7);
+		} else { //OTHERWISE
 		myPOW = (int)(mySP * 0.4);
 		myDEF = (int)(mySP * 0.6);
-//		} DON'T FORGET
+		} //DON'T FORGET
 		mySPEED = 5;
 	}
 	
