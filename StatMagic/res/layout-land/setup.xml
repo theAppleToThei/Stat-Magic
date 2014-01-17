@@ -25,20 +25,20 @@
                 android:textStyle="bold" />
         </TableRow>
 
-        <TableRow
+        <!-- <TableRow
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical" > -->
 
-            <TextView
+           <!--  <TextView
                 android:id="@+id/textView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/name_intro"
                 android:textColor="#FFFFFF"
                 android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textStyle="bold" /> -->
 
-            <TextView
+            <!-- <TextView
                 android:id="@+id/age"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
                 android:textSize="24sp"
                 android:textStyle="bold" />
             android:layout_width="wrap_content"
-        </TableRow>
+        </TableRow> -->
 
         <TableRow
             android:layout_width="wrap_content"
@@ -61,6 +61,7 @@
                 android:layout_marginLeft="5sp"
                 android:layout_marginRight="0sp"
                 android:layout_marginTop="25sp"
+                android:hint="@string/name_hint"
                 android:ems="10"
                 android:inputType="textPersonName" >
 
@@ -74,6 +75,7 @@
                 android:layout_marginLeft="5sp"
                 android:layout_marginRight="125sp"
                 android:layout_marginTop="25sp"
+                android:hint="@string/age_hint"
                 android:ems="10"
                 android:inputType="number" >
 

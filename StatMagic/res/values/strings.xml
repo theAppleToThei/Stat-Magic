@@ -70,5 +70,8 @@
     <string name="hamburger_label">Hamburger</string>
     <string name="about_menu">About</string>
     <string name="settings_label">Settings</string>
+    <string name="name_hint">What is your name?</string>
+    <string name="age_hint">Age</string>
+    
 
 </resources>

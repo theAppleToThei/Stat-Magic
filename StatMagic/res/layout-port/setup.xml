@@ -16,14 +16,14 @@
         android:textSize="36sp"
         android:textStyle="bold" />
     
-    <TextView
+    <!-- <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/name_intro" 
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        android:textStyle="bold" />
+        android:textStyle="bold" /> -->
     
     <EditText
         android:id="@+id/nameField"
@@ -33,19 +33,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="@string/name_hint"
         android:inputType="textPersonName" >
 
         <requestFocus />
     </EditText>
     
-    <TextView
+    <!-- <TextView
         android:id="@+id/age"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/age_label" 
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        android:textStyle="bold" />
+        android:textStyle="bold" /> -->
     
     <EditText
         android:id="@+id/ageField"
@@ -54,6 +55,7 @@
         android:layout_marginRight="125sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="@string/age_hint"
         android:ems="10"
         android:inputType="number" >
         

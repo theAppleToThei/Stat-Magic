@@ -14,6 +14,7 @@
             android:id="@+id/settingsHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="90sp"
             android:text="@string/settings_label"
             android:textColor="#FFFFFF"
             android:textSize="36sp"
