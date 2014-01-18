@@ -59,9 +59,16 @@
         android:ems="10"
         android:inputType="number" >
         
-
         <requestFocus />
     </EditText>
+    
+    <EditText
+        android:id="@+id/cityField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/hometown_hint"
+        android:inputType="textPostalAddress" />
 
     <Spinner
         android:id="@+id/genderSelecter"
@@ -91,6 +98,8 @@
         android:layout_marginRight="5sp"
         android:entries="@array/rank_list"
         />
+
+    
 
     <Button
         android:id="@+id/done_button"

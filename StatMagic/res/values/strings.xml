@@ -72,6 +72,7 @@
     <string name="settings_label">Settings</string>
     <string name="name_hint">What is your name?</string>
     <string name="age_hint">Age</string>
+    <string name="hometown_hint">Hometown</string>
     
 
 </resources>

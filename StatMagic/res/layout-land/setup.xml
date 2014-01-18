@@ -62,7 +62,7 @@
                 android:layout_marginRight="0sp"
                 android:layout_marginTop="25sp"
                 android:hint="@string/name_hint"
-                android:ems="10"
+                android:ems="5"
                 android:inputType="textPersonName" >
 
                 <requestFocus />
@@ -76,11 +76,19 @@
                 android:layout_marginRight="125sp"
                 android:layout_marginTop="25sp"
                 android:hint="@string/age_hint"
-                android:ems="10"
+                android:ems="5"
                 android:inputType="number" >
 
                 <requestFocus />
             </EditText>
+            
+            <EditText
+        android:id="@+id/cityField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="5"
+        android:hint="@string/hometown_hint"
+        android:inputType="textPostalAddress" />
         </TableRow>
 
         <TableRow
@@ -119,7 +127,7 @@
             
         </TableRow>
 
-        <TableRow
+        <!-- <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
@@ -132,7 +140,7 @@
                 android:textColor="#FFFFFF"
                 android:textSize="24sp"
                 android:textStyle="bold" />
-        </TableRow>
+        </TableRow> -->
 
         <TableRow
             android:layout_width="wrap_content"

@@ -18,6 +18,7 @@ public class User
 	protected int myPOW;
 	protected int myDEF;
 	protected int mySPEED;
+	protected String myCity;
 	int myAge;
 	String[] rankStrings = new String[] {
 			"I Do Not Care",
@@ -60,7 +61,7 @@ public class User
 
 	ArrayList<Item> inventory = new ArrayList<Item>();
 	public static ArrayList<String> rank_display = new ArrayList<String>();
-	public User(String name, String rank, int age)
+	public User(String name, String rank, int age, String city)
 	{
 		for (int i = 0; i < rankStrings.length; i++)
 		{
@@ -74,6 +75,7 @@ public class User
 //		myLevel = (int)(age * 2);
 		mySP = (int)(15); //myLevel * 1.5 / 5
 		myHP = (int)(17);
+		myCity = city;
 		if(myRank == 2) { //IF GEEK
 			myPOW = (int)(mySP * 0.7);
 			myDEF = (int)(mySP * 0.5);
@@ -88,7 +90,7 @@ public class User
 	}
 	
 	public User(JSONObject jsonO) throws Exception {
-		myName = jsonO.getString("myName");
+		myName = jsonO.getString(myName);
 		myAge = jsonO.getInt("myAge");
 		myAge = jsonO.getInt("myHP");
 		mySP = jsonO.getInt("mySP");
@@ -96,6 +98,7 @@ public class User
 		myDEF = jsonO.getInt("myDEF");
 		mySPEED = jsonO.getInt("mySPEED");
 		myRank = jsonO.getInt("myRank");
+		myCity = jsonO.getString(myCity);
 	}
 	
 	public JSONObject toJSON() throws JSONException {
@@ -108,6 +111,7 @@ public class User
 		result.put("myDEF", myDEF);
 		result.put("mySPEED", mySPEED);
 		result.put("myRank", myRank);
+		result.put("myCity", myCity);
 		return result;
 	}
 

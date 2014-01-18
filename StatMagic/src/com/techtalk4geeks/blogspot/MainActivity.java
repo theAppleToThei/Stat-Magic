@@ -90,8 +90,10 @@ public class MainActivity extends Activity
 							.getSelectedItem().toString();
 					String strAge = ((TextView) findViewById(R.id.ageField))
 							.getText().toString();
+					String city = ((TextView) findViewById(R.id.cityField))
+							.getText().toString();
 					int age = Integer.parseInt(strAge);
-					user = new User(name, rank, age);
+					user = new User(name, rank, age, city);
 					// TODO: Save User
 					try
 					{
