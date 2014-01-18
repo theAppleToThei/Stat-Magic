@@ -90,7 +90,7 @@ public class User
 	}
 	
 	public User(JSONObject jsonO) throws Exception {
-		myName = jsonO.getString(myName);
+		myName = jsonO.getString("myName");
 		myAge = jsonO.getInt("myAge");
 		myAge = jsonO.getInt("myHP");
 		mySP = jsonO.getInt("mySP");
@@ -98,7 +98,7 @@ public class User
 		myDEF = jsonO.getInt("myDEF");
 		mySPEED = jsonO.getInt("mySPEED");
 		myRank = jsonO.getInt("myRank");
-		myCity = jsonO.getString(myCity);
+		myCity = jsonO.getString("myCity");
 	}
 	
 	public JSONObject toJSON() throws JSONException {

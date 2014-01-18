@@ -36,11 +36,20 @@
             android:layout_marginLeft="5sp"
             android:layout_marginRight="5sp"
             android:layout_marginTop="25sp"
+            android:hint="@string/name_hint"
             android:ems="10"
             android:inputType="textPersonName" >
 
             <requestFocus />
         </EditText>
+        
+        <Button
+        android:id="@+id/erase_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="110sp"
+        android:text="@string/erase_label" />
+        
     </TableLayout>
 
 </AbsoluteLayout>

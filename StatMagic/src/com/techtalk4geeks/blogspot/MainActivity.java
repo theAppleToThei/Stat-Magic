@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
@@ -15,6 +16,7 @@ import org.json.JSONObject;
 import org.json.JSONStringer;
 
 import android.os.Bundle;
+import android.os.Environment;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.DatePickerDialog;
@@ -47,9 +49,11 @@ public class MainActivity extends Activity
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-		File file = new File("user.txt");
+		File file = new File(getFilesDir(), "user.txt");
 		if (file.exists())
 		{
+			isSetup = false;
+			isCard = true;
 			FileInputStream FIN;
 			try
 			{
@@ -68,6 +72,14 @@ public class MainActivity extends Activity
 			}
 		} else
 		{
+			try
+			{
+				file.createNewFile();
+			} catch (IOException e1)
+			{
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			setContentView(R.layout.setup);
 			// myDatePicker = ((DatePicker)findViewById(R.id.typeSelecter));
 
@@ -80,6 +92,7 @@ public class MainActivity extends Activity
 			}
 			Button doneButton = (Button) this.findViewById(R.id.done_button);
 			Button useButton1 = (Button) this.findViewById(R.id.use_button1);
+			Button eraseButton = (Button) this.findViewById(R.id.erase_button);
 			doneButton.setOnClickListener(new View.OnClickListener()
 			{
 				public void onClick(View v)
@@ -115,6 +128,14 @@ public class MainActivity extends Activity
 					setValuesForStatCard();
 				}
 
+			});
+
+			eraseButton.setOnClickListener(new View.OnClickListener()
+			{
+				public void onClick(View v)
+				{
+
+				}
 			});
 		}
 

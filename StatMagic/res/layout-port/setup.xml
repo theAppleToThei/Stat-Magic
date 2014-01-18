@@ -66,6 +66,9 @@
         android:id="@+id/cityField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="25sp"
+        android:layout_marginLeft="5sp"
+        android:layout_marginRight="5sp"
         android:ems="10"
         android:hint="@string/hometown_hint"
         android:inputType="textPostalAddress" />

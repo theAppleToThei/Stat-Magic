@@ -73,6 +73,7 @@
     <string name="name_hint">What is your name?</string>
     <string name="age_hint">Age</string>
     <string name="hometown_hint">Hometown</string>
+    <string name="erase_label">Erase All Data</string>
     
 
 </resources>
