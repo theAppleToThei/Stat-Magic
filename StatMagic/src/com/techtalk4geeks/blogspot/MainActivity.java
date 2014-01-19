@@ -12,6 +12,9 @@ import java.io.OutputStreamWriter;
 import java.io.StringReader;
 import java.sql.Date;
 
+import android.app.Activity;
+import android.os.Bundle;
+
 import org.json.JSONObject;
 import org.json.JSONStringer;
 
@@ -24,6 +27,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.NotificationCompat;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -37,13 +41,15 @@ import android.widget.Spinner;
 import android.widget.DatePicker;
 
 //@SuppressLint("NewApi")
-public class MainActivity extends Activity
+public class MainActivity extends FragmentActivity
 {
 	DatePicker myDatePicker;
 	Boolean isSetup = true;
 	Boolean isCard = false;
 	public int SPEEDHolder = 0;
 	static User user;
+
+	// File file;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -92,7 +98,8 @@ public class MainActivity extends Activity
 			}
 			Button doneButton = (Button) this.findViewById(R.id.done_button);
 			Button useButton1 = (Button) this.findViewById(R.id.use_button1);
-			Button eraseButton = (Button) this.findViewById(R.id.erase_button);
+			// Button eraseButton = (Button)
+			// this.findViewById(R.id.erase_button);
 			doneButton.setOnClickListener(new View.OnClickListener()
 			{
 				public void onClick(View v)
@@ -130,13 +137,14 @@ public class MainActivity extends Activity
 
 			});
 
-			eraseButton.setOnClickListener(new View.OnClickListener()
-			{
-				public void onClick(View v)
-				{
-
-				}
-			});
+			// eraseButton.setOnClickListener(new View.OnClickListener()
+			// {
+			// public void onClick(View v)
+			// {
+			// // file.delete();
+			// // throw new NullPointerException();
+			// }
+			// });
 		}
 
 		// NotificationCompat.Builder mBuilder =

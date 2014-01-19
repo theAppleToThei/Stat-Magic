@@ -4,11 +4,17 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="9" />
 
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    
+    
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher_second"
@@ -17,6 +23,9 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyDTg_LKAti1jFCpUiJB8UvK4MwSNSH-SJk" />
 
         <activity
             android:name="com.techtalk4geeks.blogspot.MainActivity"
@@ -28,5 +37,8 @@
             </intent-filter>
         </activity>
     </application>
+
+
+    
 
 </manifest>
