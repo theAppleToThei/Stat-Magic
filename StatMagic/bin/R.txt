@@ -94,13 +94,13 @@ int drawable spbean 0x7f02003c
 int drawable speedbean 0x7f02003d
 int drawable speedsprite 0x7f02003e
 int drawable spsprite 0x7f02003f
-int id about 0x7f050035
+int id about 0x7f050036
 int id ageField 0x7f05002a
-int id battle 0x7f050032
+int id battle 0x7f050033
 int id cityField 0x7f05002b
 int id coffee_text 0x7f050020
 int id coffee_view 0x7f05001f
-int id crash 0x7f050034
+int id crash 0x7f050035
 int id defLabel 0x7f050015
 int id defValue 0x7f050016
 int id done_button 0x7f05002d
@@ -123,7 +123,8 @@ int id levelValue 0x7f050007
 int id level_label 0x7f050006
 int id linearLayout1 0x7f05000a
 int id linearLayout2 0x7f05001a
-int id map 0x7f050025
+int id map 0x7f050032
+int id map_display 0x7f050025
 int id nameField 0x7f050027
 int id nameValue 0x7f050005
 int id none 0x7f050000
@@ -133,7 +134,7 @@ int id powValue 0x7f050013
 int id rankLabel 0x7f050008
 int id rankValue 0x7f050009
 int id satellite 0x7f050002
-int id settings 0x7f050033
+int id settings 0x7f050034
 int id settingsHeader 0x7f050026
 int id setup 0x7f05002f
 int id setupHeader 0x7f050029
