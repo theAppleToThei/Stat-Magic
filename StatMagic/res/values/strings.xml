@@ -21,6 +21,9 @@
     <string name="use_label">Use</string>
     <string name="crash_label">Crash App</string>
     <string name="battle_label">Battle</string>
+    
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
 
     <string-array name="gender_list">
         <item>Select Your Gender</item>
