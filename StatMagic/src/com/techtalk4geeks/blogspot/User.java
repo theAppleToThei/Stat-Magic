@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.techtalk4geeks.blogspot.Items.Item;
+
 
 public class User
 {
@@ -138,6 +140,10 @@ public class User
 	void setHP(int myHP)
 	{
 		this.myHP = myHP;
+	}
+	
+	public void healHP(int HP) {
+		myHP = myHP + HP;
 	}
 
 	int getSP()

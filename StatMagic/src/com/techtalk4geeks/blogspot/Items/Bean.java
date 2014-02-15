@@ -1,4 +1,4 @@
-package com.techtalk4geeks.blogspot;
+package com.techtalk4geeks.blogspot.Items;
 
 public class Bean extends Item
 {

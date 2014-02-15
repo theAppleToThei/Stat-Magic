@@ -7,10 +7,21 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.Map;
 
+import android.content.Context;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 
 import org.json.JSONObject;
+
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
@@ -23,12 +34,14 @@ import android.widget.TextView;
 import android.widget.Spinner;
 
 //@SuppressLint("NewApi")
-public class MainActivity extends FragmentActivity
+public class MainActivity extends FragmentActivity implements LocationListener
 {
 	DatePicker myDatePicker;
 	Boolean isSetup = true;
 	Boolean isCard = false;
 	public int SPEEDHolder = 0;
+	private static final long MIN_TIME = 400;
+	private static final float MIN_DISTANCE = 1000;
 	static User user;
 
 	// File file;
@@ -79,7 +92,7 @@ public class MainActivity extends FragmentActivity
 				spinner.addView(text);
 			}
 			Button doneButton = (Button) this.findViewById(R.id.done_button);
-//			Button useButton1 = (Button) this.findViewById(R.id.use_button1);
+			// Button useButton1 = (Button) this.findViewById(R.id.use_button1);
 			// Button eraseButton = (Button)
 			// this.findViewById(R.id.erase_button);
 			doneButton.setOnClickListener(new View.OnClickListener()
@@ -265,6 +278,24 @@ public class MainActivity extends FragmentActivity
 			return true;
 		case R.id.map:
 			setContentView(R.layout.map);
+			LocationManager locationManager;
+			GoogleMap map;
+			map = ((SupportMapFragment) getSupportFragmentManager()
+					.findFragmentById(R.id.map_display)).getMap();
+			if (map != null)
+			{
+				map.addMarker(new MarkerOptions().position(new LatLng(0, 0))
+						.title("Marker"));
+			}
+			locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+			locationManager.requestLocationUpdates(
+					LocationManager.NETWORK_PROVIDER, MIN_TIME, MIN_DISTANCE,
+					this);
+			MarkerOptions mo = new MarkerOptions();
+			mo.title("here");
+			map.setMyLocationEnabled(true);
+//			Marker here = map.addMarker(mo);
+
 			isCard = false;
 			return true;
 		case R.id.battle:
@@ -284,5 +315,33 @@ public class MainActivity extends FragmentActivity
 		default:
 			return super.onOptionsItemSelected(item);
 		}
+	}
+
+	@Override
+	public void onLocationChanged(Location arg0)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onProviderDisabled(String arg0)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onProviderEnabled(String arg0)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onStatusChanged(String arg0, int arg1, Bundle arg2)
+	{
+		// TODO Auto-generated method stub
+		
 	}
 }
