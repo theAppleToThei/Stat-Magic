@@ -5,24 +5,23 @@ import org.json.JSONObject;
 
 import com.techtalk4geeks.blogspot.User;
 
-public class HealingItem extends Item
+public class SPEEDChangingItem extends Item
 {
-	int myHPChange;
-	public HealingItem(String name, int changeHP)
-	{
+	int changeStatBy;
+	public SPEEDChangingItem(String name, int changeBy) {
 		super(name); 
-		myHPChange = changeHP;
+		changeStatBy = changeBy;
 	}
 	
 	public void change(User user) {
-		user.healHP(myHPChange);
+		user.addSPEED(changeStatBy);
 	}
 	
 	@Override
 	public JSONObject toJSON() throws JSONException
 	{
 		JSONObject result = super.toJSON();
-		result.put("myHPChange", myHPChange);
+		result.put("changeStatBy", changeStatBy);
 		return result;
 	}
 }
