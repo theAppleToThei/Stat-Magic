@@ -32,6 +32,10 @@ public class User
 	Item Broccoli = new POWChangingItem("Broccoli", 4);
 	Item Oatmeal = new POWChangingItem("Oatmeal", 3);
 	Item Chocolate = new SPEEDChangingItem("Chocolate", 3);
+	Item Pizza = new HealingItem("Pizza", 73);
+	Item Taco = new HealingItem("Taco", 28);
+	Item Bread = new HealingItem("Bread", 21);
+	Item Sandwich = new HealingItem("Sandwich", 45);
 	String[] rankStrings = new String[]
 	{ "I Do Not Care", "Dork", "Geek", "Nerd", "Jock", "Blonde", "Teacher",
 			"Hippie", "Animal Lover", "Shortie", "Stretch", "Hobbit", "Dwarf",
