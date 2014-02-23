@@ -78,6 +78,8 @@
     <string name="hometown_hint">Hometown</string>
     <string name="erase_label">Erase All Data</string>
     <string name="nerd_description">This is your opponent. He is a nerd. Nerds rule! Nerds tend to be higher in defense and lower in power.</string>
+    <string name="slash">/</string>
+    <string name="hpMaxValue">HP Max</string>
     
 
 </resources>

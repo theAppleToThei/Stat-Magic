@@ -196,6 +196,9 @@ public class MainActivity extends FragmentActivity implements LocationListener
 		TextView hpView = (TextView) MainActivity.this
 				.findViewById(R.id.hpValue);
 		hpView.setText(String.valueOf(user.getHP()));
+		TextView hpMaxView = (TextView) MainActivity.this
+				.findViewById(R.id.hpMaxValue);
+		hpMaxView.setText(String.valueOf(user.getMaxHP()));
 		TextView spView = (TextView) MainActivity.this
 				.findViewById(R.id.spValue);
 		spView.setText(String.valueOf(user.getSP()));

@@ -9,6 +9,7 @@ import org.json.JSONObject;
 import com.techtalk4geeks.blogspot.Items.HealingItem;
 import com.techtalk4geeks.blogspot.Items.Item;
 import com.techtalk4geeks.blogspot.Items.POWChangingItem;
+import com.techtalk4geeks.blogspot.Items.SPChangingItem;
 import com.techtalk4geeks.blogspot.Items.SPEEDChangingItem;
 
 public class User
@@ -24,18 +25,32 @@ public class User
 	protected int myDEF;
 	protected int mySPEED;
 	protected String myCity;
+	protected int myMaxHP;
+	protected int myMaxSP;
+	protected int myEXP;
+	protected int myMaxEXP;
 	int myAge;
 	ArrayList<Item> myStuff = new ArrayList<Item>();
-	Item Hamburger = new HealingItem("Hamburger", 49);
-	Item Fries = new HealingItem("French Fries", 32);
-	Item Coffee = new SPEEDChangingItem("Coffee", 2);
-	Item Broccoli = new POWChangingItem("Broccoli", 4);
-	Item Oatmeal = new POWChangingItem("Oatmeal", 3);
-	Item Chocolate = new SPEEDChangingItem("Chocolate", 3);
-	Item Pizza = new HealingItem("Pizza", 73);
-	Item Taco = new HealingItem("Taco", 28);
-	Item Bread = new HealingItem("Bread", 21);
-	Item Sandwich = new HealingItem("Sandwich", 45);
+	Item hamburger = new HealingItem("Hamburger", 49);
+	Item fries = new HealingItem("French Fries", 32);
+	Item coffee = new SPEEDChangingItem("Coffee", 2);
+	Item broccoli = new POWChangingItem("Broccoli", 4);
+	Item oatmeal = new POWChangingItem("Oatmeal", 3);
+	Item chocolate = new SPEEDChangingItem("Chocolate", 3);
+	Item pizza = new HealingItem("Pizza", 73);
+	Item taco = new HealingItem("Taco", 28);
+	Item bread = new HealingItem("Bread", 21);
+	Item sandwich = new HealingItem("Sandwich", 45);
+	Item candy = new SPChangingItem("Candy", 5);
+	Item sugarBag = new HealingItem("Bag of Sugar", 45);
+	Item egg = new POWChangingItem("Egg", 2);
+	Item iceCream = new SPChangingItem("Ice Cream", 50);
+	Item sushi = new HealingItem("Sushi", 19);
+	Item pasta = new HealingItem("Pasta", 61);
+	Item gum = new SPChangingItem("Gum", 4);
+	Item chicken = new HealingItem("Chicken", 89);
+	Item grapes = new SPChangingItem("Grapes", 27);
+	
 	String[] rankStrings = new String[]
 	{ "I Do Not Care", "Dork", "Geek", "Nerd", "Jock", "Blonde", "Teacher",
 			"Hippie", "Animal Lover", "Shortie", "Stretch", "Hobbit", "Dwarf",
@@ -61,7 +76,11 @@ public class User
 		// myLevel = (int)(age * 2);
 		mySP = (int) (15); // myLevel * 1.5 / 5
 		myHP = (int) (17);
+		myMaxHP = myHP;
+		myMaxSP = mySP;
 		myCity = city;
+		myEXP = 0;
+		myMaxEXP = 3;
 		if (myRank == 2)
 		{ // IF GEEK
 			myPOW = (int) (mySP * 0.7);
@@ -89,12 +108,16 @@ public class User
 		mySPEED = jsonO.getInt("mySPEED");
 		myRank = jsonO.getInt("myRank");
 		myCity = jsonO.getString("myCity");
+		myLevel = jsonO.getInt("myLevel");
+		myEXP = jsonO.getInt("myEXP");
+		myMaxEXP = jsonO.getInt("myMaxEXP");
 		JSONArray inventory = jsonO.getJSONArray("inventory");
 		for (int i = 0; i < inventory.length(); i++)
 		{
 			JSONObject json = inventory.getJSONObject(i);
 			String itemClass = json.getString("class");
 		}
+		//TODO Add EXP and Level
 	}
 
 	public JSONObject toJSON() throws JSONException {
@@ -108,6 +131,9 @@ public class User
 		result.put("mySPEED", mySPEED);
 		result.put("myRank", myRank);
 		result.put("myCity", myCity);
+		result.put("myLevel", myLevel);
+		result.put("myEXP", myEXP);
+		result.put("myMaxEXP", myMaxEXP);
 		JSONArray inventory = new JSONArray();
 		for (Item i : myStuff) {
 			inventory.put(i.toJSON());
@@ -209,5 +235,48 @@ public class User
 	void setSPEED(int mySPEED)
 	{
 		this.mySPEED = mySPEED;
+	}
+	
+	int getMaxHP() {
+		return myMaxHP;
+	}
+	
+	int getMaxSP() {
+		return myMaxSP;
+	}
+	
+	void setMaxHP(int setTo) {
+		myMaxHP = setTo;
+	}
+	
+	void setMaxSP(int setTo) {
+		myMaxSP = setTo;
+	}
+	
+	void incrementLevel() {
+		myLevel = myLevel + 1;
+	}
+	
+	public void healAll() {
+		myHP = myMaxHP;
+		mySP = myMaxSP;
+	}
+	
+	public void healSP() {
+		mySP = myMaxSP;
+	}
+	
+	public void setMaxEXP(int incrementBy) {
+		myMaxEXP = myMaxEXP + incrementBy;
+	}
+	
+	public void levelUp(User u) {
+		u.setMaxHP(u.getLevel() * 3 + u.getMaxHP());
+		u.setMaxSP(u.getLevel() * 2 + u.getMaxSP());
+		u.setPOW(myPOW + 3);
+		u.setDEF(myDEF + 3);
+		u.incrementLevel();
+		u.healAll();
+		u.setMaxEXP(getLevel() * 25);
 	}
 }
