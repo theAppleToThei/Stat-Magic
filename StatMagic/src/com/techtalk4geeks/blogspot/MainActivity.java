@@ -41,6 +41,7 @@ public class MainActivity extends FragmentActivity implements LocationListener
 {
 	DatePicker myDatePicker;
 	Boolean isSetup = true;
+	Boolean isBattle = false;
 	Boolean isCard = false;
 	ArrayList<Item> inventory = new ArrayList<Item>();
 	public int SPEEDHolder = 0;
@@ -61,6 +62,7 @@ public class MainActivity extends FragmentActivity implements LocationListener
 		if (file.exists())
 		{
 			isSetup = false;
+			isBattle = false;
 			isCard = true;
 			FileInputStream FIN;
 			try
@@ -275,17 +277,17 @@ public class MainActivity extends FragmentActivity implements LocationListener
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu)
 	{
+		MenuInflater inflater = getMenuInflater();
 		if (!isSetup)
 		{
-			MenuInflater inflater = getMenuInflater();
 			inflater.inflate(R.menu.main, menu);
 			return true;
-		} else
+		} else if (isBattle)
 		{
-			// MenuInflater inflater = getMenuInflater();
-			// inflater.inflate(R.menu.setup_menu, menu);
-			return false;
+			 inflater.inflate(R.menu.battle_menu, menu);
+			return true;
 		}
+		return false;
 	}
 
 	public void resetName()
@@ -334,6 +336,7 @@ public class MainActivity extends FragmentActivity implements LocationListener
 		case R.id.battle:
 			setContentView(R.layout.dev_battle);
 			isCard = false;
+			isBattle = true;
 			return true;
 		case R.id.settings:
 			setContentView(R.layout.settings);
@@ -345,6 +348,16 @@ public class MainActivity extends FragmentActivity implements LocationListener
 			// case R.id.about:
 			// //To Be Implemented
 			// return true;
+		case R.id.attack:
+			return true;
+		case R.id.special:
+			return true;
+		case R.id.inventorybattle:
+			return true;
+		case R.id.defend:
+			return true;
+		case R.id.flee:
+			return true;
 		default:
 			return super.onOptionsItemSelected(item);
 		}

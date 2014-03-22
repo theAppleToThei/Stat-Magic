@@ -4,13 +4,13 @@
     android:layout_height="match_parent"
     android:background="@color/black"
     android:orientation="vertical" >
-    
+ 
     <ImageView
         android:id="@+id/hpMeter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:src="@drawable/bluerectangle" />
+        android:src="@drawable/redrectangle" />
 
     <ImageView
         android:id="@+id/imageView1"
@@ -20,12 +20,6 @@
         android:contentDescription="@string/nerd_description"
         android:src="@drawable/nerd_sprite" />
 
-    <ImageView
-        android:id="@+id/hpMeter"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:src="@drawable/redrectangle" />
     
     
 </LinearLayout>
