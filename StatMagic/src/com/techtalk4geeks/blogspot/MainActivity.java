@@ -48,7 +48,7 @@ public class MainActivity extends FragmentActivity implements LocationListener
 	private static final float MIN_DISTANCE = 1000;
 	private View myView;
 	//http://stackoverflow.com/questions/18690562/android-spinner-is-null
-	static User user;
+	public User user;
 
 	// File file;
 
@@ -223,6 +223,9 @@ public class MainActivity extends FragmentActivity implements LocationListener
 		TextView spView = (TextView) MainActivity.this
 				.findViewById(R.id.spValue);
 		spView.setText(String.valueOf(user.getSP()));
+		TextView spMaxView = (TextView) MainActivity.this
+				.findViewById(R.id.spMaxValue);
+		spMaxView.setText(String.valueOf(user.getMaxSP()));
 		TextView powView = (TextView) MainActivity.this
 				.findViewById(R.id.powValue);
 		powView.setText(String.valueOf(user.getPOW()));

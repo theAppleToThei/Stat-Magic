@@ -88,7 +88,7 @@ public class User
 		myLevel = (int)(age * 2);
 		mySP = (int) (15); // myLevel * 1.5 / 5
 		myHP = 17;
-		myMaxHP = myHP;
+		myMaxHP = 17;
 		myMaxSP = mySP;
 		myCity = city;
 		myEXP = 0;
@@ -124,6 +124,8 @@ public class User
 		myLevel = jsonO.getInt("myLevel");
 		myEXP = jsonO.getInt("myEXP");
 		myMaxEXP = jsonO.getInt("myMaxEXP");
+		myMaxHP = jsonO.getInt("myMaxHP");
+		myMaxSP = jsonO.getInt("myMaxSP");
 		JSONArray inventory = jsonO.getJSONArray("myStuff");
 		for (int i = 0; i < inventory.length(); i++)
 		{
@@ -149,6 +151,8 @@ public class User
 		result.put("myLevel", myLevel);
 		result.put("myEXP", myEXP);
 		result.put("myMaxEXP", myMaxEXP);
+		result.put("myMaxHP", myMaxHP);
+		result.put("myMaxSP", myMaxSP);
 		JSONArray inventory = new JSONArray();
 		for (Item i : myStuff) {
 			inventory.put(i.toJSON());
