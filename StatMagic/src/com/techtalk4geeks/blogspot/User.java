@@ -6,6 +6,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.TaskStackBuilder;
+
+import com.techtalk4geeks.blogspot.Items.FunctionalItem;
 import com.techtalk4geeks.blogspot.Items.HealingItem;
 import com.techtalk4geeks.blogspot.Items.Item;
 import com.techtalk4geeks.blogspot.Items.POWChangingItem;
@@ -24,6 +32,7 @@ public class User
 	protected int myPOW;
 	protected int myDEF;
 	protected int mySPEED;
+	String myRank2;
 	protected String myCity;
 	protected int myMaxHP;
 	protected int myMaxSP;
@@ -51,6 +60,8 @@ public class User
 	Item chicken = new HealingItem("Chicken", 89);
 	Item grapes = new SPChangingItem("Grapes", 27);
 	
+	
+	
 	String[] rankStrings = new String[]
 	{ "I Do Not Care", "Dork", "Geek", "Nerd", "Jock", "Blonde", "Teacher",
 			"Hippie", "Animal Lover", "Shortie", "Stretch", "Hobbit", "Dwarf",
@@ -59,10 +70,10 @@ public class User
 			"Princess", "Crafter", "Gamer", "Vlogger", "Predator", "Wrestler",
 			"Super Hero", "Rich Person", "Baby", "Grandparent", "Biker", };
 
-	ArrayList<Item> inventory = new ArrayList<Item>();
+	
 	public static ArrayList<String> rank_display = new ArrayList<String>();
 
-	public User(String name, String rank, int age, String city)
+	public User(String name, String rank, int age, String city, ArrayList<Item> invent)
 	{
 		for (int i = 0; i < rankStrings.length; i++)
 		{
@@ -73,14 +84,16 @@ public class User
 		myAge = age;
 		myName = name;
 		myRank = rank_display.indexOf(rank);
-		// myLevel = (int)(age * 2);
+		myRank2 = rank;
+		myLevel = (int)(age * 2);
 		mySP = (int) (15); // myLevel * 1.5 / 5
-		myHP = (int) (17);
+		myHP = 17;
 		myMaxHP = myHP;
 		myMaxSP = mySP;
 		myCity = city;
 		myEXP = 0;
 		myMaxEXP = 3;
+		myStuff = invent;
 		if (myRank == 2)
 		{ // IF GEEK
 			myPOW = (int) (mySP * 0.7);
@@ -101,7 +114,7 @@ public class User
 	{
 		myName = jsonO.getString("myName");
 		myAge = jsonO.getInt("myAge");
-		myAge = jsonO.getInt("myHP");
+		myHP = jsonO.getInt("myHP");
 		mySP = jsonO.getInt("mySP");
 		myPOW = jsonO.getInt("myPOW");
 		myDEF = jsonO.getInt("myDEF");
@@ -111,11 +124,13 @@ public class User
 		myLevel = jsonO.getInt("myLevel");
 		myEXP = jsonO.getInt("myEXP");
 		myMaxEXP = jsonO.getInt("myMaxEXP");
-		JSONArray inventory = jsonO.getJSONArray("inventory");
+		JSONArray inventory = jsonO.getJSONArray("myStuff");
 		for (int i = 0; i < inventory.length(); i++)
 		{
 			JSONObject json = inventory.getJSONObject(i);
 			String itemClass = json.getString("class");
+			//TODO: create object of the class specified in itemClass
+			//TODO: set attributes of item
 		}
 		//TODO Add EXP and Level
 	}
@@ -138,9 +153,11 @@ public class User
 		for (Item i : myStuff) {
 			inventory.put(i.toJSON());
 		}
-		result.put("inventory", inventory);
+		result.put("myStuff", inventory);
 		return result;
 	}
+	
+	
 	
 	public String getName()
 	{
@@ -191,6 +208,10 @@ public class User
 	{
 		mySPEED += SPEED;
 	}
+	
+	int getRank() {
+		return myRank;
+	}
 
 	int getSP()
 	{
@@ -211,7 +232,7 @@ public class User
 	{
 		this.myPOW = myPOW;
 	}
-
+	
 	int getDEF()
 	{
 		return myDEF;
@@ -241,8 +262,20 @@ public class User
 		return myMaxHP;
 	}
 	
+	int getMaxEXP() {
+		return myMaxEXP;
+	}
+	
+	int getEXP() {
+		return myEXP;
+	}
+	
 	int getMaxSP() {
 		return myMaxSP;
+	}
+	
+	ArrayList<Item> getInventory() {
+		return myStuff;
 	}
 	
 	void setMaxHP(int setTo) {
@@ -270,6 +303,32 @@ public class User
 		myMaxEXP = myMaxEXP + incrementBy;
 	}
 	
+	public void sendUserNotification() {
+		NotificationCompat.Builder mBuilder =
+		        new NotificationCompat.Builder(null)
+		        .setSmallIcon(R.drawable.nerd_sprite)
+		        .setContentTitle("My notification")
+		        .setContentText("Hello World!");
+		
+		Intent resultIntent = new Intent(null, MainActivity.class);
+		
+		TaskStackBuilder stackBuilder = TaskStackBuilder.create(null);
+		
+		stackBuilder.addParentStack(MainActivity.class);
+		
+		stackBuilder.addNextIntent(resultIntent);
+		PendingIntent resultPendingIntent =
+		        stackBuilder.getPendingIntent(
+		            0,
+		            PendingIntent.FLAG_UPDATE_CURRENT
+		        );
+		mBuilder.setContentIntent(resultPendingIntent);
+//		NotificationManager mNotificationManager =
+//		    (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+//		
+//		mNotificationManager.notify(null, mBuilder.build());
+	}
+	
 	public void levelUp(User u) {
 		u.setMaxHP(u.getLevel() * 3 + u.getMaxHP());
 		u.setMaxSP(u.getLevel() * 2 + u.getMaxSP());
@@ -278,5 +337,28 @@ public class User
 		u.incrementLevel();
 		u.healAll();
 		u.setMaxEXP(getLevel() * 25);
+		NotificationCompat.Builder mBuilder =
+		        new NotificationCompat.Builder(null)
+		        .setSmallIcon(R.drawable.nerd_sprite)
+		        .setContentTitle("My notification")
+		        .setContentText("Hello World!");
+		
+		Intent resultIntent = new Intent(null, MainActivity.class);
+		
+		TaskStackBuilder stackBuilder = TaskStackBuilder.create(null);
+		
+		stackBuilder.addParentStack(MainActivity.class);
+		
+		stackBuilder.addNextIntent(resultIntent);
+		PendingIntent resultPendingIntent =
+		        stackBuilder.getPendingIntent(
+		            0,
+		            PendingIntent.FLAG_UPDATE_CURRENT
+		        );
+		mBuilder.setContentIntent(resultPendingIntent);
+//		NotificationManager mNotificationManager =
+//		    (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+//		
+//		mNotificationManager.notify(null, mBuilder.build());
 	}
 }

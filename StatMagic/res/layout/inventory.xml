@@ -32,12 +32,12 @@
                 android:src="@drawable/coffee" />
 
             <TextView
-                android:id="@+id/coffee_text"
+                android:id="@+id/inventoryText1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:padding="10dip"
-                android:text="@string/coffee_label"
+                android:text="@string/inventoryText1"
                 android:textColor="#000000"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -62,12 +62,12 @@
                 android:src="@drawable/hamburger" />
 
             <TextView
-                android:id="@+id/hamburger_text"
+                android:id="@+id/inventoryText2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:padding="10dip"
-                android:text="@string/hamburger_label"
+                android:text="@string/inventoryText2"
                 android:textColor="#000000"
                 android:textSize="20sp"
                 android:textStyle="bold" />

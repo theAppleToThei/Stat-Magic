@@ -7,6 +7,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
 import java.util.Map;
 
 import android.content.Context;
@@ -22,6 +23,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.techtalk4geeks.blogspot.Items.FunctionalItem;
+import com.techtalk4geeks.blogspot.Items.Item;
 
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
@@ -39,9 +42,12 @@ public class MainActivity extends FragmentActivity implements LocationListener
 	DatePicker myDatePicker;
 	Boolean isSetup = true;
 	Boolean isCard = false;
+	ArrayList<Item> inventory = new ArrayList<Item>();
 	public int SPEEDHolder = 0;
 	private static final long MIN_TIME = 400;
 	private static final float MIN_DISTANCE = 1000;
+	private View myView;
+	//http://stackoverflow.com/questions/18690562/android-spinner-is-null
 	static User user;
 
 	// File file;
@@ -50,6 +56,7 @@ public class MainActivity extends FragmentActivity implements LocationListener
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
+		myView = getLayoutInflater().inflate(R.layout.setup, null);
 		File file = new File(getFilesDir(), "user.txt");
 		if (file.exists())
 		{
@@ -64,6 +71,7 @@ public class MainActivity extends FragmentActivity implements LocationListener
 				String jsonString = br.readLine();
 				JSONObject object = new JSONObject(jsonString);
 				user = new User(object);
+//				user.sendUserNotification();
 				setContentView(R.layout.activity_main);
 				setValuesForStatCard();
 			} catch (Exception e)
@@ -73,6 +81,8 @@ public class MainActivity extends FragmentActivity implements LocationListener
 			}
 		} else
 		{
+			Item ATMCard = new FunctionalItem("ATM Card", 30);
+			inventory.add(ATMCard);
 			try
 			{
 				file.createNewFile();
@@ -93,8 +103,7 @@ public class MainActivity extends FragmentActivity implements LocationListener
 			}
 			Button doneButton = (Button) this.findViewById(R.id.done_button);
 			// Button useButton1 = (Button) this.findViewById(R.id.use_button1);
-			// Button eraseButton = (Button)
-			// this.findViewById(R.id.erase_button);
+//			Button eraseButton = (Button) this.findViewById(R.id.erase_button);
 			doneButton.setOnClickListener(new View.OnClickListener()
 			{
 				public void onClick(View v)
@@ -108,7 +117,7 @@ public class MainActivity extends FragmentActivity implements LocationListener
 					String city = ((TextView) findViewById(R.id.cityField))
 							.getText().toString();
 					int age = Integer.parseInt(strAge);
-					user = new User(name, rank, age, city);
+					user = new User(name, rank, age, city, inventory);
 					// TODO: Save User
 					try
 					{
@@ -132,14 +141,14 @@ public class MainActivity extends FragmentActivity implements LocationListener
 
 			});
 
-			// eraseButton.setOnClickListener(new View.OnClickListener()
-			// {
-			// public void onClick(View v)
-			// {
-			// // file.delete();
-			// // throw new NullPointerException();
-			// }
-			// });
+//			 eraseButton.setOnClickListener(new View.OnClickListener()
+//			 {
+//			 public void onClick(View v)
+//			 {
+////			  file.delete(); //POTENTIAL ERROR: FINAL TYPE FOR FILE
+//			  throw new NullPointerException();
+//			 }
+//			 });
 		}
 
 		// NotificationCompat.Builder mBuilder =
@@ -190,9 +199,21 @@ public class MainActivity extends FragmentActivity implements LocationListener
 		TextView nameView = (TextView) MainActivity.this
 				.findViewById(R.id.nameValue);
 		nameView.setText(user.getName());
+		TextView expView = (TextView) MainActivity.this
+				.findViewById(R.id.exp_value);
+		expView.setText(String.valueOf(user.getEXP()));
+		TextView expMaxView = (TextView) MainActivity.this
+				.findViewById(R.id.exp_max_value);
+		expMaxView.setText(String.valueOf(user.getMaxEXP()));
 		TextView levelView = (TextView) MainActivity.this
 				.findViewById(R.id.levelValue);
 		levelView.setText(String.valueOf(user.getLevel()));
+		TextView rankView = (TextView) MainActivity.this
+				.findViewById(R.id.rankValue);
+		Spinner spinner = (Spinner) myView.findViewById(R.id.typeSelecter);
+		Object rankInt = spinner.getSelectedItem();
+		String rankStr = String.valueOf(rankInt);
+		rankView.setText(rankStr);
 		TextView hpView = (TextView) MainActivity.this
 				.findViewById(R.id.hpValue);
 		hpView.setText(String.valueOf(user.getHP()));
@@ -211,6 +232,12 @@ public class MainActivity extends FragmentActivity implements LocationListener
 		TextView speedView = (TextView) MainActivity.this
 				.findViewById(R.id.speedValue);
 		speedView.setText(String.valueOf(user.getSPEED()));
+//		TextView inventory1 = (TextView) MainActivity.this
+//				.findViewById(R.id.inventoryText1);
+//		inventory1.setText(String.valueOf(user.getInventory().get(0).toString()));
+//		TextView inventory2 = (TextView) MainActivity.this
+//				.findViewById(R.id.inventoryText2);
+//		inventory2.setText(String.valueOf(user.getInventory().get(0).toString()));
 	}
 
 	// @Override
@@ -297,7 +324,7 @@ public class MainActivity extends FragmentActivity implements LocationListener
 			MarkerOptions mo = new MarkerOptions();
 			mo.title("here");
 			map.setMyLocationEnabled(true);
-//			Marker here = map.addMarker(mo);
+			// Marker here = map.addMarker(mo);
 
 			isCard = false;
 			return true;
@@ -324,27 +351,27 @@ public class MainActivity extends FragmentActivity implements LocationListener
 	public void onLocationChanged(Location arg0)
 	{
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void onProviderDisabled(String arg0)
 	{
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void onProviderEnabled(String arg0)
 	{
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void onStatusChanged(String arg0, int arg1, Bundle arg2)
 	{
 		// TODO Auto-generated method stub
-		
+
 	}
 }

@@ -4,7 +4,7 @@
     <string name="def_label">DEF</string>
     <string name="hello_world">Hello World!</string>
     <string name="hp_label">HP</string>
-    <string name="level_label">LEVEL 1</string>
+    <string name="level_label">1</string>
     <string name="name">User.getName();</string>
     <string name="pow_label">POW</string>
     <string name="sp_label">SP</string>
@@ -17,7 +17,7 @@
     <string name="map_menu">Show Map</string>
     <string name="inventory_menu">Open Inventory</string>
     <string name="inventory_label">Inventory</string>
-    <string name="coffee_label">Coffee</string>
+    <string name="inventoryText1">Coffee</string>
     <string name="use_label">Use</string>
     <string name="crash_label">Crash App</string>
     <string name="battle_label">Battle</string>
@@ -70,7 +70,7 @@
         <item>Grandparent</item>
         <item>Biker</item>
     </string-array>
-    <string name="hamburger_label">Hamburger</string>
+    <string name="inventoryText2">Hamburger</string>
     <string name="about_menu">About</string>
     <string name="settings_label">Settings</string>
     <string name="name_hint">What is your name?</string>
@@ -80,6 +80,11 @@
     <string name="nerd_description">This is your opponent. He is a nerd. Nerds rule! Nerds tend to be higher in defense and lower in power.</string>
     <string name="slash">/</string>
     <string name="hpMaxValue">HP Max</string>
+    <string name="spMaxValue">SP Max Value</string>
+    <string name="exp_label">EXP </string>
+    <string name="exp_value">EXP</string>
+    <string name="exp_max">EXP</string>
+    <string name="level">Level </string>
     
 
 </resources>
