@@ -89,6 +89,7 @@
     <string name="sp_label">Use SP</string>
     <string name="defend_label">Defend</string>
     <string name="flee_label">Flee</string>
+    <string name="weapon_label">Weapon:&#160;</string>
     
 
 </resources>

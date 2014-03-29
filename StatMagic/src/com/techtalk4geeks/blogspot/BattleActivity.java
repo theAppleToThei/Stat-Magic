@@ -1,5 +1,6 @@
 package com.techtalk4geeks.blogspot;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -8,6 +9,8 @@ import android.view.MenuItem;
 
 public class BattleActivity extends Activity
 {
+	MediaPlayer mp = new MediaPlayer();
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{

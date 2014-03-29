@@ -19,6 +19,7 @@ import com.techtalk4geeks.blogspot.Items.Item;
 import com.techtalk4geeks.blogspot.Items.POWChangingItem;
 import com.techtalk4geeks.blogspot.Items.SPChangingItem;
 import com.techtalk4geeks.blogspot.Items.SPEEDChangingItem;
+import com.techtalk4geeks.blogspot.Items.Weapon;
 
 public class User
 {
@@ -38,6 +39,10 @@ public class User
 	protected int myMaxSP;
 	protected int myEXP;
 	protected int myMaxEXP;
+	Weapon myWeapon;
+	Weapon pencil = new Weapon("Pencil", 1);
+	Weapon fireball = new Weapon("Fireball", 3);
+	Weapon oldfootballshoe = new Weapon("Old Football Shoe", 3);
 	int myAge;
 	ArrayList<Item> myStuff = new ArrayList<Item>();
 	Item hamburger = new HealingItem("Hamburger", 49);
@@ -85,7 +90,7 @@ public class User
 		myName = name;
 		myRank = rank_display.indexOf(rank);
 		myRank2 = rank;
-		myLevel = (int)(age * 2);
+		myLevel = 1;
 		mySP = (int) (15); // myLevel * 1.5 / 5
 		myHP = 17;
 		myMaxHP = 17;
@@ -98,14 +103,17 @@ public class User
 		{ // IF GEEK
 			myPOW = (int) (mySP * 0.7);
 			myDEF = (int) (mySP * 0.5);
+			myWeapon = fireball;
 		} else if (myRank == 3)
 		{ // IF NERD
 			myPOW = (int) (mySP * 0.5);
 			myDEF = (int) (mySP * 0.7);
+			myWeapon = pencil;
 		} else
 		{ // OTHERWISE
 			myPOW = (int) (mySP * 0.4);
 			myDEF = (int) (mySP * 0.6);
+			myWeapon = new Weapon("Hand", 1);
 		} // DON'T FORGET
 		mySPEED = 5;
 	}
@@ -301,6 +309,10 @@ public class User
 	
 	public void healSP() {
 		mySP = myMaxSP;
+	}
+	
+	public Weapon getWeapon() {
+		return myWeapon;
 	}
 	
 	public void setMaxEXP(int incrementBy) {

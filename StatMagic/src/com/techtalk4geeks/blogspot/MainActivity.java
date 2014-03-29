@@ -238,6 +238,9 @@ public class MainActivity extends FragmentActivity implements LocationListener
 		TextView speedView = (TextView) MainActivity.this
 				.findViewById(R.id.speedValue);
 		speedView.setText(String.valueOf(user.getSPEED()));
+		TextView weaponView = (TextView) MainActivity.this
+				.findViewById(R.id.weaponValue);
+		speedView.setText(String.valueOf(user.getWeapon().getName()));
 //		TextView inventory1 = (TextView) MainActivity.this
 //				.findViewById(R.id.inventoryText1);
 //		inventory1.setText(String.valueOf(user.getInventory().get(0).toString()));
@@ -392,4 +395,5 @@ public class MainActivity extends FragmentActivity implements LocationListener
 		// TODO Auto-generated method stub
 
 	}
+	
 }
