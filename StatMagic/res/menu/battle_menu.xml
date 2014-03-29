@@ -19,7 +19,7 @@
         android:title="@string/defend_label"/>
     <item
         android:id="@+id/flee"
-        android:icon="@drawable/crash"
+        android:icon="@drawable/flee"
         android:title="@string/flee_label"/>
 
 </menu>
