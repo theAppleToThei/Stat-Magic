@@ -213,10 +213,10 @@ public class MainActivity extends FragmentActivity implements LocationListener
 		levelView.setText(String.valueOf(user.getLevel()));
 		TextView rankView = (TextView) MainActivity.this
 				.findViewById(R.id.rankValue);
-		Spinner spinner = (Spinner) myView.findViewById(R.id.typeSelecter);
-		Object rankInt = spinner.getSelectedItem();
-		String rankStr = String.valueOf(rankInt);
-		rankView.setText(rankStr);
+//		Spinner spinner = (Spinner) myView.findViewById(R.id.typeSelecter);
+//		Object rankInt = spinner.getSelectedItem();
+//		String rankStr = String.valueOf(rankInt);
+		rankView.setText(user.getRankName());
 		TextView hpView = (TextView) MainActivity.this
 				.findViewById(R.id.hpValue);
 		hpView.setText(String.valueOf(user.getHP()));
@@ -240,7 +240,7 @@ public class MainActivity extends FragmentActivity implements LocationListener
 		speedView.setText(String.valueOf(user.getSPEED()));
 		TextView weaponView = (TextView) MainActivity.this
 				.findViewById(R.id.weaponValue);
-		speedView.setText(String.valueOf(user.getWeapon().getName()));
+		weaponView.setText(String.valueOf(user.getWeapon().getName()));
 //		TextView inventory1 = (TextView) MainActivity.this
 //				.findViewById(R.id.inventoryText1);
 //		inventory1.setText(String.valueOf(user.getInventory().get(0).toString()));

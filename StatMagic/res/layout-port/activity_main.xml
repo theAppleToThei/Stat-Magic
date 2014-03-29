@@ -54,14 +54,14 @@
         android:layout_height="wrap_content"
         android:orientation="vertical" >
 
-        <TextView
+        <!-- <TextView
             android:id="@+id/rankLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/rank_label"
             android:textColor="#FFFFFF"
             android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textStyle="bold" /> -->
 
         <!-- TO BE IMPLEMENTED -->
 

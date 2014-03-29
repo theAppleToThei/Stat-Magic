@@ -1,5 +1,8 @@
 package com.techtalk4geeks.blogspot.Items;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import com.techtalk4geeks.blogspot.User;
 
 public class Weapon extends Item
@@ -10,8 +13,20 @@ public class Weapon extends Item
 		myPOW = POW;
 	}
 	
+	public Weapon(JSONObject json) throws Exception {
+		super(json.getString("name"));
+		myPOW = json.getInt("POW");
+	}
+	
 	public int getPOW() {
 		return myPOW;
+	}
+	
+	public JSONObject toJSON() throws JSONException {
+		JSONObject json = new JSONObject();
+		json.put("name", myName);
+		json.put("POW", myPOW);
+		return json;
 	}
 
 	@Override
