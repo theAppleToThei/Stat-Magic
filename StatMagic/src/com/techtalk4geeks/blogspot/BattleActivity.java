@@ -2,6 +2,7 @@ package com.techtalk4geeks.blogspot;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -37,6 +38,8 @@ public class BattleActivity extends Activity
 		case R.id.defend:
 			return true;
 		case R.id.flee:
+			Intent main = new Intent(this, MainActivity.class);
+			startActivity(main);
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);

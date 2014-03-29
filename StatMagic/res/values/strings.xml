@@ -85,6 +85,10 @@
     <string name="exp_value">EXP</string>
     <string name="exp_max">EXP</string>
     <string name="level">Level&#160;</string>
+    <string name="attack_label">Attack</string>
+    <string name="sp_label">Use SP</string>
+    <string name="defend_label">Defend</string>
+    <string name="flee_label">Flee</string>
     
 
 </resources>

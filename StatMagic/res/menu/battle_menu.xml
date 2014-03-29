@@ -4,22 +4,22 @@
     <item
         android:id="@+id/attack"
         android:icon="@drawable/battle"
-        android:title="@string/settings_label"/>
+        android:title="@string/attack_label"/>
     <item
         android:id="@+id/special"
         android:icon="@drawable/crash"
-        android:title="@string/crash_label"/>
+        android:title="@string/sp_label"/>
     <item
         android:id="@+id/inventorybattle"
         android:icon="@drawable/hamburger"
-        android:title="@string/crash_label"/>
+        android:title="@string/inventory_label"/>
     <item
         android:id="@+id/defend"
         android:icon="@drawable/defsprite"
-        android:title="@string/crash_label"/>
+        android:title="@string/defend_label"/>
     <item
         android:id="@+id/flee"
         android:icon="@drawable/crash"
-        android:title="@string/crash_label"/>
+        android:title="@string/flee_label"/>
 
 </menu>
