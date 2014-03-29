@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import android.content.Context;
+import android.content.Intent;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -334,7 +335,8 @@ public class MainActivity extends FragmentActivity implements LocationListener
 			isCard = false;
 			return true;
 		case R.id.battle:
-			setContentView(R.layout.dev_battle);
+			Intent battle = new Intent(this, BattleActivity.class);
+			startActivity(battle);
 			isCard = false;
 			isBattle = true;
 			return true;
