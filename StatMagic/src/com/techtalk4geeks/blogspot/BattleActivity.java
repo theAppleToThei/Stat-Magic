@@ -7,9 +7,12 @@ import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
 
+
 public class BattleActivity extends Activity
 {
 	MediaPlayer mp = new MediaPlayer();
+	static String oppenent;
+	static String battleIntro = "The " + oppenent + " attacked!";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState)

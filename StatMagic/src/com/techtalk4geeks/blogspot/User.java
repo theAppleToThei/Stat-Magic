@@ -119,6 +119,41 @@ public class User
 		} // DON'T FORGET
 		mySPEED = 5;
 	}
+	
+	public User(String name, String rank, int age, String city, int level)
+	{
+		myAge = age;
+		myName = name;
+		myRank = rank_display.indexOf(rank);
+		myRank2 = rank;
+		myLevel = level;
+		mySP = (int) (myLevel * 1.5); // myLevel * 1.5 / 5
+		myHP = myLevel * 2;
+		myMaxHP = myHP;
+		myMaxSP = mySP;
+		myCity = city;
+		myEXP = 0;
+		myMaxEXP = 3;
+		if (myRank == 2)
+		{ // IF GEEK
+			myPOW = (int) (mySP * 0.7);
+			myDEF = (int) (mySP * 0.5);
+			myWeapon = foamSword;
+			myRankName = "Geek";
+		} else if (myRank == 3)
+		{ // IF NERD
+			myPOW = (int) (mySP * 0.5);
+			myDEF = (int) (mySP * 0.7);
+			myWeapon = pencil;
+			myRankName = "Nerd";
+		} else
+		{ // OTHERWISE
+			myPOW = (int) (mySP * 0.4);
+			myDEF = (int) (mySP * 0.6);
+			myWeapon = new Weapon("Hand", 1);
+		} // DON'T FORGET
+		mySPEED = 5;
+	}
 
 	public User(JSONObject jsonO) throws Exception
 	{

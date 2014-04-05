@@ -51,7 +51,8 @@ public class MainActivity extends FragmentActivity implements LocationListener
 	private View myView;
 	//http://stackoverflow.com/questions/18690562/android-spinner-is-null
 	public User user;
-
+	public User comNerd = new User("Scientific Nerd", "Nerd", 13, "Winters", 3);
+	
 	// File file;
 
 	@Override

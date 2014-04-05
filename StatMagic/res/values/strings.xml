@@ -24,6 +24,7 @@
     
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
+    <color name="red">#FF0000</color>
 
     <string-array name="gender_list">
         <item>Select Your Gender</item>
@@ -90,6 +91,10 @@
     <string name="defend_label">Defend</string>
     <string name="flee_label">Flee</string>
     <string name="weapon_label">Weapon:&#160;</string>
+    
+    <string name="line1">NOT RENDERED</string>
+    <string name="line2">NOT RENDERED</string>
+    <string name="line3">NOT RENDERED</string>
     
 
 </resources>
