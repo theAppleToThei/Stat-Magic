@@ -43,7 +43,7 @@ public class User
 	protected int myMaxEXP;
 	Weapon myWeapon;
 	Weapon pencil = new Weapon("Pencil", 1);
-	Weapon fireball = new Weapon("Fireball", 3);
+	Weapon foamSword = new Weapon("Foam Sword", 3);
 	Weapon oldfootballshoe = new Weapon("Old Football Shoe", 3);
 	int myAge;
 	ArrayList<Item> myStuff = new ArrayList<Item>();
@@ -103,7 +103,7 @@ public class User
 		{ // IF GEEK
 			myPOW = (int) (mySP * 0.7);
 			myDEF = (int) (mySP * 0.5);
-			myWeapon = fireball;
+			myWeapon = foamSword;
 			myRankName = "Geek";
 		} else if (myRank == 3)
 		{ // IF NERD
