@@ -33,14 +33,17 @@ public class BattleActivity extends Activity
 		switch (item.getItemId())
 		{
 		case R.id.attack:
+//			MainActivity.sMainActivity.comNerd.dealDamage(MainActivity.sMainActivity.user.getWeapon().getPOW());
 			return true;
 		case R.id.special:
 			return true;
 		case R.id.inventorybattle:
+			setContentView(R.layout.inventory);
 			return true;
-		case R.id.defend:
+		case R.id.defend: 
 			return true;
 		case R.id.flee:
+//			MainActivity.sMainActivity.user.changeMoneyBy(5 * MainActivity.sMainActivity.user.getLevel());
 			Intent main = new Intent(this, MainActivity.class);
 			startActivity(main);
 			return true;

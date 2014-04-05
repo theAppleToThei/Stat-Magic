@@ -31,7 +31,7 @@ public class User
 	protected int mySP;
 
 	static String myRankName;
-
+	
 	protected int myPOW;
 	protected int myDEF;
 	protected int mySPEED;
@@ -43,7 +43,8 @@ public class User
 	protected int myMaxEXP;
 	Weapon myWeapon;
 	Weapon pencil = new Weapon("Pencil", 1);
-	Weapon fireball = new Weapon("Fireball", 3);
+	Weapon foamSword = new Weapon("Foam Sword", 3);
+	Weapon plasticSword = new Weapon("Plastic Sword", 7);
 	Weapon oldfootballshoe = new Weapon("Old Football Shoe", 3);
 	int myAge;
 	ArrayList<Item> myStuff = new ArrayList<Item>();
@@ -103,7 +104,7 @@ public class User
 		{ // IF GEEK
 			myPOW = (int) (mySP * 0.7);
 			myDEF = (int) (mySP * 0.5);
-			myWeapon = fireball;
+			myWeapon = foamSword;
 			myRankName = "Geek";
 		} else if (myRank == 3)
 		{ // IF NERD
@@ -111,6 +112,69 @@ public class User
 			myDEF = (int) (mySP * 0.7);
 			myWeapon = pencil;
 			myRankName = "Nerd";
+		} else if (myRank == 1)
+		{ // IF DORK
+			myPOW = (int) (mySP * 0.5);
+			myDEF = (int) (mySP * 0.7);
+			myRankName = "Dork";
+		} else if (myRank == 4)
+		{ // IF JOCK
+			myPOW = (int) (mySP * 0.5);
+			myDEF = (int) (mySP * 0.7);
+			myWeapon = oldfootballshoe;
+			myRankName = "Jock";
+		} else
+		{ // OTHERWISE
+			myPOW = (int) (mySP * 0.4);
+			myDEF = (int) (mySP * 0.6);
+			myWeapon = new Weapon("Hand", 1);
+		} // DON'T FORGET
+		mySPEED = 5;
+	}
+	
+	public User(String name, String rank, int age, String city, int level)
+	{
+		for (int i = 0; i < rankStrings.length; i++)
+		{
+			rank_display.add(rankStrings[i]);
+		}
+		// myBirthYear = birthYear;
+		// Date date = new Date(System.currentTimeMillis()) + 2100;
+		myAge = age;
+		myName = name;
+		myRank = rank_display.indexOf(rank);
+		myRank2 = rank;
+		myLevel = level;
+		mySP = (int) (level * 1.5); // myLevel * 1.5 / 5
+		myHP = (level * 2);
+		myMaxHP = myHP;
+		myMaxSP = mySP;
+		myCity = city;
+		myEXP = 0;
+		myMaxEXP = 3;
+		if (myRank == 2)
+		{ // IF GEEK
+			myPOW = (int) (mySP * 0.7);
+			myDEF = (int) (mySP * 0.5);
+			myWeapon = foamSword;
+			myRankName = "Geek";
+		} else if (myRank == 3)
+		{ // IF NERD
+			myPOW = (int) (mySP * 0.5);
+			myDEF = (int) (mySP * 0.7);
+			myWeapon = pencil;
+			myRankName = "Nerd";
+		} else if (myRank == 1)
+		{ // IF DORK
+			myPOW = (int) (mySP * 0.5);
+			myDEF = (int) (mySP * 0.7);
+			myRankName = "Dork";
+		} else if (myRank == 4)
+		{ // IF JOCK
+			myPOW = (int) (mySP * 0.5);
+			myDEF = (int) (mySP * 0.7);
+			myWeapon = oldfootballshoe;
+			myRankName = "Jock";
 		} else
 		{ // OTHERWISE
 			myPOW = (int) (mySP * 0.4);
@@ -364,7 +428,7 @@ public class User
 		//
 		// mNotificationManager.notify(null, mBuilder.build());
 	}
-
+	
 	public void levelUp(User u)
 	{
 		u.setMaxHP(u.getLevel() * 3 + u.getMaxHP());
@@ -393,5 +457,9 @@ public class User
 		// (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 		//
 		// mNotificationManager.notify(null, mBuilder.build());
+	}
+	
+	public void dealDamage(int damage) {
+		myHP -= damage;
 	}
 }
