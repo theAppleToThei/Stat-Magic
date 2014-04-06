@@ -400,7 +400,7 @@ public class MainActivity extends FragmentActivity implements LocationListener
 
 	}
 	
-	public MainActivity getActivity() {
+	public static MainActivity getActivity() {
 		return (MainActivity) sMainActivity;
 	}
 	

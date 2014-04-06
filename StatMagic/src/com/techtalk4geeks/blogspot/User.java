@@ -399,6 +399,10 @@ public class User
 		//
 		// mNotificationManager.notify(null, mBuilder.build());
 	}
+	
+	public void dealDamage(int damage) {
+		myHP -= damage;
+	}
 
 	public void levelUp(User u)
 	{
