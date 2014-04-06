@@ -28,16 +28,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
-        
+
         <TextView
             android:id="@+id/level_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/level_label"
+            android:text="@string/level"
             android:textColor="#FFFFFF"
             android:textSize="24sp"
             android:textStyle="bold" />
-        
+
         <TextView
             android:id="@+id/levelValue"
             android:layout_width="match_parent"
@@ -46,27 +46,26 @@
             android:textColor="#FFFFFF"
             android:textSize="24sp"
             android:textStyle="bold" />
-
     </TableRow>
-    
+
     <!-- RANK ROW -->
 
     <TableRow
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
-        
-        <TextView
+
+        <!-- <TextView
             android:id="@+id/rankLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/rank_label"
             android:textColor="#FFFFFF"
             android:textSize="24sp"
-            android:textStyle="bold" />
-        
+            android:textStyle="bold" /> -->
+
         <!-- TO BE IMPLEMENTED -->
-        
+
         <TextView
             android:id="@+id/rankValue"
             android:layout_width="match_parent"
@@ -75,9 +74,52 @@
             android:textColor="#FFFFFF"
             android:textSize="24sp"
             android:textStyle="bold" />
-
     </TableRow>
 
+    <!-- EXP ROW -->
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/exp_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/exp_label"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/exp_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/exp_value"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/hpSlash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/slash"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/exp_max_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/exp_max"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </TableRow>
     <TableLayout
         android:id="@+id/linearLayout1"
         android:layout_width="match_parent"

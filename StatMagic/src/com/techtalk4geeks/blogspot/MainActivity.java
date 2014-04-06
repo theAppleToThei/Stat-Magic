@@ -10,6 +10,7 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Map;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
@@ -52,12 +53,14 @@ public class MainActivity extends FragmentActivity implements LocationListener
 	//http://stackoverflow.com/questions/18690562/android-spinner-is-null
 	public User user;
 	public User comNerd = new User("Scientific Nerd", "Nerd", 13, "Winters", 3);
+	public static Activity sMainActivity; // Delete if needed
 	
 	// File file;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
+		sMainActivity = MainActivity.this; // Delete if needed
 		super.onCreate(savedInstanceState);
 		myView = getLayoutInflater().inflate(R.layout.setup, null);
 		File file = new File(getFilesDir(), "user.txt");
@@ -395,6 +398,18 @@ public class MainActivity extends FragmentActivity implements LocationListener
 	{
 		// TODO Auto-generated method stub
 
+	}
+	
+	public MainActivity getActivity() {
+		return (MainActivity) sMainActivity;
+	}
+	
+	public User getMainUser() {
+		return user;
+	}
+
+	public User getCOMNerd() {
+		return comNerd;
 	}
 	
 }
