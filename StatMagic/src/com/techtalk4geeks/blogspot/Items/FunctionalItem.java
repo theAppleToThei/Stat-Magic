@@ -18,4 +18,7 @@ public class FunctionalItem extends Item
 
 	}
 
+	public void changeValue(int changeBy) {
+		myValue += changeBy;
+	}
 }

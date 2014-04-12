@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:id="@+id/setup"
     android:layout_height="match_parent"
-    android:background="@drawable/redcard99"
+    android:background="@color/red"
     android:gravity="center_horizontal"
     android:orientation="vertical" >
     

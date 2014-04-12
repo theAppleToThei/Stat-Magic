@@ -87,7 +87,7 @@
     <string name="exp_max">EXP</string>
     <string name="level">Level&#160;</string>
     <string name="attack_label">Attack</string>
-    <string name="sp_label">Use SP</string>
+    <string name="use_sp_label">Use SP</string>
     <string name="defend_label">Defend</string>
     <string name="flee_label">Flee</string>
     <string name="weapon_label">Weapon:&#160;</string>
@@ -96,5 +96,8 @@
     <string name="line2">NOT RENDERED</string>
     <string name="line3">NOT RENDERED</string>
     
+    <string name="win">YOU WON!</string>
+    <string name="lose">YOU LOST!</string>
+    <string name="blank"></string>
 
 </resources>

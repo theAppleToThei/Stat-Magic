@@ -1,5 +1,9 @@
 package com.techtalk4geeks.blogspot;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
 import org.json.JSONArray;
@@ -119,7 +123,7 @@ public class User
 		} // DON'T FORGET
 		mySPEED = 5;
 	}
-	
+
 	public User(String name, String rank, int age, String city, int level)
 	{
 		myAge = age;
@@ -399,38 +403,66 @@ public class User
 		//
 		// mNotificationManager.notify(null, mBuilder.build());
 	}
-	
-	public void dealDamage(int damage) {
+
+	public void dealDamage(int damage)
+	{
 		myHP -= damage;
 	}
 
-	public void levelUp(User u)
+	public void levelUp()
 	{
-		u.setMaxHP(u.getLevel() * 3 + u.getMaxHP());
-		u.setMaxSP(u.getLevel() * 2 + u.getMaxSP());
-		u.setPOW(myPOW + 3);
-		u.setDEF(myDEF + 3);
-		u.incrementLevel();
-		u.healAll();
-		u.setMaxEXP(getLevel() * 25);
-		NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(
-				null).setSmallIcon(R.drawable.nerd_sprite)
-				.setContentTitle("My notification")
-				.setContentText("Hello World!");
+		setMaxHP(getLevel() * 3 + getMaxHP());
+		setMaxSP(getLevel() * 2 + getMaxSP());
+		setPOW(myPOW + 3);
+		setDEF(myDEF + 3);
+		incrementLevel();
+		healAll();
+		setMaxEXP(getLevel() * 3);
+		// NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(
+		// null).setSmallIcon(R.drawable.nerd_sprite)
+		// .setContentTitle("My notification")
+		// .setContentText("Hello World!");
 
-		Intent resultIntent = new Intent(null, MainActivity.class);
-
-		TaskStackBuilder stackBuilder = TaskStackBuilder.create(null);
-
-		stackBuilder.addParentStack(MainActivity.class);
-
-		stackBuilder.addNextIntent(resultIntent);
-		PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(0,
-				PendingIntent.FLAG_UPDATE_CURRENT);
-		mBuilder.setContentIntent(resultPendingIntent);
-		// NotificationManager mNotificationManager =
-		// (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+		// Intent resultIntent = new Intent(null, MainActivity.class);
 		//
-		// mNotificationManager.notify(null, mBuilder.build());
+		// TaskStackBuilder stackBuilder = TaskStackBuilder.create(null);
+		//
+		// stackBuilder.addParentStack(MainActivity.class);
+		//
+		// stackBuilder.addNextIntent(resultIntent);
+		// PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(0,
+		// PendingIntent.FLAG_UPDATE_CURRENT);
+		// mBuilder.setContentIntent(resultPendingIntent);
+		// // NotificationManager mNotificationManager =
+		// // (NotificationManager)
+		// getSystemService(Context.NOTIFICATION_SERVICE);
+		// //
+		// // mNotificationManager.notify(null, mBuilder.build());
 	}
+
+	public void addEXP(int add)
+	{
+		myEXP += add;
+		checkForLevelUp();
+	}
+
+	public void saveThyself(Context context) throws Exception
+	{
+		JSONObject userJSON = toJSON();
+		String userString = userJSON.toString();
+		FileOutputStream FOS = context.openFileOutput("user.txt", 0);
+		OutputStreamWriter OSW = new OutputStreamWriter(FOS);
+		OSW.write(userString);
+		OSW.flush();
+		OSW.close();
+	}
+
+	private void checkForLevelUp()
+	{
+		if (getEXP() >= getMaxEXP())
+		{
+			levelUp();
+		}
+	}
+
 }

@@ -3,6 +3,7 @@ package com.techtalk4geeks.blogspot;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -18,6 +19,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.google.android.gms.maps.GoogleMap;
@@ -35,6 +37,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Spinner;
 
@@ -128,13 +131,7 @@ public class MainActivity extends FragmentActivity implements LocationListener
 					// TODO: Save User
 					try
 					{
-						JSONObject userJSON = user.toJSON();
-						String userString = userJSON.toString();
-						FileOutputStream FOS = openFileOutput("user.txt", 0);
-						OutputStreamWriter OSW = new OutputStreamWriter(FOS);
-						OSW.write(userString);
-						OSW.flush();
-						OSW.close();
+						user.saveThyself(MainActivity.this);
 					} catch (Exception e)
 					{
 						// TODO Auto-generated catch block
@@ -145,7 +142,6 @@ public class MainActivity extends FragmentActivity implements LocationListener
 					isCard = true;
 					setValuesForStatCard();
 				}
-
 			});
 
 //			 eraseButton.setOnClickListener(new View.OnClickListener()
@@ -199,6 +195,17 @@ public class MainActivity extends FragmentActivity implements LocationListener
 		// WARNING: METHOD NOT OVER!
 
 		// user.setName(view.getText().toString());
+		
+//		ImageView hpImage = (ImageView) MainActivity.this.findViewById(R.id.imageView2);
+//		hpImage.setOnClickListener(new View.OnClickListener()
+//		{
+//			
+//			@Override
+//			public void onClick(View v)
+//			{
+//				
+//			}
+//		});
 	}
 
 	public void setValuesForStatCard()
