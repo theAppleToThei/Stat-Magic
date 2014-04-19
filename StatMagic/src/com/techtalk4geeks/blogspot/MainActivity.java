@@ -71,7 +71,6 @@ public class MainActivity extends FragmentActivity implements LocationListener
 		sMainActivity = MainActivity.this; // Delete if needed
 		super.onCreate(savedInstanceState);
 		
-		
 		myView = getLayoutInflater().inflate(R.layout.setup, null);
 		File file = new File(getFilesDir(), "user.txt");
 		if (file.exists())
@@ -319,6 +318,15 @@ public class MainActivity extends FragmentActivity implements LocationListener
 		user.setName(name);
 	}
 
+	@Override
+	public boolean onPrepareOptionsMenu(Menu menu) {
+	    MenuItem stat = menu.findItem(R.id.stat);
+	    MenuItem battle = menu.findItem(R.id.battle);
+	    stat.setVisible(false);
+	    battle.setVisible(true);
+	    return true;
+	}
+	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item)
 	{
