@@ -43,7 +43,7 @@ public class BattleActivity extends Activity
 		line3 = (TextView) BattleActivity.this
 				.findViewById(R.id.thirdline);
 		
-		line1.setText(String.valueOf(""));
+		line1.setText(String.valueOf("Encountered the " + act.comNerd.getRankName() + "!"));
 		line2.setText(String.valueOf(""));
 		line3.setText(String.valueOf(""));
 	}
