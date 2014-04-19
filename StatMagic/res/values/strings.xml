@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <string name="app_name">Stat Magic</string>
@@ -21,7 +22,7 @@
     <string name="use_label">Use</string>
     <string name="crash_label">Crash App</string>
     <string name="battle_label">Battle</string>
-    
+
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="red">#FF0000</color>
@@ -31,7 +32,6 @@
         <item>Male</item>
         <item>Female</item>
     </string-array>
-    
     <string-array name="rank_list">
         <item>Select What You Are</item>
         <item>I Do Not Care</item>
@@ -71,6 +71,7 @@
         <item>Grandparent</item>
         <item>Biker</item>
     </string-array>
+
     <string name="inventoryText2">Hamburger</string>
     <string name="about_menu">About</string>
     <string name="settings_label">Settings</string>
@@ -91,13 +92,13 @@
     <string name="defend_label">Defend</string>
     <string name="flee_label">Flee</string>
     <string name="weapon_label">Weapon:&#160;</string>
-    
     <string name="line1">NOT RENDERED</string>
     <string name="line2">NOT RENDERED</string>
     <string name="line3">NOT RENDERED</string>
-    
     <string name="win">YOU WON!</string>
     <string name="lose">YOU LOST!</string>
     <string name="blank"></string>
+    <string name="title_activity_action">ActionActivity</string>
+    <string name="action_settings">Settings</string>
 
 </resources>

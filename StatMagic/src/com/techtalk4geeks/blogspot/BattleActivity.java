@@ -29,6 +29,7 @@ public class BattleActivity extends Activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.dev_battle);
 		ActionBar actionBar = getActionBar();
+		actionBar.show();
 		battleSprite = (ImageView) BattleActivity.this
 				.findViewById(R.id.battleSprite);
 		
