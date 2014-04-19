@@ -63,7 +63,9 @@ public class BattleActivity extends Activity
 		{
 		case R.id.attack:
 			act.comNerd.dealDamage(act.user.getWeapon().getPOW() + act.user.getPOW() - act.comNerd.getDEF());
-			setContentView(R.layout.dev_battle);
+			line1.setText(act.user.getName());
+			line2.setText("attacks and deals ");
+			line3.setText(act.user.getWeapon().getPOW() + act.user.getPOW() - act.comNerd.getDEF() + " HP of damage!");
 			if (act.comNerd.getHP() <= 0)
 			{
 				// TODO: Say YOU WIN!
