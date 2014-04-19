@@ -322,8 +322,10 @@ public class MainActivity extends FragmentActivity implements LocationListener
 	public boolean onPrepareOptionsMenu(Menu menu) {
 	    MenuItem stat = menu.findItem(R.id.stat);
 	    MenuItem battle = menu.findItem(R.id.battle);
+	    if(isCard) {
 	    stat.setVisible(false);
 	    battle.setVisible(true);
+	    }
 	    return true;
 	}
 	
