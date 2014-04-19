@@ -11,6 +11,7 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Map;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -53,10 +54,14 @@ public class MainActivity extends FragmentActivity implements LocationListener
 	private static final long MIN_TIME = 400;
 	private static final float MIN_DISTANCE = 1000;
 	private View myView;
+//	ActionBar actionBar = getActionBar();
+//	actionBar.show();
+
 	//http://stackoverflow.com/questions/18690562/android-spinner-is-null
 	public User user;
 	public User comNerd = new User("Scientific Nerd", "Nerd", 13, "Winters", 3);
 	public static Activity sMainActivity; // Delete if needed
+	
 	
 	// File file;
 
@@ -65,6 +70,8 @@ public class MainActivity extends FragmentActivity implements LocationListener
 	{
 		sMainActivity = MainActivity.this; // Delete if needed
 		super.onCreate(savedInstanceState);
+		
+		
 		myView = getLayoutInflater().inflate(R.layout.setup, null);
 		File file = new File(getFilesDir(), "user.txt");
 		if (file.exists())
