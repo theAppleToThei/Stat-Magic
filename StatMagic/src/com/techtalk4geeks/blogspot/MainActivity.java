@@ -59,7 +59,7 @@ public class MainActivity extends FragmentActivity implements LocationListener
 
 	//http://stackoverflow.com/questions/18690562/android-spinner-is-null
 	public User user;
-	public User comNerd = new User("Scientific Nerd", "Nerd", 13, "Winters", 3);
+	public User comNerd;
 	public static Activity sMainActivity; // Delete if needed
 	
 	
@@ -366,10 +366,15 @@ public class MainActivity extends FragmentActivity implements LocationListener
 			isCard = false;
 			return true;
 		case R.id.battle:
+			comNerd = new User("Scientific Nerd", "Nerd", 13, "Winters", user.getLevel());
 			Intent battle = new Intent(this, BattleActivity.class);
 			startActivity(battle);
 			isCard = false;
 			isBattle = true;
+			return true;
+		case R.id.gotoplace:
+			setContentView(R.layout.go_to_place);
+			isCard = false;
 			return true;
 		case R.id.settings:
 			setContentView(R.layout.settings);

@@ -33,40 +33,37 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/test_dummy" />
-            
+
             <Button
-                android:id="@+id/test_dummy_button"
+                android:id="@+id/local_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Local Battle" />
-            
-            </TableRow>
-            
-            <TableRow
+        </TableRow>
+
+        <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
-            
+
             <Button
-                android:id="@+id/test_dummy_button"
+                android:id="@+id/online_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Online Battle" />
         </TableRow>
-        
-            <TableRow
+
+        <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
-        
+
             <ImageView
                 android:id="@+id/imageView1"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:src="@drawable/geek_sprite" />
-            
-            </TableRow>
-
+        </TableRow>
     </TableLayout>
 
 </LinearLayout>

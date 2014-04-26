@@ -100,5 +100,8 @@
     <string name="blank"></string>
     <string name="title_activity_action">ActionActivity</string>
     <string name="action_settings">Settings</string>
+    <string name="food_store">Food Store</string>
+    <string name="tele">Teleport</string>
+    <string name="title_activity_battle__stage">Battle_Stage</string>
 
 </resources>

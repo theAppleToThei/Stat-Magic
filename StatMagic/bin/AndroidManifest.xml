@@ -40,6 +40,10 @@
             android:name="com.techtalk4geeks.blogspot.BattleActivity"
             android:label="@string/battle_label" >
         </activity>
+        <activity
+            android:name="com.techtalk4geeks.blogspot.Battle_Stage"
+            android:label="@string/title_activity_battle__stage" >
+        </activity>
     </application>
 
 </manifest>

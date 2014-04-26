@@ -10,6 +10,8 @@ import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,139 +21,44 @@ public class BattleActivity extends Activity
 	static String oppenent;
 	static String battleIntro = "The " + oppenent + " attacked!";
 	static MainActivity act = MainActivity.getActivity();
-	TextView line1;
-	TextView line2;
-	TextView line3;
-	ImageView battleSprite;
+	Button dev_battle;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.dev_battle);
-		ActionBar actionBar = getActionBar();
-		actionBar.show();
-		battleSprite = (ImageView) BattleActivity.this
-				.findViewById(R.id.battleSprite);
-		
-		line1 = (TextView) BattleActivity.this
-				.findViewById(R.id.firstline);
-		
-		line2 = (TextView) BattleActivity.this
-				.findViewById(R.id.secondline);
-		
-		line3 = (TextView) BattleActivity.this
-				.findViewById(R.id.thirdline);
-		
-		line1.setText(String.valueOf("Encountered the " + act.comNerd.getRankName() + "!"));
-		line2.setText(String.valueOf(""));
-		line3.setText(String.valueOf(""));
-	}
+		setContentView(R.layout.battle);
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu)
-	{
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.battle_menu, menu);
-		return true;
-	}
+		// addEncounter();
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item)
-	{
-		// Handle item selection
-		switch (item.getItemId())
-		{
-		case R.id.attack:
-			act.comNerd.dealDamage(act.user.getWeapon().getPOW() + act.user.getPOW() - act.comNerd.getDEF());
-			line1.setText(act.user.getName());
-			line2.setText("attacks and deals ");
-			line3.setText(act.user.getWeapon().getPOW() + act.user.getPOW() - act.comNerd.getDEF() + " HP of damage!");
-			if (act.comNerd.getHP() <= 0)
-			{
-				// TODO: Say YOU WIN!
-				line1.setText("YOU WON!");
-				line2.setText(String.valueOf(act.user.getName()));
-				line3.setText(String.valueOf("gained " + act.comNerd.getLevel() * 2 + " EXP."));
-				playFanfare();
-				flickerBattleSprite();
-				act.user.addEXP(act.comNerd.getLevel() * 2);
-				try
-				{
-					act.user.saveThyself(this);
-				} catch (Exception e)
-				{
-					e.printStackTrace();
-				}
-				
-				// myAsyncTask myWebFetch = new myAsyncTask();
-				// myWebFetch.execute();
-				Intent main = new Intent(this, MainActivity.class);
-				startActivity(main);
-			}
-			return true;
-		case R.id.special:
-			return true;
-		case R.id.inventorybattle:
-			return true;
-		case R.id.defend:
-			line1.setText(act.user.getName());
-			line2.setText("is on guard.");
-			return true;
-		case R.id.flee:
-			line1.setText(act.user.getName());
-			line2.setText("ran away.");
-			Intent main = new Intent(this, MainActivity.class);
-			startActivity(main);
-			
-			return true;
-		default:
-			return super.onOptionsItemSelected(item);
-		}
-	}
+		dev_battle = (Button) BattleActivity.this
+				.findViewById(R.id.test_dummy_button);
 
-	private void flickerBattleSprite()
-	{
-		battleSprite.setVisibility(0);
-		SystemClock.sleep(50);
-		battleSprite.setVisibility(100);
-		SystemClock.sleep(50);
-		battleSprite.setVisibility(0);
-		SystemClock.sleep(50);
-		battleSprite.setVisibility(100);
-		SystemClock.sleep(50);
-		battleSprite.setVisibility(0);
-	}
-
-	private void playFanfare()
-	{
-		mp = MediaPlayer.create(BattleActivity.this, R.raw.fanfare);
-		mp.setOnCompletionListener(new OnCompletionListener()
+		dev_battle.setOnClickListener(new View.OnClickListener()
 		{
 
 			@Override
-			public void onCompletion(MediaPlayer mp)
+			public void onClick(View v)
 			{
-				// TODO Auto-generated method stub
-				mp.release();
+				Intent battleScreen = new Intent(BattleActivity.this, Battle_Stage.class);
+				startActivity(battleScreen);
 			}
-		});
-		mp.start();
-	}
 
+		});
+	}
 }
 
-//class myAsyncTask extends AsyncTask    {
-//	 
-//    myAsyncTask()    {
-//    }
+// class myAsyncTask extends AsyncTask {
 //
-//    // Executed on a special thread and all your
-//    // time taking tasks should be inside this method
-//    @Override
-//    protected void doInBackground() {
-//        myData = myParser.getDataFromWeb(); 
-//        return null;
-//    }
-//    
-//}   
+// myAsyncTask() {
+// }
+//
+// // Executed on a special thread and all your
+// // time taking tasks should be inside this method
+// @Override
+// protected void doInBackground() {
+// myData = myParser.getDataFromWeb();
+// return null;
+// }
+//
+// }   
