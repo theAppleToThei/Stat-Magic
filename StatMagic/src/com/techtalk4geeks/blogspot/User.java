@@ -53,7 +53,7 @@ public class User
 	ArrayList<Item> myStuff = new ArrayList<Item>();
 	Item hamburger = new HealingItem("Hamburger", 49);
 	Item fries = new HealingItem("French Fries", 32);
-	Item coffee = new SPEEDChangingItem("Coffee", 2);
+	public Item coffee = new SPEEDChangingItem("Coffee", 2);
 	Item broccoli = new POWChangingItem("Broccoli", 4);
 	Item oatmeal = new POWChangingItem("Oatmeal", 3);
 	Item chocolate = new SPEEDChangingItem("Chocolate", 3);
@@ -463,6 +463,16 @@ public class User
 		{
 			levelUp();
 		}
+	}
+	
+	public void setLevel(int level) {
+		myLevel = level;
+		setMaxHP(getLevel() * 3 + getMaxHP());
+		setMaxSP(getLevel() * 2 + getMaxSP());
+		setPOW(myPOW + 3);
+		setDEF(myDEF + 3);
+		setHP(myMaxHP);
+		setSP(myMaxSP);
 	}
 
 }

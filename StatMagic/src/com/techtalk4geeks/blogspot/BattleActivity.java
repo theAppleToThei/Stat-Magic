@@ -1,5 +1,8 @@
 package com.techtalk4geeks.blogspot;
 
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.games.Games;
+
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
 import android.os.Bundle;
@@ -40,12 +43,13 @@ public class BattleActivity extends Activity
 			@Override
 			public void onClick(View v)
 			{
-				Intent battleScreen = new Intent(BattleActivity.this, Battle_Stage.class);
+				Intent battleScreen = new Intent(BattleActivity.this, Battle.class);
 				startActivity(battleScreen);
 			}
 
 		});
 	}
+	
 }
 
 // class myAsyncTask extends AsyncTask {

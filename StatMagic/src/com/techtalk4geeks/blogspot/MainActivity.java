@@ -54,15 +54,14 @@ public class MainActivity extends FragmentActivity implements LocationListener
 	private static final long MIN_TIME = 400;
 	private static final float MIN_DISTANCE = 1000;
 	private View myView;
-//	ActionBar actionBar = getActionBar();
-//	actionBar.show();
+	// ActionBar actionBar = getActionBar();
+	// actionBar.show();
 
-	//http://stackoverflow.com/questions/18690562/android-spinner-is-null
+	// http://stackoverflow.com/questions/18690562/android-spinner-is-null
 	public User user;
 	public User comNerd;
 	public static Activity sMainActivity; // Delete if needed
-	
-	
+
 	// File file;
 
 	@Override
@@ -70,7 +69,7 @@ public class MainActivity extends FragmentActivity implements LocationListener
 	{
 		sMainActivity = MainActivity.this; // Delete if needed
 		super.onCreate(savedInstanceState);
-		
+
 		myView = getLayoutInflater().inflate(R.layout.setup, null);
 		File file = new File(getFilesDir(), "user.txt");
 		if (file.exists())
@@ -87,7 +86,7 @@ public class MainActivity extends FragmentActivity implements LocationListener
 				String jsonString = br.readLine();
 				JSONObject object = new JSONObject(jsonString);
 				user = new User(object);
-//				user.sendUserNotification();
+				// user.sendUserNotification();
 				setContentView(R.layout.activity_main);
 				setValuesForStatCard();
 			} catch (Exception e)
@@ -119,7 +118,8 @@ public class MainActivity extends FragmentActivity implements LocationListener
 			}
 			Button doneButton = (Button) this.findViewById(R.id.done_button);
 			// Button useButton1 = (Button) this.findViewById(R.id.use_button1);
-//			Button eraseButton = (Button) this.findViewById(R.id.erase_button);
+			// Button eraseButton = (Button)
+			// this.findViewById(R.id.erase_button);
 			doneButton.setOnClickListener(new View.OnClickListener()
 			{
 				public void onClick(View v)
@@ -150,14 +150,14 @@ public class MainActivity extends FragmentActivity implements LocationListener
 				}
 			});
 
-//			 eraseButton.setOnClickListener(new View.OnClickListener()
-//			 {
-//			 public void onClick(View v)
-//			 {
-////			  file.delete(); //POTENTIAL ERROR: FINAL TYPE FOR FILE
-//			  throw new NullPointerException();
-//			 }
-//			 });
+			// eraseButton.setOnClickListener(new View.OnClickListener()
+			// {
+			// public void onClick(View v)
+			// {
+			// // file.delete(); //POTENTIAL ERROR: FINAL TYPE FOR FILE
+			// throw new NullPointerException();
+			// }
+			// });
 		}
 
 		// NotificationCompat.Builder mBuilder =
@@ -199,19 +199,20 @@ public class MainActivity extends FragmentActivity implements LocationListener
 		// });
 
 		// WARNING: METHOD NOT OVER!
-
 		// user.setName(view.getText().toString());
-		
-//		ImageView hpImage = (ImageView) MainActivity.this.findViewById(R.id.imageView2);
-//		hpImage.setOnClickListener(new View.OnClickListener()
-//		{
-//			
-//			@Override
-//			public void onClick(View v)
-//			{
-//				
-//			}
-//		});
+
+		// ImageView hpImage = (ImageView)
+		// MainActivity.this.findViewById(R.id.imageView2);
+		// hpImage.setOnClickListener(new View.OnClickListener()
+		// {
+		//
+		// @Override
+		// public void onClick(View v)
+		// {
+		//
+		// }
+		// });
+
 	}
 
 	public void setValuesForStatCard()
@@ -230,9 +231,9 @@ public class MainActivity extends FragmentActivity implements LocationListener
 		levelView.setText(String.valueOf(user.getLevel()));
 		TextView rankView = (TextView) MainActivity.this
 				.findViewById(R.id.rankValue);
-//		Spinner spinner = (Spinner) myView.findViewById(R.id.typeSelecter);
-//		Object rankInt = spinner.getSelectedItem();
-//		String rankStr = String.valueOf(rankInt);
+		// Spinner spinner = (Spinner) myView.findViewById(R.id.typeSelecter);
+		// Object rankInt = spinner.getSelectedItem();
+		// String rankStr = String.valueOf(rankInt);
 		rankView.setText(user.getRankName());
 		TextView hpView = (TextView) MainActivity.this
 				.findViewById(R.id.hpValue);
@@ -258,12 +259,12 @@ public class MainActivity extends FragmentActivity implements LocationListener
 		TextView weaponView = (TextView) MainActivity.this
 				.findViewById(R.id.weaponValue);
 		weaponView.setText(String.valueOf(user.getWeapon().getName()));
-//		TextView inventory1 = (TextView) MainActivity.this
-//				.findViewById(R.id.inventoryText1);
-//		inventory1.setText(String.valueOf(user.getInventory().get(0).toString()));
-//		TextView inventory2 = (TextView) MainActivity.this
-//				.findViewById(R.id.inventoryText2);
-//		inventory2.setText(String.valueOf(user.getInventory().get(0).toString()));
+		// TextView inventory1 = (TextView) MainActivity.this
+		// .findViewById(R.id.inventoryText1);
+		// inventory1.setText(String.valueOf(user.getInventory().get(0).toString()));
+		// TextView inventory2 = (TextView) MainActivity.this
+		// .findViewById(R.id.inventoryText2);
+		// inventory2.setText(String.valueOf(user.getInventory().get(0).toString()));
 	}
 
 	// @Override
@@ -305,7 +306,7 @@ public class MainActivity extends FragmentActivity implements LocationListener
 			return true;
 		} else if (isBattle)
 		{
-			 inflater.inflate(R.menu.battle_menu, menu);
+			inflater.inflate(R.menu.battle_menu, menu);
 			return true;
 		}
 		return false;
@@ -319,16 +320,18 @@ public class MainActivity extends FragmentActivity implements LocationListener
 	}
 
 	@Override
-	public boolean onPrepareOptionsMenu(Menu menu) {
-	    MenuItem stat = menu.findItem(R.id.stat);
-	    MenuItem battle = menu.findItem(R.id.battle);
-	    if(isCard) {
-	    stat.setVisible(false);
-	    battle.setVisible(true);
-	    }
-	    return true;
+	public boolean onPrepareOptionsMenu(Menu menu)
+	{
+		MenuItem stat = menu.findItem(R.id.stat);
+		MenuItem battle = menu.findItem(R.id.battle);
+		if (isCard)
+		{
+			stat.setVisible(false);
+			battle.setVisible(true);
+		}
+		return true;
 	}
-	
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item)
 	{
@@ -341,6 +344,21 @@ public class MainActivity extends FragmentActivity implements LocationListener
 			return true;
 		case R.id.inventory:
 			setContentView(R.layout.inventory);
+			Button useButton1 = (Button) this.findViewById(R.id.use_button1);
+			useButton1.setOnClickListener(new View.OnClickListener()
+			{
+				public void onClick(View v)
+				{
+					user.coffee.change(user);
+					try
+					{
+						user.saveThyself(MainActivity.this);
+					} catch (Exception e)
+					{
+						e.printStackTrace();
+					}
+				}
+			});
 			isCard = false;
 			return true;
 		case R.id.map:
@@ -366,7 +384,8 @@ public class MainActivity extends FragmentActivity implements LocationListener
 			isCard = false;
 			return true;
 		case R.id.battle:
-			comNerd = new User("Scientific Nerd", "Nerd", 13, "Winters", user.getLevel());
+			comNerd = new User("Scientific Nerd", "Nerd", user.getLevel(),
+					"Winters", user.getLevel());
 			Intent battle = new Intent(this, BattleActivity.class);
 			startActivity(battle);
 			isCard = false;
@@ -428,17 +447,20 @@ public class MainActivity extends FragmentActivity implements LocationListener
 		// TODO Auto-generated method stub
 
 	}
-	
-	public static MainActivity getActivity() {
+
+	public static MainActivity getActivity()
+	{
 		return (MainActivity) sMainActivity;
 	}
-	
-	public User getMainUser() {
+
+	public User getMainUser()
+	{
 		return user;
 	}
 
-	public User getCOMNerd() {
+	public User getCOMNerd()
+	{
 		return comNerd;
 	}
-	
+
 }
