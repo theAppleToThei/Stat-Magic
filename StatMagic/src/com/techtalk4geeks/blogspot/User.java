@@ -49,6 +49,7 @@ public class User
 	Weapon pencil = new Weapon("Pencil", 1);
 	Weapon foamSword = new Weapon("Foam Sword", 3);
 	Weapon oldfootballshoe = new Weapon("Old Football Shoe", 3);
+	Weapon plasticShuriken = new Weapon("Plastic Shuriken", 1);
 	int myAge;
 	ArrayList<Item> myStuff = new ArrayList<Item>();
 	Item hamburger = new HealingItem("Hamburger", 49);
@@ -115,6 +116,13 @@ public class User
 			myDEF = (int) (mySP * 0.7);
 			myWeapon = pencil;
 			myRankName = "Nerd";
+		} else if (myRank == 14)
+		{ // IF NINJA
+			myPOW = (int) (mySP * 0.5);
+			myDEF = (int) (mySP * 0.9);
+			mySPEED = 25;
+			myWeapon = plasticShuriken;
+			myRankName = "Ninja";
 		} else
 		{ // OTHERWISE
 			myPOW = (int) (mySP * 0.4);
@@ -150,6 +158,13 @@ public class User
 			myDEF = (int) (mySP * 0.7);
 			myWeapon = pencil;
 			myRankName = "Nerd";
+		} else if (myRank == 14)
+		{ // IF NINJA
+			myPOW = (int) (mySP * 0.5);
+			myDEF = (int) (mySP * 0.9);
+			mySPEED = 25;
+			myWeapon = plasticShuriken;
+			myRankName = "Ninja";
 		} else
 		{ // OTHERWISE
 			myPOW = (int) (mySP * 0.4);
@@ -464,8 +479,9 @@ public class User
 			levelUp();
 		}
 	}
-	
-	public void setLevel(int level) {
+
+	public void setLevel(int level)
+	{
 		myLevel = level;
 		setMaxHP(getLevel() * 3 + getMaxHP());
 		setMaxSP(getLevel() * 2 + getMaxSP());

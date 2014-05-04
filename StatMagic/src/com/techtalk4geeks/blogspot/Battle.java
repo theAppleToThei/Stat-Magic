@@ -97,7 +97,7 @@ public class Battle extends Activity
 							+ act.user.getPOW() * 2 - act.comNerd.getDEF());
 					line1.setText("WOAAAH!!");
 					line2.setText(act.user.getName());
-					line3.setText("dealed "
+					line3.setText("dealt "
 							+ (int) (act.user.getWeapon().getPOW()
 									+ act.user.getPOW() * 2 - act.comNerd
 										.getDEF()) + " damage!");
