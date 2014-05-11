@@ -54,14 +54,17 @@
         android:layout_height="wrap_content"
         android:orientation="vertical" >
 
-        <!-- <TextView
+        <!--
+             <TextView
             android:id="@+id/rankLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/rank_label"
             android:textColor="#FFFFFF"
             android:textSize="24sp"
-            android:textStyle="bold" /> -->
+            android:textStyle="bold" />
+        -->
+
 
         <!-- TO BE IMPLEMENTED -->
 
@@ -377,6 +380,32 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/weapon_label"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <!-- MONEY ROW -->
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/moneyicon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="1dip"
+                android:src="@drawable/money" />
+
+            <TextView
+                android:id="@+id/moneyValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="1dip"
+                android:text="@string/money"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:textStyle="bold" />

@@ -32,6 +32,7 @@
         android:layout_marginRight="5sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:ems="10"
         android:hint="@string/name_hint"
         android:inputType="textPersonName" >
@@ -55,6 +56,7 @@
         android:layout_marginRight="125sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:hint="@string/age_hint"
         android:ems="10"
         android:inputType="number" >
@@ -68,6 +70,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="25sp"
         android:layout_marginLeft="5sp"
+        android:textColor="@color/white"
         android:layout_marginRight="5sp"
         android:ems="10"
         android:hint="@string/hometown_hint"

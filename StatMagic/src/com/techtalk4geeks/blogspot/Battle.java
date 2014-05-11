@@ -78,6 +78,7 @@ public class Battle extends Activity
 							+ act.comNerd.getLevel() * 2 + " EXP."));
 					playFanfare();
 					flickerBattleSprite();
+					act.user.changeMoneyBy(act.comNerd.getLevel() * 2);
 					act.user.addEXP(act.comNerd.getLevel() * 2);
 					try
 					{
@@ -110,6 +111,7 @@ public class Battle extends Activity
 								+ act.comNerd.getLevel() * 2 + " EXP."));
 						playFanfare();
 						flickerBattleSprite();
+						act.user.changeMoneyBy(act.comNerd.getLevel() * 2);
 						act.user.addEXP(act.comNerd.getLevel() * 2);
 						try
 						{

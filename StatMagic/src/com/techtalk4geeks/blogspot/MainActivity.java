@@ -96,8 +96,8 @@ public class MainActivity extends FragmentActivity implements LocationListener
 			}
 		} else
 		{
-			Item ATMCard = new FunctionalItem("ATM Card", 30);
-			inventory.add(ATMCard);
+			// Item ATMCard = new FunctionalItem("ATM Card", 30);
+			// inventory.add(ATMCard);
 			try
 			{
 				file.createNewFile();
@@ -133,7 +133,7 @@ public class MainActivity extends FragmentActivity implements LocationListener
 					String city = ((TextView) findViewById(R.id.cityField))
 							.getText().toString();
 					int age = Integer.parseInt(strAge);
-					user = new User(name, rank, age, city, inventory);
+					user = new User(name, rank, age, city, inventory, 30);
 					// TODO: Save User
 					try
 					{
@@ -259,12 +259,22 @@ public class MainActivity extends FragmentActivity implements LocationListener
 		TextView weaponView = (TextView) MainActivity.this
 				.findViewById(R.id.weaponValue);
 		weaponView.setText(String.valueOf(user.getWeapon().getName()));
+		TextView moneyValue = (TextView) MainActivity.this
+				.findViewById(R.id.moneyValue);
+		String money = createMoney();
+		moneyValue.setText(String.valueOf(money));
 		// TextView inventory1 = (TextView) MainActivity.this
 		// .findViewById(R.id.inventoryText1);
 		// inventory1.setText(String.valueOf(user.getInventory().get(0).toString()));
 		// TextView inventory2 = (TextView) MainActivity.this
 		// .findViewById(R.id.inventoryText2);
 		// inventory2.setText(String.valueOf(user.getInventory().get(0).toString()));
+	}
+
+	private String createMoney()
+	{
+		String money = "$" + user.getMoney();
+		return money;
 	}
 
 	// @Override
@@ -384,7 +394,7 @@ public class MainActivity extends FragmentActivity implements LocationListener
 			isCard = false;
 			return true;
 		case R.id.battle:
-			comNerd = new User("Scientific Nerd", "Nerd", user.getLevel(),
+			comNerd = new User("Scientific Nerd", "Nerd", 13,
 					"Winters", user.getLevel());
 			Intent battle = new Intent(this, BattleActivity.class);
 			startActivity(battle);

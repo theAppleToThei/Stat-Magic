@@ -22,6 +22,7 @@
     <string name="use_label">Use</string>
     <string name="crash_label">Crash App</string>
     <string name="battle_label">Battle</string>
+    <string name="money">Money</string>
 
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>

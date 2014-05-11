@@ -17,6 +17,7 @@ import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 
+import com.google.android.gms.wallet.Wallet;
 import com.techtalk4geeks.blogspot.Items.FunctionalItem;
 import com.techtalk4geeks.blogspot.Items.HealingItem;
 import com.techtalk4geeks.blogspot.Items.Item;
@@ -71,6 +72,7 @@ public class User
 	Item gum = new SPChangingItem("Gum", 4);
 	Item chicken = new HealingItem("Chicken", 89);
 	Item grapes = new SPChangingItem("Grapes", 27);
+	int myMoneys = 0;
 
 	String[] rankStrings = new String[]
 	{ "I Do Not Care", "Dork", "Geek", "Nerd", "Jock", "Blonde", "Teacher",
@@ -83,7 +85,7 @@ public class User
 	public static ArrayList<String> rank_display = new ArrayList<String>();
 
 	public User(String name, String rank, int age, String city,
-			ArrayList<Item> invent)
+			ArrayList<Item> invent, int money)
 	{
 		for (int i = 0; i < rankStrings.length; i++)
 		{
@@ -104,6 +106,7 @@ public class User
 		myEXP = 0;
 		myMaxEXP = 3;
 		myStuff = invent;
+		myMoneys = money;
 		if (myRank == 2)
 		{ // IF GEEK
 			myPOW = (int) (mySP * 0.7);
@@ -130,9 +133,14 @@ public class User
 			myWeapon = new Weapon("Hand", 1);
 		} // DON'T FORGET
 		mySPEED = 5;
+		invent.add(myWeapon);
 	}
 
-	public User(String name, String rank, int age, String city, int level)
+	public User(String name, String rank, int age, String city, int level) // This
+																			// constructor
+																			// is
+																			// for
+																			// COM-opponents
 	{
 		myAge = age;
 		myName = name;
@@ -190,13 +198,14 @@ public class User
 		myMaxEXP = jsonO.getInt("myMaxEXP");
 		myMaxHP = jsonO.getInt("myMaxHP");
 		myMaxSP = jsonO.getInt("myMaxSP");
+		myMoneys = jsonO.getInt("myMoneys");
 		JSONObject weaponJSON = jsonO.getJSONObject("myWeapon");
 		myWeapon = new Weapon(weaponJSON);
 		JSONArray inventory = jsonO.getJSONArray("myStuff");
 		for (int i = 0; i < inventory.length(); i++)
 		{
 			JSONObject json = inventory.getJSONObject(i);
-			String itemClass = json.getString("class");
+//			String itemClass = json.getString("class");
 			// TODO: create object of the class specified in itemClass
 			// TODO: set attributes of item
 		}
@@ -221,6 +230,7 @@ public class User
 		result.put("myMaxHP", myMaxHP);
 		result.put("myMaxSP", myMaxSP);
 		result.put("myWeapon", myWeapon.toJSON());
+		result.put("myMoneys", myMoneys);
 		JSONArray inventory = new JSONArray();
 		for (Item i : myStuff)
 		{
@@ -489,6 +499,14 @@ public class User
 		setDEF(myDEF + 3);
 		setHP(myMaxHP);
 		setSP(myMaxSP);
+	}
+	
+	public int getMoney() {
+		return myMoneys;
+	}
+	
+	public void changeMoneyBy(int changeBy) {
+		myMoneys += changeBy;
 	}
 
 }
