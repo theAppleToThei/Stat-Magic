@@ -56,6 +56,11 @@ public class MainActivity extends FragmentActivity implements LocationListener
 	Boolean isCard = false;
 	Weapon o1;
 	Weapon o2;
+	Defensive d1;
+	Defensive d2;
+	Assistive a1;
+	Assistive a2;
+	Assistive a3;
 	ArrayList<Item> inventory = new ArrayList<Item>();
 	public int SPEEDHolder = 0;
 	private static final long MIN_TIME = 400;
@@ -498,11 +503,11 @@ public class MainActivity extends FragmentActivity implements LocationListener
 		TextView assistivePrice3 = (TextView) findViewById(R.id.assistive3Price);
 		o1 = user.getRandomOffensive();
 		o2 = user.getRandomOffensive();
-		Defensive d1 = user.getRandomDefensive();
-		Defensive d2 = user.getRandomDefensive();
-		Assistive a1 = user.getRandomAssistive();
-		Assistive a2 = user.getRandomAssistive();
-		Assistive a3 = user.getRandomAssistive();
+		d1 = user.getRandomDefensive();
+		d2 = user.getRandomDefensive();
+		a1 = user.getRandomAssistive();
+		a2 = user.getRandomAssistive();
+		a3 = user.getRandomAssistive();
 		offensive1.setText(o1.getName());
 		offensivePrice1.setText(o1.getPrice());
 		offensive2.setText(o2.getName());
@@ -519,19 +524,32 @@ public class MainActivity extends FragmentActivity implements LocationListener
 		assistivePrice3.setText(a3.getPrice());
 		setContentView(R.layout.shop);
 	}
-	
-	public Weapon getO1() {
-		return o1;
-	}
 
 	public void buyO1()
 	{
-		Weapon myBuy = getO1();
+		Weapon myBuy = o1;
 		if (user.getMoney() >= myBuy.getPrice())
 		{
 			user.changeMoneyBy(-myBuy.getPrice());
 			user.myStuff.add(myBuy);
 			equipWeaponDialog(myBuy);
+		} else
+		{
+			insufficientMoney();
+		}
+	}
+
+	public void buyO2()
+	{
+		Weapon myBuy = o2;
+		if (user.getMoney() >= myBuy.getPrice())
+		{
+			user.changeMoneyBy(-myBuy.getPrice());
+			user.myStuff.add(myBuy);
+			equipWeaponDialog(myBuy);
+		} else
+		{
+			insufficientMoney();
 		}
 	}
 
@@ -558,7 +576,7 @@ public class MainActivity extends FragmentActivity implements LocationListener
 							}
 						}).setIcon(android.R.drawable.ic_dialog_alert).show();
 	}
-	
+
 	public void equipDefensiveDialog(final Weapon w)
 	{
 		new AlertDialog.Builder(this)
@@ -585,4 +603,18 @@ public class MainActivity extends FragmentActivity implements LocationListener
 						}).setIcon(android.R.drawable.ic_dialog_alert).show();
 	}
 
+	public void insufficientMoney()
+	{
+		new AlertDialog.Builder(this)
+				.setTitle("Insufficient Credit")
+				.setMessage("You don't have enough money.")
+				.setPositiveButton(android.R.string.ok,
+						new DialogInterface.OnClickListener()
+						{
+							public void onClick(DialogInterface dialog,
+									int which)
+							{
+							}
+						}).setIcon(android.R.drawable.ic_dialog_alert).show();
+	}
 }
