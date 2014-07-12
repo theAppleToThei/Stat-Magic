@@ -18,6 +18,8 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 
 import com.google.android.gms.wallet.Wallet;
+import com.techtalk4geeks.blogspot.Items.Assistive;
+import com.techtalk4geeks.blogspot.Items.Defensive;
 import com.techtalk4geeks.blogspot.Items.FunctionalItem;
 import com.techtalk4geeks.blogspot.Items.HealingItem;
 import com.techtalk4geeks.blogspot.Items.Item;
@@ -47,10 +49,33 @@ public class User
 	protected int myEXP;
 	protected int myMaxEXP;
 	Weapon myWeapon;
-	Weapon pencil = new Weapon("Pencil", 1);
-	Weapon foamSword = new Weapon("Foam Sword", 3);
-	Weapon oldfootballshoe = new Weapon("Old Football Shoe", 3);
-	Weapon plasticShuriken = new Weapon("Plastic Shuriken", 1);
+	Weapon pencil = new Weapon("Pencil", 1, 5);
+	Weapon foamSword = new Weapon("Foam Sword", 3, 5);
+	Weapon oldfootballshoe = new Weapon("Old Football Shoe", 3, 5);
+	Weapon plasticShuriken = new Weapon("Plastic Shuriken", 1, 5);
+
+	Weapon[] buyableWeapons = new Weapon[]
+	{ pencil, foamSword, oldfootballshoe, plasticShuriken };
+
+	Defensive myDefensive;
+	Defensive nothing = new Defensive("Nothing", 0, 0);
+	Defensive hardHat = new Defensive("Hard Hat", 10, 50);
+
+	Defensive[] buyableDefensive = new Defensive[]
+	{ hardHat };
+
+	/**
+	 * Status Effect Reference: 0 - Burn 1 - Freeze 2 - Accuracy Fall 3 - Sleep
+	 * 4 - Poison 5 - Paralysis
+	 **/
+	Assistive bagOSand = new Assistive("Bag O' Sand", 2, 10);
+	Assistive tornado = new Assistive("Tornado in a Bottle", 2, 50);
+	Assistive sleep = new Assistive("Sleep Powder", 3, 100);
+	Assistive plant = new Assistive("Poison Ivy", 4, 25);
+
+	Assistive[] buyableAssist = new Assistive[]
+	{ bagOSand, tornado, sleep, plant };
+
 	int myAge;
 	ArrayList<Item> myStuff = new ArrayList<Item>();
 	Item hamburger = new HealingItem("Hamburger", 49);
@@ -64,6 +89,7 @@ public class User
 	Item bread = new HealingItem("Bread", 21);
 	Item sandwich = new HealingItem("Sandwich", 45);
 	Item candy = new SPChangingItem("Candy", 5);
+	Item water = new SPChangingItem("Water", 5);
 	Item sugarBag = new HealingItem("Bag of Sugar", 45);
 	Item egg = new POWChangingItem("Egg", 2);
 	Item iceCream = new SPChangingItem("Ice Cream", 50);
@@ -107,6 +133,7 @@ public class User
 		myMaxEXP = 3;
 		myStuff = invent;
 		myMoneys = money;
+		myDefensive = nothing;
 		if (myRank == 2)
 		{ // IF GEEK
 			myPOW = (int) (mySP * 0.7);
@@ -130,7 +157,7 @@ public class User
 		{ // OTHERWISE
 			myPOW = (int) (mySP * 0.4);
 			myDEF = (int) (mySP * 0.6);
-			myWeapon = new Weapon("Hand", 1);
+			myWeapon = new Weapon("Hand", 1, 0);
 		} // DON'T FORGET
 		mySPEED = 5;
 		invent.add(myWeapon);
@@ -177,7 +204,7 @@ public class User
 		{ // OTHERWISE
 			myPOW = (int) (mySP * 0.4);
 			myDEF = (int) (mySP * 0.6);
-			myWeapon = new Weapon("Hand", 1);
+			myWeapon = new Weapon("Hand", 1, 0);
 		} // DON'T FORGET
 		mySPEED = 5;
 	}
@@ -201,11 +228,13 @@ public class User
 		myMoneys = jsonO.getInt("myMoneys");
 		JSONObject weaponJSON = jsonO.getJSONObject("myWeapon");
 		myWeapon = new Weapon(weaponJSON);
+		JSONObject defensiveJSON = jsonO.getJSONObject("myDefensive");
+		myDefensive = new Defensive(defensiveJSON);
 		JSONArray inventory = jsonO.getJSONArray("myStuff");
 		for (int i = 0; i < inventory.length(); i++)
 		{
 			JSONObject json = inventory.getJSONObject(i);
-//			String itemClass = json.getString("class");
+			// String itemClass = json.getString("class");
 			// TODO: create object of the class specified in itemClass
 			// TODO: set attributes of item
 		}
@@ -231,6 +260,7 @@ public class User
 		result.put("myMaxSP", myMaxSP);
 		result.put("myWeapon", myWeapon.toJSON());
 		result.put("myMoneys", myMoneys);
+		result.put("myDefensive", myDefensive.toJSON());
 		JSONArray inventory = new JSONArray();
 		for (Item i : myStuff)
 		{
@@ -500,13 +530,35 @@ public class User
 		setHP(myMaxHP);
 		setSP(myMaxSP);
 	}
-	
-	public int getMoney() {
+
+	public int getMoney()
+	{
 		return myMoneys;
 	}
-	
-	public void changeMoneyBy(int changeBy) {
+
+	public void changeMoneyBy(int changeBy)
+	{
 		myMoneys += changeBy;
+	}
+
+	public Assistive getRandomAssistive()
+	{
+		return buyableAssist[(int) (Math.random() * buyableAssist.length)];
+	}
+
+	public Defensive getRandomDefensive()
+	{
+		return buyableDefensive[(int) (Math.random() * buyableDefensive.length)];
+	}
+
+	public Weapon getRandomOffensive()
+	{
+		return buyableWeapons[(int) (Math.random() * buyableWeapons.length)];
+	}
+
+	public void equipWeapon(Weapon w)
+	{
+		myWeapon = w;
 	}
 
 }

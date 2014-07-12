@@ -13,7 +13,9 @@ import java.util.Map;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Location;
 import android.location.LocationListener;
@@ -28,8 +30,11 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.techtalk4geeks.blogspot.Items.Assistive;
+import com.techtalk4geeks.blogspot.Items.Defensive;
 import com.techtalk4geeks.blogspot.Items.FunctionalItem;
 import com.techtalk4geeks.blogspot.Items.Item;
+import com.techtalk4geeks.blogspot.Items.Weapon;
 
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
@@ -49,6 +54,8 @@ public class MainActivity extends FragmentActivity implements LocationListener
 	Boolean isSetup = true;
 	Boolean isBattle = false;
 	Boolean isCard = false;
+	Weapon o1;
+	Weapon o2;
 	ArrayList<Item> inventory = new ArrayList<Item>();
 	public int SPEEDHolder = 0;
 	private static final long MIN_TIME = 400;
@@ -394,8 +401,8 @@ public class MainActivity extends FragmentActivity implements LocationListener
 			isCard = false;
 			return true;
 		case R.id.battle:
-			comNerd = new User("Scientific Nerd", "Nerd", 13,
-					"Winters", user.getLevel());
+			comNerd = new User("Scientific Nerd", "Nerd", 13, "Winters",
+					user.getLevel());
 			Intent battle = new Intent(this, BattleActivity.class);
 			startActivity(battle);
 			isCard = false;
@@ -471,6 +478,111 @@ public class MainActivity extends FragmentActivity implements LocationListener
 	public User getCOMNerd()
 	{
 		return comNerd;
+	}
+
+	public void goToBattleStore()
+	{
+		TextView offensive1 = (TextView) findViewById(R.id.offensive1);
+		TextView offensivePrice1 = (TextView) findViewById(R.id.offensive1Price);
+		TextView offensive2 = (TextView) findViewById(R.id.offensive2);
+		TextView offensivePrice2 = (TextView) findViewById(R.id.offensive2Price);
+		TextView defensive1 = (TextView) findViewById(R.id.defensive1);
+		TextView defensivePrice1 = (TextView) findViewById(R.id.defensive1Price);
+		TextView defensive2 = (TextView) findViewById(R.id.defensive2);
+		TextView defensivePrice2 = (TextView) findViewById(R.id.defensive2Price);
+		TextView assistive1 = (TextView) findViewById(R.id.assistive1);
+		TextView assistivePrice1 = (TextView) findViewById(R.id.assistive1Price);
+		TextView assistive2 = (TextView) findViewById(R.id.assistive2);
+		TextView assistivePrice2 = (TextView) findViewById(R.id.assistive2Price);
+		TextView assistive3 = (TextView) findViewById(R.id.assistive3);
+		TextView assistivePrice3 = (TextView) findViewById(R.id.assistive3Price);
+		o1 = user.getRandomOffensive();
+		o2 = user.getRandomOffensive();
+		Defensive d1 = user.getRandomDefensive();
+		Defensive d2 = user.getRandomDefensive();
+		Assistive a1 = user.getRandomAssistive();
+		Assistive a2 = user.getRandomAssistive();
+		Assistive a3 = user.getRandomAssistive();
+		offensive1.setText(o1.getName());
+		offensivePrice1.setText(o1.getPrice());
+		offensive2.setText(o2.getName());
+		offensivePrice2.setText(o2.getPrice());
+		defensive1.setText(d1.getName());
+		defensivePrice1.setText(d1.getPrice());
+		defensive2.setText(d2.getName());
+		defensivePrice2.setText(d2.getPrice());
+		assistive1.setText(a1.getName());
+		assistivePrice1.setText(a1.getPrice());
+		assistive2.setText(a2.getName());
+		assistivePrice2.setText(a2.getPrice());
+		assistive3.setText(a3.getName());
+		assistivePrice3.setText(a3.getPrice());
+		setContentView(R.layout.shop);
+	}
+	
+	public Weapon getO1() {
+		return o1;
+	}
+
+	public void buyO1()
+	{
+		Weapon myBuy = getO1();
+		if (user.getMoney() >= myBuy.getPrice())
+		{
+			user.changeMoneyBy(-myBuy.getPrice());
+			user.myStuff.add(myBuy);
+			equipWeaponDialog(myBuy);
+		}
+	}
+
+	public void equipWeaponDialog(final Weapon w)
+	{
+		new AlertDialog.Builder(this)
+				.setTitle("Equip Item")
+				.setMessage("Would you like to equip this weapon now?")
+				.setPositiveButton(android.R.string.yes,
+						new DialogInterface.OnClickListener()
+						{
+							public void onClick(DialogInterface dialog,
+									int which)
+							{
+								user.equipWeapon(w);
+							}
+						})
+				.setNegativeButton(android.R.string.no,
+						new DialogInterface.OnClickListener()
+						{
+							public void onClick(DialogInterface dialog,
+									int which)
+							{
+							}
+						}).setIcon(android.R.drawable.ic_dialog_alert).show();
+	}
+	
+	public void equipDefensiveDialog(final Weapon w)
+	{
+		new AlertDialog.Builder(this)
+				.setTitle("Equip Item")
+				.setMessage("Would you like to equip this item now?")
+				.setPositiveButton(android.R.string.yes,
+						new DialogInterface.OnClickListener()
+						{
+							public void onClick(DialogInterface dialog,
+									int which)
+							{
+								user.equipWeapon(w);
+								user.myStuff.add(w);
+							}
+						})
+				.setNegativeButton(android.R.string.no,
+						new DialogInterface.OnClickListener()
+						{
+							public void onClick(DialogInterface dialog,
+									int which)
+							{
+								user.myStuff.add(w);
+							}
+						}).setIcon(android.R.drawable.ic_dialog_alert).show();
 	}
 
 }

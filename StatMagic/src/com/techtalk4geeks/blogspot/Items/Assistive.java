@@ -5,24 +5,24 @@ import org.json.JSONObject;
 
 import com.techtalk4geeks.blogspot.User;
 
-public class Weapon extends Item
+public class Assistive extends Item
 {
-	int myPOW;
+	int myStat;
 	int myPrice;
-	public Weapon(String name, int POW, int price) {
+	public Assistive(String name, int statusNo, int price) {
 		super(name); 
-		myPOW = POW;
+		myStat = statusNo;
 		myPrice = price;
 	}
 	
-	public Weapon(JSONObject json) throws Exception {
+	public Assistive(JSONObject json) throws Exception {
 		super(json.getString("name"));
-		myPOW = json.getInt("POW");
-		myPrice = json.getInt("price");
+		myStat = json.optInt("Stat", 0);
+		myPrice = json.optInt("price", 0);
 	}
 	
-	public int getPOW() {
-		return myPOW;
+	public int getStatusEffect() {
+		return myStat;
 	}
 
 	public int getPrice()
@@ -33,7 +33,7 @@ public class Weapon extends Item
 	public JSONObject toJSON() throws JSONException {
 		JSONObject json = new JSONObject();
 		json.put("name", myName);
-		json.put("POW", myPOW);
+		json.put("Stat", myStat);
 		json.put("price", myPrice);
 		return json;
 	}

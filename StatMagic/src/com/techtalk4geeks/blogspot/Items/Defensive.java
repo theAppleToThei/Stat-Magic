@@ -5,35 +5,34 @@ import org.json.JSONObject;
 
 import com.techtalk4geeks.blogspot.User;
 
-public class Weapon extends Item
+public class Defensive extends Item
 {
-	int myPOW;
+	int myDEF;
 	int myPrice;
-	public Weapon(String name, int POW, int price) {
+	public Defensive(String name, int DEF, int price) {
 		super(name); 
-		myPOW = POW;
+		myDEF = DEF;
 		myPrice = price;
 	}
 	
-	public Weapon(JSONObject json) throws Exception {
+	public Defensive(JSONObject json) throws Exception {
 		super(json.getString("name"));
-		myPOW = json.getInt("POW");
-		myPrice = json.getInt("price");
+		myDEF = json.getInt("DEF");
+		myPrice = json.optInt("price", 0);
 	}
 	
-	public int getPOW() {
-		return myPOW;
+	public int getDEF() {
+		return myDEF;
 	}
-
-	public int getPrice()
-	{
+	
+	public int getPrice() {
 		return myPrice;
 	}
 	
 	public JSONObject toJSON() throws JSONException {
 		JSONObject json = new JSONObject();
 		json.put("name", myName);
-		json.put("POW", myPOW);
+		json.put("DEF", myDEF);
 		json.put("price", myPrice);
 		return json;
 	}
