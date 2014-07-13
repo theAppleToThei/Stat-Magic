@@ -19,7 +19,7 @@
                 android:id="@+id/todaySelection"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Today&apos;s Selection"
+                android:text="Today's Selection"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
         </TableRow>
 
@@ -167,7 +167,7 @@
                 android:id="@+id/asistive"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Asistive"
+                android:text="Assist"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
         </TableRow>
 
@@ -180,14 +180,14 @@
                 android:id="@+id/assistive1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Asistive Item 1"
+                android:text="Assist Item 1"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
 
             <TextView
                 android:id="@+id/assistive1Price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Assistive Price 1"
+                android:text="Assist Price 1"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
 
             <Button
@@ -207,14 +207,14 @@
                 android:id="@+id/assistive2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Asistive Item 2"
+                android:text="Assist Item 2"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
 
             <TextView
                 android:id="@+id/assistive2Price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Assistive Price 2"
+                android:text="Assist Price 2"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
 
             <Button
@@ -234,14 +234,14 @@
                 android:id="@+id/assistive3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Asistive Item 3"
+                android:text="Assist Item 3"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
 
             <TextView
                 android:id="@+id/assistive3Price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Assistive Price 3"
+                android:text="Assist Price 3"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
 
             <Button

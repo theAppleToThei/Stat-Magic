@@ -84,6 +84,7 @@ public class MainActivity extends FragmentActivity implements LocationListener
 
 		myView = getLayoutInflater().inflate(R.layout.setup, null);
 		File file = new File(getFilesDir(), "user.txt");
+		Button battleStoreButton = (Button) this.findViewById(R.id.battleStoreButton);
 		if (file.exists())
 		{
 			isSetup = false;
