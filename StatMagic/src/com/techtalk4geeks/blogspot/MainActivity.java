@@ -366,6 +366,7 @@ public class MainActivity extends FragmentActivity implements LocationListener
 			setValuesForStatCard();
 			return true;
 		case R.id.inventory:
+			setTitle("Inventory");
 			setContentView(R.layout.inventory);
 			Button useButton1 = (Button) this.findViewById(R.id.use_button1);
 			useButton1.setOnClickListener(new View.OnClickListener()
@@ -415,10 +416,12 @@ public class MainActivity extends FragmentActivity implements LocationListener
 			isBattle = true;
 			return true;
 		case R.id.gotoplace:
+			setTitle("Teleport");
 			setContentView(R.layout.go_to_place);
 			isCard = false;
 			return true;
 		case R.id.settings:
+			setTitle("Settings");
 			setContentView(R.layout.settings);
 			isCard = false;
 			return true;
