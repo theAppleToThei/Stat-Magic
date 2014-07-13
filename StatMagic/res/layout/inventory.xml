@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
     android:orientation="vertical" >
 
     <TableLayout
@@ -30,7 +29,6 @@
                 android:layout_gravity="center"
                 android:padding="10dip"
                 android:text="@string/inventoryText1"
-                android:textColor="#000000"
                 android:textSize="20sp"
                 android:textStyle="bold" />
             
@@ -60,7 +58,6 @@
                 android:layout_gravity="center"
                 android:padding="10dip"
                 android:text="@string/inventoryText2"
-                android:textColor="#000000"
                 android:textSize="20sp"
                 android:textStyle="bold" />
             
