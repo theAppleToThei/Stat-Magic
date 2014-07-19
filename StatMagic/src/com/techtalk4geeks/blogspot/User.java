@@ -560,5 +560,10 @@ public class User
 	{
 		myWeapon = w;
 	}
+	
+	public void equipDefensive(Defensive d)
+	{
+		myDefensive = d;
+	}
 
 }

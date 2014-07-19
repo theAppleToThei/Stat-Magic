@@ -21,6 +21,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.os.Handler;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -44,6 +45,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Spinner;
 
@@ -66,6 +68,11 @@ public class MainActivity extends FragmentActivity implements LocationListener
 	private static final long MIN_TIME = 400;
 	private static final float MIN_DISTANCE = 1000;
 	private View myView;
+	private static final int PROGRESS = 0x1;
+	private ProgressBar mProgress;
+	private int mProgressStatus;
+
+	private Handler mHandler = new Handler();
 	// ActionBar actionBar = getActionBar();
 	// actionBar.show();
 
@@ -171,6 +178,10 @@ public class MainActivity extends FragmentActivity implements LocationListener
 			// }
 			// });
 		}
+		mProgressStatus = user.getEXP();
+		mProgress = (ProgressBar) findViewById(R.id.expProgress);
+		mProgress.setMax(user.getMaxEXP());
+		mProgress.setProgress(mProgressStatus);
 
 		// NotificationCompat.Builder mBuilder =
 		// new NotificationCompat.Builder(this)
@@ -225,7 +236,6 @@ public class MainActivity extends FragmentActivity implements LocationListener
 		// }
 		// });
 
-		
 	}
 
 	public void setValuesForStatCard()
@@ -425,7 +435,13 @@ public class MainActivity extends FragmentActivity implements LocationListener
 				@Override
 				public void onClick(View v)
 				{
-					goToBattleStore();
+					try
+					{
+						goToBattleStore();
+					} catch (Exception e)
+					{
+						e.printStackTrace();
+					}
 				}
 			});
 			isCard = false;
@@ -499,9 +515,10 @@ public class MainActivity extends FragmentActivity implements LocationListener
 		return comNerd;
 	}
 
-	public void goToBattleStore()
+	public void goToBattleStore() throws Exception
 	{
 		setContentView(R.layout.shop);
+		setTitle("Battle Store");
 		TextView offensive1 = (TextView) findViewById(R.id.offensive1);
 		TextView offensivePrice1 = (TextView) findViewById(R.id.offensive1Price);
 		TextView offensive2 = (TextView) findViewById(R.id.offensive2);
@@ -537,9 +554,138 @@ public class MainActivity extends FragmentActivity implements LocationListener
 		assistivePrice2.setText(a2.getPriceString());
 		assistive3.setText(a3.getName());
 		assistivePrice3.setText(a3.getPriceString());
+
+		Button buyO1 = (Button) findViewById(R.id.offensive1Button);
+		buyO1.setOnClickListener(new View.OnClickListener()
+		{
+
+			@Override
+			public void onClick(View v)
+			{
+				try
+				{
+					buyO1();
+				} catch (Exception e)
+				{
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
+
+		Button buyO2 = (Button) findViewById(R.id.offensive2Button);
+		buyO2.setOnClickListener(new View.OnClickListener()
+		{
+
+			@Override
+			public void onClick(View v)
+			{
+				try
+				{
+					buyO2();
+				} catch (Exception e)
+				{
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
+
+		Button buyD1 = (Button) findViewById(R.id.defensive1Button);
+		buyD1.setOnClickListener(new View.OnClickListener()
+		{
+
+			@Override
+			public void onClick(View v)
+			{
+				try
+				{
+					buyD1();
+				} catch (Exception e)
+				{
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
+
+		Button buyD2 = (Button) findViewById(R.id.defensive2Button);
+		buyD2.setOnClickListener(new View.OnClickListener()
+		{
+
+			@Override
+			public void onClick(View v)
+			{
+				try
+				{
+					buyD2();
+				} catch (Exception e)
+				{
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
+
+		Button buyA1 = (Button) findViewById(R.id.assistive1Button);
+		buyA1.setOnClickListener(new View.OnClickListener()
+		{
+
+			@Override
+			public void onClick(View v)
+			{
+				try
+				{
+					buyA1();
+				} catch (Exception e)
+				{
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
+
+		Button buyA2 = (Button) findViewById(R.id.assistive2Button);
+		buyA2.setOnClickListener(new View.OnClickListener()
+		{
+
+			@Override
+			public void onClick(View v)
+			{
+				try
+				{
+					buyA2();
+				} catch (Exception e)
+				{
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
+
+		Button buyA3 = (Button) findViewById(R.id.assistive3Button);
+		buyA3.setOnClickListener(new View.OnClickListener()
+		{
+
+			@Override
+			public void onClick(View v)
+			{
+				try
+				{
+					buyA3();
+				} catch (Exception e)
+				{
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
+
+		user.saveThyself(this);
+		;
 	}
 
-	public void buyO1()
+	public void buyO1() throws Exception
 	{
 		Weapon myBuy = o1;
 		if (user.getMoney() >= myBuy.getPrice())
@@ -547,13 +693,14 @@ public class MainActivity extends FragmentActivity implements LocationListener
 			user.changeMoneyBy(-myBuy.getPrice());
 			user.myStuff.add(myBuy);
 			equipWeaponDialog(myBuy);
+			user.saveThyself(this);
 		} else
 		{
 			insufficientMoney();
 		}
 	}
 
-	public void buyO2()
+	public void buyO2() throws Exception
 	{
 		Weapon myBuy = o2;
 		if (user.getMoney() >= myBuy.getPrice())
@@ -561,6 +708,83 @@ public class MainActivity extends FragmentActivity implements LocationListener
 			user.changeMoneyBy(-myBuy.getPrice());
 			user.myStuff.add(myBuy);
 			equipWeaponDialog(myBuy);
+			user.saveThyself(this);
+		} else
+		{
+			insufficientMoney();
+		}
+	}
+
+	public void buyD1() throws Exception
+	{
+		Defensive myBuy = d1;
+		if (user.getMoney() >= myBuy.getPrice())
+		{
+			user.changeMoneyBy(-myBuy.getPrice());
+			user.myStuff.add(myBuy);
+			equipDefensiveDialog(myBuy);
+			user.saveThyself(this);
+		} else
+		{
+			insufficientMoney();
+		}
+	}
+
+	public void buyD2() throws Exception
+	{
+		Defensive myBuy = d2;
+		if (user.getMoney() >= myBuy.getPrice())
+		{
+			user.changeMoneyBy(-myBuy.getPrice());
+			user.myStuff.add(myBuy);
+			equipDefensiveDialog(myBuy);
+			user.saveThyself(this);
+			;
+		} else
+		{
+			insufficientMoney();
+		}
+	}
+
+	public void buyA1() throws Exception
+	{
+		Assistive myBuy = a1;
+		if (user.getMoney() >= myBuy.getPrice())
+		{
+			user.changeMoneyBy(-myBuy.getPrice());
+			user.myStuff.add(myBuy);
+			user.saveThyself(this);
+			;
+		} else
+		{
+			insufficientMoney();
+		}
+	}
+
+	public void buyA2() throws Exception
+	{
+		Assistive myBuy = a2;
+		if (user.getMoney() >= myBuy.getPrice())
+		{
+			user.changeMoneyBy(-myBuy.getPrice());
+			user.myStuff.add(myBuy);
+			user.saveThyself(this);
+			;
+		} else
+		{
+			insufficientMoney();
+		}
+	}
+
+	public void buyA3() throws Exception
+	{
+		Assistive myBuy = a3;
+		if (user.getMoney() >= myBuy.getPrice())
+		{
+			user.changeMoneyBy(-myBuy.getPrice());
+			user.myStuff.add(myBuy);
+			user.saveThyself(this);
+			;
 		} else
 		{
 			insufficientMoney();
@@ -591,7 +815,7 @@ public class MainActivity extends FragmentActivity implements LocationListener
 						}).setIcon(android.R.drawable.ic_dialog_alert).show();
 	}
 
-	public void equipDefensiveDialog(final Weapon w)
+	public void equipDefensiveDialog(final Defensive d)
 	{
 		new AlertDialog.Builder(this)
 				.setTitle("Equip Item")
@@ -602,8 +826,8 @@ public class MainActivity extends FragmentActivity implements LocationListener
 							public void onClick(DialogInterface dialog,
 									int which)
 							{
-								user.equipWeapon(w);
-								user.myStuff.add(w);
+								user.equipDefensive(d);
+								user.myStuff.add(d);
 							}
 						})
 				.setNegativeButton(android.R.string.no,
@@ -612,7 +836,7 @@ public class MainActivity extends FragmentActivity implements LocationListener
 							public void onClick(DialogInterface dialog,
 									int which)
 							{
-								user.myStuff.add(w);
+								user.myStuff.add(d);
 							}
 						}).setIcon(android.R.drawable.ic_dialog_alert).show();
 	}
