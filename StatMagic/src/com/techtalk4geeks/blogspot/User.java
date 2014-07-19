@@ -1,5 +1,6 @@
 package com.techtalk4geeks.blogspot;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -510,6 +511,13 @@ public class User
 		OSW.write(userString);
 		OSW.flush();
 		OSW.close();
+	}
+	
+	public void eraseThyself(MainActivity context) throws Exception
+	{
+		File file = new File(context.getFilesDir(), "user.txt");
+		file.delete();
+		context.recreate();
 	}
 
 	private void checkForLevelUp()

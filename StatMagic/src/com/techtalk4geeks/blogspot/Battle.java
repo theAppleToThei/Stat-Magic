@@ -79,7 +79,7 @@ public class Battle extends Activity
 					playFanfare();
 					flickerBattleSprite();
 					act.user.changeMoneyBy(act.comNerd.getLevel() * 2);
-					act.user.addEXP(act.comNerd.getLevel() * 2);
+					act.user.addEXP(act.comNerd.getLevel());
 					try
 					{
 						act.user.saveThyself(this);
@@ -108,7 +108,7 @@ public class Battle extends Activity
 						line1.setText("YOU WON!");
 						line2.setText(String.valueOf(act.user.getName()));
 						line3.setText(String.valueOf("gained "
-								+ act.comNerd.getLevel() * 2 + " EXP."));
+								+ act.comNerd.getLevel() + " EXP."));
 						playFanfare();
 						flickerBattleSprite();
 						act.user.changeMoneyBy(act.comNerd.getLevel() * 2);

@@ -42,6 +42,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
@@ -113,6 +114,10 @@ public class MainActivity extends FragmentActivity implements LocationListener
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			mProgressStatus = user.getEXP();
+			mProgress = (ProgressBar) findViewById(R.id.expProgress);
+			mProgress.setMax(user.getMaxEXP());
+			mProgress.setProgress(mProgressStatus);
 		} else
 		{
 			// Item ATMCard = new FunctionalItem("ATM Card", 30);
@@ -178,10 +183,6 @@ public class MainActivity extends FragmentActivity implements LocationListener
 			// }
 			// });
 		}
-		mProgressStatus = user.getEXP();
-		mProgress = (ProgressBar) findViewById(R.id.expProgress);
-		mProgress.setMax(user.getMaxEXP());
-		mProgress.setProgress(mProgressStatus);
 
 		// NotificationCompat.Builder mBuilder =
 		// new NotificationCompat.Builder(this)
@@ -449,6 +450,21 @@ public class MainActivity extends FragmentActivity implements LocationListener
 		case R.id.settings:
 			setTitle("Settings");
 			setContentView(R.layout.settings);
+			Button eraseAllData = (Button) findViewById(R.id.erase_button);
+			eraseAllData.setOnClickListener(new OnClickListener()
+			{
+				
+				public void onClick(View v)
+				{
+					try
+					{
+						user.eraseThyself(MainActivity.this);
+					} catch (Exception e)
+					{
+						e.printStackTrace();
+					}
+				}
+			});
 			isCard = false;
 			return true;
 		case R.id.crash:
