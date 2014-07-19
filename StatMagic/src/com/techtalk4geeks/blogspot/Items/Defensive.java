@@ -29,6 +29,12 @@ public class Defensive extends Item
 		return myPrice;
 	}
 	
+	public String getPriceString()
+	{
+		String myPriceString = String.valueOf(myPrice);
+		return myPriceString;
+	}
+	
 	public JSONObject toJSON() throws JSONException {
 		JSONObject json = new JSONObject();
 		json.put("name", myName);

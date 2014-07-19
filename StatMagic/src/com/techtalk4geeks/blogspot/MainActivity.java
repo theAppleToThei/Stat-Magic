@@ -84,7 +84,6 @@ public class MainActivity extends FragmentActivity implements LocationListener
 
 		myView = getLayoutInflater().inflate(R.layout.setup, null);
 		File file = new File(getFilesDir(), "user.txt");
-		Button battleStoreButton = (Button) this.findViewById(R.id.battleStoreButton);
 		if (file.exists())
 		{
 			isSetup = false;
@@ -226,6 +225,7 @@ public class MainActivity extends FragmentActivity implements LocationListener
 		// }
 		// });
 
+		
 	}
 
 	public void setValuesForStatCard()
@@ -418,6 +418,16 @@ public class MainActivity extends FragmentActivity implements LocationListener
 		case R.id.gotoplace:
 			setTitle("Teleport");
 			setContentView(R.layout.go_to_place);
+			Button battleStoreButton = (Button) findViewById(R.id.battleStoreButton);
+			battleStoreButton.setOnClickListener(new View.OnClickListener()
+			{
+
+				@Override
+				public void onClick(View v)
+				{
+					goToBattleStore();
+				}
+			});
 			isCard = false;
 			return true;
 		case R.id.settings:
@@ -491,6 +501,7 @@ public class MainActivity extends FragmentActivity implements LocationListener
 
 	public void goToBattleStore()
 	{
+		setContentView(R.layout.shop);
 		TextView offensive1 = (TextView) findViewById(R.id.offensive1);
 		TextView offensivePrice1 = (TextView) findViewById(R.id.offensive1Price);
 		TextView offensive2 = (TextView) findViewById(R.id.offensive2);
@@ -513,20 +524,19 @@ public class MainActivity extends FragmentActivity implements LocationListener
 		a2 = user.getRandomAssistive();
 		a3 = user.getRandomAssistive();
 		offensive1.setText(o1.getName());
-		offensivePrice1.setText(o1.getPrice());
+		offensivePrice1.setText(o1.getPriceString());
 		offensive2.setText(o2.getName());
-		offensivePrice2.setText(o2.getPrice());
+		offensivePrice2.setText(o2.getPriceString());
 		defensive1.setText(d1.getName());
-		defensivePrice1.setText(d1.getPrice());
+		defensivePrice1.setText(d1.getPriceString());
 		defensive2.setText(d2.getName());
-		defensivePrice2.setText(d2.getPrice());
+		defensivePrice2.setText(d2.getPriceString());
 		assistive1.setText(a1.getName());
-		assistivePrice1.setText(a1.getPrice());
+		assistivePrice1.setText(a1.getPriceString());
 		assistive2.setText(a2.getName());
-		assistivePrice2.setText(a2.getPrice());
+		assistivePrice2.setText(a2.getPriceString());
 		assistive3.setText(a3.getName());
-		assistivePrice3.setText(a3.getPrice());
-		setContentView(R.layout.shop);
+		assistivePrice3.setText(a3.getPriceString());
 	}
 
 	public void buyO1()

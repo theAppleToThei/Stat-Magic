@@ -5,15 +5,6 @@
     android:background="#FFFFFF"
     android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/goto_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/tele"
-        android:textColor="#000000"
-        android:textSize="36sp"
-        android:textStyle="bold" />
-
     <TableLayout
         android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
@@ -77,7 +68,6 @@
         android:id="@+id/battleStoreButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="goToBattleStore"
         android:text="@string/tele" />
         </TableRow>
         
