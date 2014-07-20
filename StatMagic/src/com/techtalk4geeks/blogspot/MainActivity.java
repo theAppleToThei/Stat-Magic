@@ -72,6 +72,7 @@ public class MainActivity extends FragmentActivity implements LocationListener
 	private static final int PROGRESS = 0x1;
 	private ProgressBar mProgress;
 	private int mProgressStatus;
+	
 
 	private Handler mHandler = new Handler();
 	// ActionBar actionBar = getActionBar();
@@ -98,6 +99,11 @@ public class MainActivity extends FragmentActivity implements LocationListener
 			isBattle = false;
 			isCard = true;
 			FileInputStream FIN;
+			ImageView hpSprite = (ImageView) findViewById(R.id.hpSprite);
+			ImageView spSprite = (ImageView) findViewById(R.id.spSprite);
+			ImageView powSprite = (ImageView) findViewById(R.id.powSprite);
+			ImageView defSprite = (ImageView) findViewById(R.id.defSprite);
+			ImageView speedSprite = (ImageView) findViewById(R.id.speedSprite);
 			try
 			{
 				FIN = openFileInput("user.txt");
@@ -118,6 +124,16 @@ public class MainActivity extends FragmentActivity implements LocationListener
 			mProgress = (ProgressBar) findViewById(R.id.expProgress);
 			mProgress.setMax(user.getMaxEXP());
 			mProgress.setProgress(mProgressStatus);
+			
+			hpSprite.setOnClickListener(new View.OnClickListener()
+			{
+				
+				@Override
+				public void onClick(View v)
+				{
+					dialog("HP", "HP represents the amount of health you have. Should it reach zero, that person will faint and cannot battle until healed in some way.");
+				}
+			});
 		} else
 		{
 			// Item ATMCard = new FunctionalItem("ATM Card", 30);
@@ -171,6 +187,21 @@ public class MainActivity extends FragmentActivity implements LocationListener
 					isSetup = false;
 					isCard = true;
 					setValuesForStatCard();
+					ImageView hpSprite = (ImageView) findViewById(R.id.hpSprite);
+					ImageView spSprite = (ImageView) findViewById(R.id.spSprite);
+					ImageView powSprite = (ImageView) findViewById(R.id.powSprite);
+					ImageView defSprite = (ImageView) findViewById(R.id.defSprite);
+					ImageView speedSprite = (ImageView) findViewById(R.id.speedSprite);
+					
+					hpSprite.setOnClickListener(new View.OnClickListener()
+					{
+						
+						@Override
+						public void onClick(View v)
+						{
+							dialog("HP", "HP represents the amount of health you have. Should it reach zero, that person will faint and cannot battle until healed in some way.");
+						}
+					});
 				}
 			});
 
@@ -885,6 +916,21 @@ public class MainActivity extends FragmentActivity implements LocationListener
 				.setMessage(
 						"Level " + level + "HP: +" + HP + "\nSP: +" + SP
 								+ "\nPOW: +" + POW + "\nDEF: +" + DEF)
+				.setPositiveButton(android.R.string.ok,
+						new DialogInterface.OnClickListener()
+						{
+							public void onClick(DialogInterface dialog,
+									int which)
+							{
+							}
+						}).setIcon(android.R.drawable.ic_dialog_alert).show();
+	}
+	
+	public void dialog(String title, String message)
+	{
+		new AlertDialog.Builder(this)
+				.setTitle(title)
+				.setMessage(message)
 				.setPositiveButton(android.R.string.ok,
 						new DialogInterface.OnClickListener()
 						{

@@ -581,5 +581,10 @@ public class User
 	{
 		myDefensive = d;
 	}
+	
+	public void testLevelUpDialog() 
+	{
+		m.levelUpDialog(myMaxHP, myMaxSP, myPOW, myDEF, myLevel);
+	}
 
 }
