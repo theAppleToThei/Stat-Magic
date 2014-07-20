@@ -453,7 +453,7 @@ public class MainActivity extends FragmentActivity implements LocationListener
 			Button eraseAllData = (Button) findViewById(R.id.erase_button);
 			eraseAllData.setOnClickListener(new OnClickListener()
 			{
-				
+
 				public void onClick(View v)
 				{
 					try
@@ -871,4 +871,28 @@ public class MainActivity extends FragmentActivity implements LocationListener
 							}
 						}).setIcon(android.R.drawable.ic_dialog_alert).show();
 	}
+
+	public void updateProgressBar()
+	{
+		mProgress.setMax(user.getMaxEXP());
+		mProgress.setProgress(user.getEXP());
+	}
+
+	public void levelUpDialog(int HP, int SP, int POW, int DEF, int level)
+	{
+		new AlertDialog.Builder(this)
+				.setTitle("Level Up!")
+				.setMessage(
+						"Level " + level + "HP: +" + HP + "\nSP: +" + SP
+								+ "\nPOW: +" + POW + "\nDEF: +" + DEF)
+				.setPositiveButton(android.R.string.ok,
+						new DialogInterface.OnClickListener()
+						{
+							public void onClick(DialogInterface dialog,
+									int which)
+							{
+							}
+						}).setIcon(android.R.drawable.ic_dialog_alert).show();
+	}
+
 }

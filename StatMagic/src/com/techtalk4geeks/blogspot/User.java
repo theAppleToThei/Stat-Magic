@@ -11,9 +11,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.AlertDialog;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
@@ -49,6 +51,7 @@ public class User
 	protected int myMaxSP;
 	protected int myEXP;
 	protected int myMaxEXP;
+	MainActivity m = new MainActivity();
 	Weapon myWeapon;
 	Weapon pencil = new Weapon("Pencil", 1, 5);
 	Weapon foamSword = new Weapon("Foam Sword", 3, 5);
@@ -474,6 +477,9 @@ public class User
 		incrementLevel();
 		healAll();
 		setMaxEXP(getLevel() * 3);
+		
+		
+		
 		// NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(
 		// null).setSmallIcon(R.drawable.nerd_sprite)
 		// .setContentTitle("My notification")
@@ -495,7 +501,7 @@ public class User
 		// //
 		// // mNotificationManager.notify(null, mBuilder.build());
 	}
-
+	
 	public void addEXP(int add)
 	{
 		myEXP += add;
@@ -537,6 +543,8 @@ public class User
 		setDEF(myDEF + 3);
 		setHP(myMaxHP);
 		setSP(myMaxSP);
+		m.updateProgressBar();
+		m.levelUpDialog(myMaxHP, myMaxSP, myPOW, myDEF, myLevel);
 	}
 
 	public int getMoney()
